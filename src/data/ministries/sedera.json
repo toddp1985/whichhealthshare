@@ -1,0 +1,80 @@
+{
+  "slug": "sedera",
+  "name": "Sedera",
+  "type": "healthshare",
+  "founded": 2010,
+  "headquarters": "Austin, TX",
+  "memberCount": "50,000+",
+  "accredited": false,
+  "website": "https://www.sedera.com",
+  "affiliateLink": "https://www.sedera.com",
+  "affiliatePartner": "Sedera Referral",
+  "faithRequirement": "secular",
+  "statementOfFaith": "None required",
+  "churchAttendanceRequired": false,
+  "plans": [
+    {
+      "name": "Individual",
+      "monthlyRange": {
+        "individual": { "min": 199, "max": 379 },
+        "couple": { "min": 398, "max": 758 },
+        "family": { "min": 597, "max": 1137 }
+      },
+      "coverageCap": "Unlimited",
+      "iua": [500, 1000, 2000],
+      "coShare": "20%",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": true,
+        "maternity": true,
+        "mentalHealth": true,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    }
+  ],
+  "network": {
+    "type": "any-doctor",
+    "name": "No network restriction",
+    "providerCount": null,
+    "canUseAnyDoctor": true
+  },
+  "preExisting": {
+    "accepted": true,
+    "waitingPeriod": "6 months",
+    "phasedSharing": false,
+    "sharingLimits": "50% first 6 months, 100% after"
+  },
+  "hsaCompatible": false,
+  "processingTime": "30-45 days",
+  "rating": 4.3,
+  "bestFor": "Secular users seeking alternative to faith-based ministries",
+  "pros": [
+    "No faith requirement — fully secular",
+    "Unlimited sharing cap",
+    "Covers telehealth and prescription drugs",
+    "Mental health coverage included",
+    "Any doctor — flexible provider choice",
+    "Competitive pricing mid-range"
+  ],
+  "cons": [
+    "Not accredited with major health sharing organizations",
+    "Smaller membership (50,000+) vs established ministries",
+    "Shorter track record (founded 2010)",
+    "No dental or vision coverage"
+  ],
+  "aiSummary": "Sedera is a secular health sharing option founded in 2010, headquartered in Austin, TX, with 50,000+ members. Monthly contributions range from $199 to $379 for individuals and up to $1,137 for families, with unlimited sharing cap and no faith requirements. Covers telehealth, prescriptions, maternity, mental health, preventive, emergency, and surgery with flexible provider choice.",
+  "aiKeyFacts": [
+    "Monthly cost: $199-$379 (individual), $597-$1,137 (family)",
+    "Unlimited sharing cap",
+    "No faith requirement — fully secular",
+    "6-month pre-existing waiting period",
+    "Flexible provider choice (no network)",
+    "Covers: telehealth, prescriptions, maternity, mental health, preventive, emergency, surgery"
+  ],
+  "lastUpdated": "2026-02-08",
+  "lastVerified": "2026-02-08"
+}

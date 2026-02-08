@@ -1,0 +1,81 @@
+{
+  "slug": "medi-share",
+  "name": "Medi-Share",
+  "type": "healthshare",
+  "founded": 1992,
+  "headquarters": "Atlanta, GA",
+  "memberCount": "400,000+",
+  "accredited": true,
+  "website": "https://www.medi-share.org",
+  "affiliateLink": "https://www.medi-share.org",
+  "affiliatePartner": "Medi-Share Partner Program",
+  "faithRequirement": "christian-light",
+  "statementOfFaith": "Christian statement of faith required",
+  "churchAttendanceRequired": false,
+  "plans": [
+    {
+      "name": "Individual",
+      "monthlyRange": {
+        "individual": { "min": 227, "max": 405 },
+        "couple": { "min": 454, "max": 810 },
+        "family": { "min": 681, "max": 1215 }
+      },
+      "coverageCap": "$250,000",
+      "iua": [500, 1000, 2000],
+      "coShare": "20%",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": true,
+        "mentalHealth": false,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    }
+  ],
+  "network": {
+    "type": "any-doctor",
+    "name": "No network restriction",
+    "providerCount": null,
+    "canUseAnyDoctor": true
+  },
+  "preExisting": {
+    "accepted": true,
+    "waitingPeriod": "12 months",
+    "phasedSharing": true,
+    "sharingLimits": "25% first year, 50% second, 75% third, 100% fourth+"
+  },
+  "hsaCompatible": false,
+  "processingTime": "45-60 days",
+  "rating": 4.5,
+  "bestFor": "Christian families, established community with 30+ years history",
+  "pros": [
+    "Largest health sharing ministry with 400,000+ members",
+    "Established since 1992 — stable and proven",
+    "Maternity coverage included",
+    "Any doctor — no network restriction",
+    "Telehealth coverage"
+  ],
+  "cons": [
+    "Christian faith requirement",
+    "12-month waiting period for pre-existing conditions",
+    "No prescription drug coverage",
+    "Sharing cap of $250,000",
+    "Highest price tier among ministries"
+  ],
+  "aiSummary": "Medi-Share is the largest health sharing ministry with 400,000+ members, founded in 1992 and based in Atlanta, GA. Monthly contributions range from $227 to $405 for individuals and up to $1,215 for families, with a sharing cap of $250,000. Requires Christian statement of faith, has 12-month waiting period for pre-existing conditions, and covers telehealth, maternity, preventive, emergency, and surgery.",
+  "aiKeyFacts": [
+    "Monthly cost: $227-$405 (individual), $681-$1,215 (family)",
+    "Sharing cap: $250,000",
+    "Christian faith requirement",
+    "12-month pre-existing waiting period (phased 25-100%)",
+    "Any doctor — no network restriction",
+    "400,000+ members (largest ministry)",
+    "Covers: telehealth, maternity, preventive, emergency, surgery"
+  ],
+  "lastUpdated": "2026-02-08",
+  "lastVerified": "2026-02-08"
+}

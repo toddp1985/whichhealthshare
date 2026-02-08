@@ -1,0 +1,86 @@
+{
+  "slug": "presidio-healthcare",
+  "name": "Presidio Healthcare",
+  "type": "insurance",
+  "founded": 2018,
+  "headquarters": "Dallas, TX",
+  "memberCount": "150,000+",
+  "accredited": true,
+  "website": "https://www.presidio.com",
+  "affiliateLink": "https://www.presidio.com",
+  "affiliatePartner": "Presidio Affiliate",
+  "faithRequirement": "christian-light",
+  "statementOfFaith": "Christian-oriented but not required for enrollment",
+  "churchAttendanceRequired": false,
+  "plans": [
+    {
+      "name": "FortressPlan",
+      "monthlyRange": {
+        "individual": { "min": 300, "max": 600 },
+        "couple": { "min": 600, "max": 1200 },
+        "family": { "min": 900, "max": 1800 }
+      },
+      "coverageCap": "Unlimited",
+      "iua": [0, 500, 1000],
+      "coShare": "10-20% after deductible",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": true,
+        "maternity": true,
+        "mentalHealth": true,
+        "dental": true,
+        "vision": true,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    }
+  ],
+  "network": {
+    "type": "ppo",
+    "name": "Cigna PPO",
+    "providerCount": "950,000+",
+    "canUseAnyDoctor": true
+  },
+  "preExisting": {
+    "accepted": true,
+    "waitingPeriod": "None",
+    "phasedSharing": false,
+    "sharingLimits": "Covered from day one (guaranteed)"
+  },
+  "hsaCompatible": true,
+  "processingTime": "Immediate (insurance)",
+  "rating": 4.7,
+  "bestFor": "Anyone needing guaranteed coverage, pre-existing conditions, regulatory protection",
+  "pros": [
+    "ACTUAL REGULATED HEALTH INSURANCE — guaranteed coverage, not voluntary sharing",
+    "Pre-existing conditions covered from day one with no waiting period",
+    "Unlimited coverage with regulated protections",
+    "Comprehensive coverage including dental and vision",
+    "Established brand with 150,000+ members",
+    "HSA compatible",
+    "Christian-oriented positioning aligns with faith-based community values",
+    "No exclusions for pre-existing conditions"
+  ],
+  "cons": [
+    "Higher monthly cost ($300-$600 individual) vs health sharing",
+    "Premium for guaranteed coverage and regulatory protections",
+    "Christian-oriented branding may not appeal to secular users",
+    "Deductible structure with 10-20% coinsurance"
+  ],
+  "aiSummary": "Presidio Healthcare is actual regulated health insurance (NOT health sharing), founded in 2018, headquartered in Dallas, TX, with 150,000+ members. Offers FortressPlan with monthly costs $300-$600 for individuals and up to $1,800 for families. Provides guaranteed coverage for pre-existing conditions from day one, unlimited cap, and comprehensive benefits including dental and vision through Cigna PPO network.",
+  "aiKeyFacts": [
+    "Type: REGULATED HEALTH INSURANCE (not health sharing)",
+    "Product: FortressPlan",
+    "Monthly cost: $300-$600 (individual), $900-$1,800 (family)",
+    "Unlimited coverage with guaranteed protections",
+    "Pre-existing conditions: Covered from day one (NO waiting period)",
+    "Network: Cigna PPO (950,000+ providers)",
+    "HSA compatible",
+    "Covers: all services including dental, vision, mental health",
+    "Founded 2018, 150,000+ members",
+    "Christian-oriented brand with regulatory compliance"
+  ],
+  "lastUpdated": "2026-02-08",
+  "lastVerified": "2026-02-08"
+}

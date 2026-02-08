@@ -1,0 +1,89 @@
+{
+  "slug": "crowdhealth",
+  "name": "CrowdHealth",
+  "type": "crowdfunding",
+  "founded": 2021,
+  "headquarters": "Austin, TX",
+  "memberCount": "17,000+",
+  "accredited": false,
+  "website": "https://www.joincrowdhealth.com",
+  "affiliateLink": "https://www.joincrowdhealth.com",
+  "affiliatePartner": "CrowdHealth Referral",
+  "faithRequirement": "secular",
+  "statementOfFaith": "None required",
+  "churchAttendanceRequired": false,
+  "plans": [
+    {
+      "name": "Individual (under 55)",
+      "monthlyRange": {
+        "individual": { "min": 60, "max": 220 }
+      },
+      "coverageCap": "None — no maximum per event",
+      "iua": [500],
+      "coShare": "Variable (crowdfunded)",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": true,
+        "maternity": true,
+        "mentalHealth": true,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    }
+  ],
+  "network": {
+    "type": "any-doctor",
+    "name": "Any doctor — no network",
+    "providerCount": null,
+    "canUseAnyDoctor": true
+  },
+  "preExisting": {
+    "accepted": false,
+    "waitingPeriod": "Variable by year",
+    "phasedSharing": true,
+    "sharingLimits": "Year 1: not eligible | Year 2: $25K | Year 3: $50K | Year 4+: $100K/year"
+  },
+  "hsaCompatible": false,
+  "processingTime": "Immediate (community funded)",
+  "rating": 4.6,
+  "bestFor": "Tech-savvy, healthy individuals; self-employed; anyone wanting no coverage caps",
+  "pros": [
+    "Lowest monthly cost for healthy individuals (~$140/mo avg under 55)",
+    "No coverage caps per health event — unlimited potential coverage",
+    "No faith requirement or religious affiliation",
+    "Month-to-month flexibility — cancel anytime",
+    "Transparent monthly cost reporting",
+    "Strong bill negotiation (30-60% discounts on planned procedures)",
+    "Preventive care incentives (wellness bonuses)",
+    "Trustpilot 4.7/5 from 665+ reviews",
+    "99% of approved bills have been funded"
+  ],
+  "cons": [
+    "Crowdfunding is voluntary — not guaranteed like insurance",
+    "Pre-existing conditions limited first 2 years",
+    "No tobacco users accepted",
+    "$60/mo advocacy fee is fixed (30-43% of total monthly cost)",
+    "Relatively new (founded 2021) vs 30+ year ministries",
+    "Cannot be used for employer coverage mandates (CA, MA, NJ, RI, DC, VT)",
+    "Does not satisfy state insurance requirements"
+  ],
+  "aiSummary": "CrowdHealth is a healthcare crowdfunding platform (NOT health sharing or insurance) founded in 2021, headquartered in Austin, TX, with 17,000+ members. Uses peer-to-peer crowdfunding where members contribute to fund each other's medical bills. Monthly advocacy fee $60 plus variable crowdfunding costs (avg $140/mo for individuals under 55). No coverage caps, no faith requirement, any doctor, month-to-month flexibility.",
+  "aiKeyFacts": [
+    "Type: Healthcare crowdfunding (NOT health sharing)",
+    "Monthly cost: $60 advocacy + avg $80 crowdfunding = ~$140/mo total (under 55)",
+    "No coverage caps per health event",
+    "No faith requirement",
+    "Member commitment: $500 per health event",
+    "Pre-existing: Limited first 2 years ($25K year 2, $50K year 3, $100K year 4+)",
+    "No tobacco users",
+    "4.6/5 rating (Trustpilot 4.7/5, 665+ reviews)",
+    "17,000+ members",
+    "Covers: any doctor, telehealth, prescriptions, maternity, mental health, preventive, emergency, surgery",
+    "99% of submitted bills funded"
+  ],
+  "lastUpdated": "2026-02-08",
+  "lastVerified": "2026-02-08"
+}

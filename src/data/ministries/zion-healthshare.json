@@ -1,0 +1,79 @@
+{
+  "slug": "zion-healthshare",
+  "name": "Zion HealthShare",
+  "type": "healthshare",
+  "founded": 2017,
+  "headquarters": "Denver, CO",
+  "memberCount": "50,000+",
+  "accredited": true,
+  "website": "https://www.zionhealthshare.com",
+  "affiliateLink": "https://www.zionhealthshare.com",
+  "affiliatePartner": "HSA for America",
+  "faithRequirement": "any-faith",
+  "statementOfFaith": "None required",
+  "churchAttendanceRequired": false,
+  "plans": [
+    {
+      "name": "Individual",
+      "monthlyRange": {
+        "individual": { "min": 185, "max": 268 },
+        "couple": { "min": 370, "max": 536 },
+        "family": { "min": 555, "max": 804 }
+      },
+      "coverageCap": "Unlimited",
+      "iua": [500, 1000, 2000],
+      "coShare": "10-20%",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": true,
+        "maternity": true,
+        "mentalHealth": true,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    }
+  ],
+  "network": {
+    "type": "ppo",
+    "name": "Cigna PPO",
+    "providerCount": "950,000+",
+    "canUseAnyDoctor": true
+  },
+  "preExisting": {
+    "accepted": true,
+    "waitingPeriod": "None",
+    "phasedSharing": false,
+    "sharingLimits": "Shared from month one"
+  },
+  "hsaCompatible": true,
+  "processingTime": "30-45 days",
+  "rating": 4.8,
+  "bestFor": "Anyone without faith requirements, best overall value",
+  "pros": [
+    "No faith requirement — open to all",
+    "Unlimited sharing cap",
+    "Accepts pre-existing conditions with no waiting period",
+    "PPO network with 950,000+ providers",
+    "Competitive pricing starting at $185/month"
+  ],
+  "cons": [
+    "Telehealth not fully covered",
+    "No dental or vision coverage",
+    "Relatively new compared to older ministries"
+  ],
+  "aiSummary": "Zion HealthShare is a modern health sharing ministry founded in 2017, based in Denver, CO, with 50,000+ members. Monthly contributions start at $185 for individuals and $555 for families, with unlimited sharing cap and no faith requirement. Includes telehealth, prescriptions, maternity, mental health, preventive care, emergency, and surgery with a PPO network of 950,000+ providers.",
+  "aiKeyFacts": [
+    "Monthly cost: $185-$268 (individual), $555-$804 (family)",
+    "Unlimited sharing cap",
+    "No faith requirement",
+    "No pre-existing waiting period",
+    "HSA compatible",
+    "PPO network (950,000+ providers)",
+    "Covers: telehealth, prescriptions, maternity, mental health, preventive, emergency, surgery"
+  ],
+  "lastUpdated": "2026-02-08",
+  "lastVerified": "2026-02-08"
+}

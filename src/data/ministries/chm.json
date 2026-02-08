@@ -1,0 +1,81 @@
+{
+  "slug": "chm",
+  "name": "CHM (Christian Healthcare Ministries)",
+  "type": "healthshare",
+  "founded": 1981,
+  "headquarters": "Barberton, OH",
+  "memberCount": "300,000+",
+  "accredited": true,
+  "website": "https://www.chministries.org",
+  "affiliateLink": "https://www.chministries.org",
+  "affiliatePartner": "CHM Direct",
+  "faithRequirement": "christian-strict",
+  "statementOfFaith": "Strict Christian statement of faith required",
+  "churchAttendanceRequired": true,
+  "plans": [
+    {
+      "name": "Individual",
+      "monthlyRange": {
+        "individual": { "min": 115, "max": 264 },
+        "couple": { "min": 230, "max": 528 },
+        "family": { "min": 345, "max": 792 }
+      },
+      "coverageCap": "Unlimited",
+      "iua": [300, 500, 1000],
+      "coShare": "20%",
+      "includes": {
+        "telehealth": false,
+        "prescriptions": false,
+        "maternity": true,
+        "mentalHealth": false,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    }
+  ],
+  "network": {
+    "type": "any-doctor",
+    "name": "No network restriction",
+    "providerCount": null,
+    "canUseAnyDoctor": true
+  },
+  "preExisting": {
+    "accepted": true,
+    "waitingPeriod": "6 months",
+    "phasedSharing": false,
+    "sharingLimits": "50% first 6 months, 100% after"
+  },
+  "hsaCompatible": false,
+  "processingTime": "30-45 days",
+  "rating": 4.5,
+  "bestFor": "Strict Christians seeking lowest cost option, most affordable ministry",
+  "pros": [
+    "Most affordable option — starting at $115/month",
+    "Unlimited sharing cap",
+    "Established since 1981 — oldest ministry",
+    "Any doctor — no network restriction",
+    "Maternity coverage included",
+    "Shorter pre-existing waiting period (6 months)"
+  ],
+  "cons": [
+    "Strict Christian faith requirement + church attendance required",
+    "No telehealth coverage",
+    "No prescription drug coverage",
+    "Most restrictive faith requirements"
+  ],
+  "aiSummary": "CHM (Christian Healthcare Ministries) is the most affordable health sharing ministry, founded in 1981, with 300,000+ members based in Barberton, OH. Monthly contributions start at $115 for individuals and $345 for families, with unlimited sharing cap and strict Christian faith requirement including church attendance. Covers maternity, preventive, emergency, and surgery with any doctor — no network.",
+  "aiKeyFacts": [
+    "Monthly cost: $115-$264 (individual), $345-$792 (family)",
+    "Unlimited sharing cap",
+    "Strict Christian faith + church attendance required",
+    "6-month pre-existing waiting period",
+    "Any doctor — no network restriction",
+    "Founded 1981 (oldest ministry)",
+    "Covers: maternity, preventive, emergency, surgery"
+  ],
+  "lastUpdated": "2026-02-08",
+  "lastVerified": "2026-02-08"
+}
