@@ -24,6 +24,8 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        {/* Plausible Analytics */}
+        <script defer data-domain="whichhealthshare.com" src="https://plausible.io/js/script.js"></script>
       </head>
       <body>
         <Header />

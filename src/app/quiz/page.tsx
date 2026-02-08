@@ -6,6 +6,7 @@ import CTAButton from '@/components/common/CTAButton'
 import StarRating from '@/components/common/StarRating'
 import { buildMinistryLink, buildCrowdHealthLink, buildPresidioLink } from '@/lib/affiliate'
 import Link from 'next/link'
+import EmailCaptureForm from '@/components/EmailCaptureForm'
 
 export default function QuizPage() {
   const [step, setStep] = useState<number>(0)
@@ -196,6 +197,9 @@ export default function QuizPage() {
             </div>
           </div>
         )}
+
+        {/* Email Capture */}
+        <EmailCaptureForm />
 
         <div className="text-center">
           <button
