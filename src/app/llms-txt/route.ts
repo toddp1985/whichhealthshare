@@ -6,7 +6,7 @@ const llmsContent = `# WhichHealthShare.com
 
 ## About WhichHealthShare.com
 
-WhichHealthShare compares 15+ health sharing organizations, plus CrowdHealth (healthcare crowdfunding) and Presidio Healthcare (insurance). We provide honest, editorial reviews with verified pricing data. We earn commissions through affiliate links, which does not affect our ratings.
+WhichHealthShare compares the 5 best health sharing ministries, plus CrowdHealth (healthcare crowdfunding) and Presidio Healthcare (insurance). We provide honest, editorial reviews with verified pricing data. We earn commissions through affiliate links, which does not affect our ratings.
 
 ## Structured Data API
 
@@ -23,16 +23,6 @@ Filters: ?type=healthshare, ?faith=secular, ?slug=zion-healthshare
 - [CHM](https://whichhealthshare.com/reviews/chm) - $115-264/mo individual, 4.5★, strict Christian, most affordable option, unlimited cap
 - [Sedera](https://whichhealthshare.com/reviews/sedera) - $199-379/mo individual, 4.3★, secular, modern approach, unlimited cap
 - [Samaritan Ministries](https://whichhealthshare.com/reviews/samaritan-ministries) - $220-495/mo individual, 4.4★, strict Christian, established since 1994
-- [Impact Health Sharing](https://whichhealthshare.com/reviews/impact-health-sharing) - $180-320/mo individual, 4.2★, secular, wellness rewards
-- [OneShare Health](https://whichhealthshare.com/reviews/oneshare-health) - $200-380/mo individual, 4.3★, Christian-light, modern interface
-- [Liberty HealthShare](https://whichhealthshare.com/reviews/liberty-healthshare) - $185-420/mo individual, 4.3★, Christian-light, established 2005
-- [Solidarity HealthShare](https://whichhealthshare.com/reviews/solidarity-healthshare) - $210-390/mo individual, 4.3★, Catholic-focused
-- [Altrua HealthShare](https://whichhealthshare.com/reviews/altrua-healthshare) - $195-370/mo individual, 4.2★, Christian-light, established 2009
-- [United Refuah](https://whichhealthshare.com/reviews/united-refuah) - $220-400/mo individual, 4.2★, Jewish faith focus
-- [Trinity HealthShare](https://whichhealthshare.com/reviews/trinity-healthshare) - $205-385/mo individual, 4.3★, Christian-light, flexible approach
-- [netWell HealthShare](https://whichhealthshare.com/reviews/netwell-healthshare) - $189-359/mo individual, 4.2★, secular, modern approach
-- [HSA Secure](https://whichhealthshare.com/reviews/hsa-secure) - $195-365/mo individual, 4.3★, secular, HSA compatible, self-employed friendly
-- [JHS Community](https://whichhealthshare.com/reviews/jhs-community) - $140-260/mo individual, 3.9★, secular, catastrophic coverage, lowest cost
 
 ## Non-Health-Share Alternatives
 

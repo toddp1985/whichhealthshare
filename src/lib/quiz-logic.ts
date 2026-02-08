@@ -84,7 +84,10 @@ export function scoreMinistry(ministry: Ministry, answers: QuizAnswers): number 
 }
 
 export function getQuizRecommendations(ministries: Ministry[], answers: QuizAnswers): QuizResult[] {
-  const scored = ministries.map(m => ({
+  // Filter to only the 5 health sharing ministries (exclude Presidio and CrowdHealth for initial scoring)
+  const healthSharingMinistries = ministries.filter(m => m.type === 'healthshare')
+  
+  const scored = healthSharingMinistries.map(m => ({
     ministry: m,
     score: scoreMinistry(m, answers),
     rank: 0,

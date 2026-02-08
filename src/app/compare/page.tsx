@@ -6,11 +6,11 @@ import { generateBreadcrumb } from '@/lib/schema'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Compare Health Sharing Plans 2026 — WhichHealthShare',
-  description: 'Side-by-side comparison of 15+ health sharing ministries, CrowdHealth crowdfunding, and Presidio insurance. Filter by price, faith requirement, pre-existing policies.',
+  title: 'Compare All 7 Options 2026 — WhichHealthShare',
+  description: 'Side-by-side comparison of the 7 best health sharing ministries, CrowdHealth crowdfunding, and Presidio insurance. All 2026 pricing verified.',
   openGraph: {
-    title: 'Compare Health Sharing Plans 2026',
-    description: 'Side-by-side comparison of 15+ health sharing ministries, CrowdHealth, and insurance alternatives.'
+    title: 'Compare All 7 Options',
+    description: 'Compare 5 health sharing ministries, CrowdHealth crowdfunding, and Presidio insurance with verified 2026 pricing.'
   }
 }
 
@@ -29,9 +29,9 @@ export default function ComparePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
 
       <div className="section-narrow pt-8">
-        <h1 className="font-serif font-bold text-4xl mb-4">Compare All Health Sharing Plans</h1>
+        <h1 className="font-serif font-bold text-4xl mb-4">Compare All 7 Options</h1>
         <p className="text-lg text-[var(--color-text-secondary)] mb-8">
-          Side-by-side comparison of 15+ health sharing ministries, plus CrowdHealth crowdfunding and Presidio insurance. All pricing verified February 2026.
+          Side-by-side comparison of the 7 best plans: 5 health sharing ministries, CrowdHealth crowdfunding, and Presidio insurance. All pricing verified February 2026.
         </p>
 
         {/* CrowdHealth Banner */}

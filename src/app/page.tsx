@@ -7,7 +7,7 @@ import { generateBreadcrumb, generateOrganizationSchema, generateWebsiteSchema }
 
 export default function HomePage() {
   const ministries = loadAllMinistries()
-  const topMinistries = ministries.slice(0, 4)
+  const topMinistries = ministries  // Show all 7 plans
   const crowdhealth = getCrowdHealth()
   const presidio = getPresidio()
 
@@ -25,14 +25,14 @@ export default function HomePage() {
       <section className="relative bg-gradient-to-br from-[var(--color-primary-lighter)] to-[var(--color-bg)] py-20 px-4">
         <div className="container mx-auto max-w-4xl text-center">
           <h1 className="font-serif font-bold text-5xl md:text-6xl mb-4 text-[var(--color-primary)]">
-            Find Your Health Sharing Plan
+            Find Your Best Option in 3 Questions
           </h1>
           <p className="text-xl text-[var(--color-text-secondary)] mb-8">
-            Compare 15+ health sharing ministries, CrowdHealth crowdfunding, and Presidio insurance. Independent, honest reviews with verified 2026 pricing.
+            Take our quick quiz to find your top 3 matches from health sharing ministries, crowdfunding, and insurance. Independent, honest reviews with verified 2026 pricing.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAButton href="/quiz" variant="primary">Take the 6-Question Quiz →</CTAButton>
-            <CTAButton href="/compare" variant="secondary">Compare All Plans</CTAButton>
+            <CTAButton href="/quiz" variant="primary">Start the Quiz →</CTAButton>
+            <CTAButton href="/compare" variant="secondary">Or Skip — Compare All 7</CTAButton>
           </div>
         </div>
       </section>
@@ -40,8 +40,8 @@ export default function HomePage() {
       {/* Featured Plans Preview */}
       <section className="section py-16">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="font-serif font-bold text-3xl mb-8 text-center">Top Health Sharing Plans</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <h2 className="font-serif font-bold text-3xl mb-8 text-center">All 7 Options</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {topMinistries.map((ministry) => (
               <Link key={ministry.slug} href={`/reviews/${ministry.slug}`} className="card hover:shadow-lg transition">
                 <h3 className="font-serif font-bold mb-2">{ministry.name}</h3>

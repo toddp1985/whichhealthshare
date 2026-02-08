@@ -3,8 +3,8 @@ import Link from 'next/link'
 import StarRating from '@/components/common/StarRating'
 
 export const metadata = {
-  title: 'Health Sharing Ministry Reviews 2026 — WhichHealthShare',
-  description: 'Detailed reviews of 15+ health sharing ministries with verified pricing, coverage, and ratings. Updated February 2026.'
+  title: 'Reviews of All 7 Options 2026 — WhichHealthShare',
+  description: 'Detailed reviews of 5 health sharing ministries, CrowdHealth crowdfunding, and Presidio insurance with verified pricing, coverage, and ratings. Updated February 2026.'
 }
 
 export default function ReviewsPage() {
