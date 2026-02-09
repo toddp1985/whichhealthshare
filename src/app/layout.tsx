@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import ExitIntentPopup from '@/components/ExitIntentPopup'
+import StickyQuizCTA from '@/components/StickyQuizCTA'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -29,9 +31,11 @@ export default function RootLayout({
       </head>
       <body>
         <Header />
-        <main className="pt-20 min-h-screen">
+        <main className="pt-20 min-h-screen pb-20 md:pb-0">
           {children}
         </main>
+        <StickyQuizCTA />
+        <ExitIntentPopup />
         <Footer />
       </body>
     </html>
