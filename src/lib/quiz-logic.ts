@@ -84,10 +84,18 @@ export function scoreMinistry(ministry: Ministry, answers: QuizAnswers): number 
 }
 
 export function getQuizRecommendations(ministries: Ministry[], answers: QuizAnswers): QuizResult[] {
-  // Filter to only the 5 health sharing ministries (exclude Presidio and CrowdHealth for initial scoring)
-  const healthSharingMinistries = ministries.filter(m => m.type === 'healthshare')
+  // Filter to health sharing ministries, but also include Presidio if guaranteed coverage is very important
+  let recommendationPool = ministries.filter(m => m.type === 'healthshare')
   
-  const scored = healthSharingMinistries.map(m => ({
+  // Add Presidio if user marked guaranteed coverage as "very" important
+  if (answers.guaranteedCoverage === 'very') {
+    const presidio = ministries.find(m => m.type === 'insurance' && m.slug === 'presidio-healthcare')
+    if (presidio) {
+      recommendationPool.push(presidio)
+    }
+  }
+  
+  const scored = recommendationPool.map(m => ({
     ministry: m,
     score: scoreMinistry(m, answers),
     rank: 0,
