@@ -13,6 +13,7 @@ export default function QuizPage() {
   const [step, setStep] = useState<number>(0)
   const [answers, setAnswers] = useState<Partial<QuizAnswers>>({})
   const [results, setResults] = useState<any[] | null>(null)
+  const [quizCompleted, setQuizCompleted] = useState<boolean>(false)
   const [ministries, setMinistries] = useState<any[]>([])
 
   useEffect(() => {
@@ -96,17 +97,41 @@ export default function QuizPage() {
     if (step < questions.length - 1) {
       setStep(step + 1)
     } else {
-      // Submit quiz and track completion
-      if (ministries.length > 0) {
-        const recs = getQuizRecommendations(ministries, newAnswers as QuizAnswers)
-        setResults(recs)
-        
-        // Track quiz completion with top recommendation
-        if (recs.length > 0) {
-          trackQuizCompletion(recs[0].ministry.slug)
-        }
+      // Quiz complete - show email capture form before revealing results
+      setQuizCompleted(true)
+      trackQuizStart() // Signal quiz completion to analytics
+    }
+  }
+
+  const handleEmailCaptured = (email: string) => {
+    // Now that email is captured, calculate and show results
+    if (ministries.length > 0) {
+      const recs = getQuizRecommendations(ministries, answers as QuizAnswers)
+      setResults(recs)
+      
+      // Track quiz completion with top recommendation
+      if (recs.length > 0) {
+        trackQuizCompletion(recs[0].ministry.slug)
       }
     }
+  }
+
+  // Show email capture form when quiz is completed but email not yet captured
+  if (quizCompleted && !results) {
+    return (
+      <div className="section-narrow pt-12 pb-12">
+        <h1 className="font-serif font-bold text-4xl sm:text-5xl mb-3 text-center text-[var(--color-text)]">
+          Almost there!
+        </h1>
+        <p className="text-lg text-center text-[var(--color-text-secondary)] mb-12">
+          Enter your email to see your personalized health plan recommendations
+        </p>
+        
+        <div className="max-w-md mx-auto">
+          <EmailCaptureForm onSuccess={handleEmailCaptured} showMessage={false} />
+        </div>
+      </div>
+    )
   }
 
   if (results) {
@@ -182,9 +207,6 @@ export default function QuizPage() {
             </div>
           </div>
         )}
-
-        {/* Email Capture - Right After Top Recommendation */}
-        <EmailCaptureForm />
 
         {/* Other Recommendations */}
         {otherResults.length > 0 && (

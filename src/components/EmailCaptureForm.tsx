@@ -3,7 +3,12 @@
 import { useState } from 'react'
 import { trackEmailSignup } from '@/lib/analytics'
 
-export default function EmailCaptureForm() {
+interface EmailCaptureFormProps {
+  onSuccess?: (email: string) => void
+  showMessage?: boolean
+}
+
+export default function EmailCaptureForm({ onSuccess, showMessage = true }: EmailCaptureFormProps) {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -44,8 +49,11 @@ export default function EmailCaptureForm() {
 
       if (response.ok) {
         setSubmitted(true)
-        setEmail('')
         trackEmailSignup()
+        if (onSuccess) {
+          onSuccess(email)
+        }
+        setEmail('')
       } else {
         setError('Something went wrong. Please try again.')
       }
