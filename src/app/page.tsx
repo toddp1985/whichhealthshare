@@ -58,9 +58,9 @@ export default function HomePage() {
                 <h3 className="font-serif font-bold mb-2">{ministry.name}</h3>
                 <StarRating rating={ministry.rating} />
                 <p className="text-sm text-[var(--color-text-secondary)] mt-2">
-                  From ${ministry.plans[0]?.monthlyRange?.individual?.min}/mo
+                  {ministry.plans[0]?.monthlyRange?.individual?.min ? `From $${ministry.plans[0].monthlyRange.individual.min}/mo` : 'Check pricing'}
                 </p>
-                <p className="text-xs text-[var(--color-text-muted)] mt-1">{ministry.bestFor}</p>
+                <p className="text-xs text-[var(--color-text-muted)] mt-1 line-clamp-2">{ministry.bestFor}</p>
               </Link>
             ))}
           </div>
