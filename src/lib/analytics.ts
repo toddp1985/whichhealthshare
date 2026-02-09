@@ -10,6 +10,7 @@ export type TrackingEvent =
   | 'Affiliate Click'
   | 'CTA Click'
   | 'Review Page View'
+  | 'Conversion Step'
 
 interface TrackingProps {
   [key: string]: string | number | boolean
