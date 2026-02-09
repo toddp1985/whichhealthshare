@@ -71,15 +71,31 @@ export function loadMinistry(slug: string): Ministry | null {
   }
 }
 
+// Featured plans (7 total) - explicit whitelist
+const FEATURED_PLANS = [
+  'zion-healthshare',
+  'medi-share',
+  'chm',
+  'sedera',
+  'samaritan-ministries',
+  'crowdhealth',
+  'presidio-healthcare'
+]
+
 export function loadAllMinistries(): Ministry[] {
   try {
     const dirPath = path.join(process.cwd(), 'src', 'data', 'ministries')
-    const files = fs.readdirSync(dirPath).filter(f => f.endsWith('.json'))
-    return files.map(file => {
-      const fileContent = fs.readFileSync(path.join(dirPath, file), 'utf-8')
+    const files = fs.readdirSync(dirPath)
+      .filter(f => f.endsWith('.json'))
+      .map(f => f.replace('.json', ''))
+      .filter(slug => FEATURED_PLANS.includes(slug))
+    
+    return files.map(slug => {
+      const fileContent = fs.readFileSync(path.join(dirPath, `${slug}.json`), 'utf-8')
       return JSON.parse(fileContent)
     }).sort((a, b) => b.rating - a.rating)
   } catch (error) {
+    console.error('Error loading ministries:', error)
     return []
   }
 }
