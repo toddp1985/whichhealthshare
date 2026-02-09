@@ -21,7 +21,8 @@ export async function GET(request: NextRequest) {
     const faith = searchParams.get('faith')
     const slug = searchParams.get('slug')
 
-    // Load plans directly from filesystem (bypass cache)
+    // FEATURED PLANS ONLY - Cache bypass Feb 9, 2026 20:57 CST
+    // Load plans directly from filesystem (bypass CDN cache)
     const dirPath = path.join(process.cwd(), 'src', 'data', 'ministries')
     const files = fs.readdirSync(dirPath)
       .filter(f => f.endsWith('.json'))
