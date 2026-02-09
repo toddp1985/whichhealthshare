@@ -7,6 +7,7 @@ export async function GET(request: NextRequest) {
   const faith = searchParams.get('faith')
   const slug = searchParams.get('slug')
 
+  // Load only featured plans (7 total)
   let ministries = loadAllMinistries()
 
   if (slug) {
