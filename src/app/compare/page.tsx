@@ -1,7 +1,7 @@
 import { loadAllMinistries, getCrowdHealth, getPresidio } from '@/lib/data'
 import CTAButton from '@/components/common/CTAButton'
 import StarRating from '@/components/common/StarRating'
-import { buildMinistryLink, buildCrowdHealthLink, buildPresidioLink } from '@/lib/affiliate'
+// Affiliate links removed - using direct website URLs instead
 import { generateBreadcrumb } from '@/lib/schema'
 import Link from 'next/link'
 
@@ -44,7 +44,7 @@ export default function ComparePage() {
                 <p className="text-sm text-[var(--color-text-secondary)] mb-3">
                   Crowdfunding platform (not health sharing): $60 advocacy + ~$80 crowdfunding = ~$140/mo (avg under 55). No coverage caps. No faith requirement.
                 </p>
-                <CTAButton href={buildCrowdHealthLink('', 'comparison')} variant="primary">Visit CrowdHealth →</CTAButton>
+                <CTAButton href="https://www.gocrowdhealth.com" variant="primary" target="_blank">Visit CrowdHealth →</CTAButton>
               </div>
               <div className="text-right">
                 <StarRating rating={crowdhealth.rating} />
@@ -91,9 +91,10 @@ export default function ComparePage() {
                     </td>
                     <td className="px-4 py-3">
                       <CTAButton
-                        href={buildMinistryLink(ministry.affiliateLink, ministry.slug, 'comparison')}
+                        href={ministry.website}
                         variant="primary"
                         className="text-sm"
+                        target="_blank"
                       >
                         Visit →
                       </CTAButton>
@@ -115,7 +116,7 @@ export default function ComparePage() {
                 <p className="text-sm text-[var(--color-text-secondary)] mb-3">
                   Regulated health insurance (not health sharing): $300-$600/mo. Guaranteed coverage. Pre-existing conditions covered from day one. Unlimited cap.
                 </p>
-                <CTAButton href={buildPresidioLink('comparison')} variant="primary">Explore Presidio →</CTAButton>
+                <CTAButton href="https://presidiohealthcare.com" variant="primary" target="_blank">Explore Presidio →</CTAButton>
               </div>
               <div className="text-right">
                 <StarRating rating={presidio.rating} />

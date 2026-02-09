@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { getQuizRecommendations, shouldShowPresidio, QuizAnswers } from '@/lib/quiz-logic'
 import CTAButton from '@/components/common/CTAButton'
 import StarRating from '@/components/common/StarRating'
-import { buildMinistryLink, buildCrowdHealthLink, buildPresidioLink } from '@/lib/affiliate'
+// Affiliate links removed - using direct website URLs instead
 import Link from 'next/link'
 import EmailCaptureForm from '@/components/EmailCaptureForm'
 import { trackQuizStart, trackQuizCompletion, trackAffiliateClick } from '@/lib/analytics'
@@ -84,10 +84,6 @@ export default function QuizPage() {
     }
   ]
 
-  const handleAffiliateClick = (planSlug: string) => {
-    trackAffiliateClick(planSlug, 'quiz-result')
-  }
-
   const handleAnswer = (value: any) => {
     const newAnswers = { ...answers, [questions[step].id]: value }
     setAnswers(newAnswers)
@@ -152,19 +148,20 @@ export default function QuizPage() {
                   Read Review →
                 </Link>
                 <CTAButton
-                  href={buildMinistryLink(result.ministry.affiliateLink, result.ministry.slug, 'quiz-result')}
+                  href={result.ministry.website}
                   variant="primary"
                   className="flex-1 text-center"
-                  rel="nofollow sponsored"
                   target="_blank"
-                  onClick={() => handleAffiliateClick(result.ministry.slug)}
                 >
-                  Visit →
+                  Visit Website →
                 </CTAButton>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Email Capture - Show Immediately After Results */}
+        <EmailCaptureForm />
 
         {/* CrowdHealth */}
         {crowdhealth && (
@@ -178,14 +175,12 @@ export default function QuizPage() {
                 Learn More →
               </Link>
               <CTAButton
-                href={buildCrowdHealthLink('', 'quiz-result')}
+                href="https://www.gocrowdhealth.com"
                 variant="primary"
                 className="flex-1 text-center text-sm"
-                rel="nofollow sponsored"
                 target="_blank"
-                onClick={() => handleAffiliateClick('crowdhealth')}
               >
-                Visit →
+                Visit Website →
               </CTAButton>
             </div>
           </div>
@@ -203,23 +198,18 @@ export default function QuizPage() {
                 Learn More →
               </Link>
               <CTAButton
-                href={buildPresidioLink('quiz-result')}
+                href="https://presidiohealthcare.com"
                 variant="primary"
                 className="flex-1 text-center text-sm"
-                rel="nofollow sponsored"
                 target="_blank"
-                onClick={() => handleAffiliateClick('presidio-healthcare')}
               >
-                Visit →
+                Visit Website →
               </CTAButton>
             </div>
           </div>
         )}
 
-        {/* Email Capture */}
-        <EmailCaptureForm />
-
-        <div className="text-center">
+        <div className="text-center mt-8">
           <button
             onClick={() => {
               setStep(0)
