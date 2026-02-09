@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { trackEmailSignup } from '@/lib/analytics'
 
 export default function EmailCaptureForm() {
   const [email, setEmail] = useState('')
@@ -25,9 +26,14 @@ export default function EmailCaptureForm() {
       if (response.ok) {
         setSubmitted(true)
         setEmail('')
-        // Track in Plausible
+        // Track in Plausible analytics
         if (typeof window !== 'undefined' && (window as any).plausible) {
-          (window as any).plausible('Email Signup', { props: { source: 'quiz-result' } })
+          (window as any).plausible('Email Signup', { 
+            props: { 
+              source: 'quiz-result',
+              timestamp: new Date().toISOString()
+            } 
+          })
         }
       } else {
         setError('Something went wrong. Please try again.')

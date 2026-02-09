@@ -7,6 +7,7 @@ import StarRating from '@/components/common/StarRating'
 import { buildMinistryLink, buildCrowdHealthLink, buildPresidioLink } from '@/lib/affiliate'
 import Link from 'next/link'
 import EmailCaptureForm from '@/components/EmailCaptureForm'
+import { trackQuizStart, trackQuizCompletion, trackAffiliateClick } from '@/lib/analytics'
 
 export default function QuizPage() {
   const [step, setStep] = useState<number>(0)
@@ -83,17 +84,31 @@ export default function QuizPage() {
     }
   ]
 
+  const handleAffiliateClick = (planSlug: string) => {
+    trackAffiliateClick(planSlug, 'quiz-result')
+  }
+
   const handleAnswer = (value: any) => {
     const newAnswers = { ...answers, [questions[step].id]: value }
     setAnswers(newAnswers)
 
+    // Track quiz start on first answer
+    if (step === 0) {
+      trackQuizStart()
+    }
+
     if (step < questions.length - 1) {
       setStep(step + 1)
     } else {
-      // Submit quiz
+      // Submit quiz and track completion
       if (ministries.length > 0) {
         const recs = getQuizRecommendations(ministries, newAnswers as QuizAnswers)
         setResults(recs)
+        
+        // Track quiz completion with top recommendation
+        if (recs.length > 0) {
+          trackQuizCompletion(recs[0].ministry.slug)
+        }
       }
     }
   }
@@ -142,6 +157,7 @@ export default function QuizPage() {
                   className="flex-1 text-center"
                   rel="nofollow sponsored"
                   target="_blank"
+                  onClick={() => handleAffiliateClick(result.ministry.slug)}
                 >
                   Visit →
                 </CTAButton>
@@ -167,6 +183,7 @@ export default function QuizPage() {
                 className="flex-1 text-center text-sm"
                 rel="nofollow sponsored"
                 target="_blank"
+                onClick={() => handleAffiliateClick('crowdhealth')}
               >
                 Visit →
               </CTAButton>
@@ -191,6 +208,7 @@ export default function QuizPage() {
                 className="flex-1 text-center text-sm"
                 rel="nofollow sponsored"
                 target="_blank"
+                onClick={() => handleAffiliateClick('presidio-healthcare')}
               >
                 Visit →
               </CTAButton>
