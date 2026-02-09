@@ -99,8 +99,6 @@ export default function BlogPage() {
               <span>{post.date}</span>
               <span>•</span>
               <span>{post.readTime} read</span>
-              <span>•</span>
-              <span>{post.wordCount.toLocaleString()} words</span>
             </div>
           </Link>
         ))}
