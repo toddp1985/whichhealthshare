@@ -37,18 +37,18 @@ export default function Footer() {
             <h4 className="font-bold mb-4">Learn</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/answers/what-is-health-sharing" className="text-[var(--color-primary)] hover:underline">
-                  What is Health Sharing?
+                <Link href="/blog/2026-health-sharing-what-changed" className="text-[var(--color-primary)] hover:underline">
+                  What Changed in 2026
                 </Link>
               </li>
               <li>
-                <Link href="/answers/vs-insurance" className="text-[var(--color-primary)] hover:underline">
-                  vs Insurance
+                <Link href="/blog/crowdhealth-vs-health-sharing" className="text-[var(--color-primary)] hover:underline">
+                  CrowdHealth vs Health Sharing
                 </Link>
               </li>
               <li>
-                <Link href="/answers/crowdhealth-vs-health-sharing" className="text-[var(--color-primary)] hover:underline">
-                  CrowdHealth Guide
+                <Link href="/blog/non-religious-health-sharing-options" className="text-[var(--color-primary)] hover:underline">
+                  Secular Options
                 </Link>
               </li>
             </ul>
