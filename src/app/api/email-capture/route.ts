@@ -5,6 +5,20 @@ const SUPABASE_URL = process.env.SUPABASE_URL
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY
 const RESEND_API_KEY = process.env.RESEND_API_KEY
 
+// Handle CORS preflight
+export async function OPTIONS(request: NextRequest) {
+  return NextResponse.json(
+    {},
+    {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
+    }
+  )
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { email, quizResult } = await request.json()
@@ -73,13 +87,23 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       { message: 'Email captured successfully' },
-      { status: 200 }
+      {
+        status: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+      }
     )
   } catch (error) {
     console.error('Email capture error:', error)
     return NextResponse.json(
       { error: 'Failed to capture email' },
-      { status: 500 }
+      {
+        status: 500,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+      }
     )
   }
 }

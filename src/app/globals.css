@@ -8,8 +8,8 @@
   --color-primary: #115E59;
   --color-primary-light: #0D9488;
   --color-primary-lighter: #CCFBF1;
-  --color-accent: #EA580C;
-  --color-accent-hover: #C2410C;
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
   --color-bg: #FAFAF7;
   --color-bg-warm: #F5F0E8;
   --color-bg-card: #FFFFFF;
@@ -17,11 +17,12 @@
   --color-text-secondary: #57534E;
   --color-text-muted: #A8A29E;
   --color-border: #E7E5E4;
-  --color-success: #16A34A;
+  --color-success: #10b981;
   --color-warning: #D97706;
   --color-gold: #B45309;
   --color-gold-bg: #FFFBEB;
   --color-gold-border: #FDE68A;
+  --color-error: #ef4444;
 }
 
 * {
@@ -42,9 +43,10 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Fraunces', serif;
+  font-family: Georgia, serif;
   font-weight: 700;
   line-height: 1.2;
+  color: var(--color-text);
 }
 
 h1 {
@@ -72,10 +74,34 @@ h4 {
 a {
   color: var(--color-primary);
   text-decoration: underline;
+  outline: none;
 }
 
 a:hover {
   color: var(--color-primary-light);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Form inputs */
+input, textarea, select {
+  font-size: 16px;
+  transition: all 0.2s ease-out;
+  outline: none;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 0px;
+}
+
+input:disabled, textarea:disabled, select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* CTA Buttons */
@@ -85,25 +111,49 @@ a:hover {
   border-radius: 100px;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-out;
   border: none;
   cursor: pointer;
   font-family: 'DM Sans', sans-serif;
+  outline: none;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0px);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 .btn-primary {
   background-color: var(--color-accent);
   color: white;
-  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.2);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
-.btn-primary:hover {
+.btn-primary:hover:not(:disabled) {
   background-color: var(--color-accent-hover);
-  box-shadow: 0 6px 16px rgba(234, 88, 12, 0.3);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+}
+
+.btn-primary:active:not(:disabled) {
+  background-color: #1e40af;
 }
 
 .btn-secondary {
@@ -112,8 +162,13 @@ a:hover {
   border: 2px solid var(--color-primary);
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover:not(:disabled) {
   background-color: var(--color-primary-lighter);
+  border-color: var(--color-primary-light);
+}
+
+.btn-secondary:active:not(:disabled) {
+  background-color: #ccfbf1;
 }
 
 /* Cards */

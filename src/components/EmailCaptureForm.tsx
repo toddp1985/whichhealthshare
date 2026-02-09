@@ -8,15 +8,34 @@ export default function EmailCaptureForm() {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [validationError, setValidationError] = useState('')
+
+  const validateEmail = (email: string) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return re.test(email)
+  }
+
+  const handleBlur = () => {
+    if (email && !validateEmail(email)) {
+      setValidationError('Please enter a valid email address')
+    } else {
+      setValidationError('')
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setLoading(true)
     setError('')
 
+    if (!validateEmail(email)) {
+      setValidationError('Please enter a valid email address')
+      return
+    }
+
+    setValidationError('')
+    setLoading(true)
+
     try {
-      // This will integrate with ConvertKit via API
-      // For now, store email locally and track in analytics
       const response = await fetch('/api/email-capture', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -26,15 +45,7 @@ export default function EmailCaptureForm() {
       if (response.ok) {
         setSubmitted(true)
         setEmail('')
-        // Track in Plausible analytics
-        if (typeof window !== 'undefined' && (window as any).plausible) {
-          (window as any).plausible('Email Signup', { 
-            props: { 
-              source: 'quiz-result',
-              timestamp: new Date().toISOString()
-            } 
-          })
-        }
+        trackEmailSignup()
       } else {
         setError('Something went wrong. Please try again.')
       }
@@ -47,48 +58,56 @@ export default function EmailCaptureForm() {
 
   if (submitted) {
     return (
-      <div className="card bg-teal-50 border border-teal-200 p-6 mb-8">
-        <div className="text-center">
-          <h3 className="font-serif font-bold text-xl mb-2">✓ Email Confirmed</h3>
-          <p className="text-sm text-[var(--color-text-secondary)]">
-            Check your inbox for your personalized guide and next steps. If you don't see it, check your spam folder.
-          </p>
+      <div className="card border-l-4 border-l-[var(--color-success)] bg-[#f0fdf4] p-8 mb-8 text-center">
+        <div className="flex justify-center mb-4">
+          <div className="text-3xl">✓</div>
         </div>
+        <h3 className="font-serif font-bold text-xl mb-2 text-[var(--color-success)]">Check Your Email in 2 Min</h3>
+        <p className="text-sm text-[var(--color-text-secondary)]">
+          We've sent your personalized guide to <span className="font-bold">{email}</span>. Check your spam folder if you don't see it.
+        </p>
       </div>
     )
   }
 
   return (
-    <div className="card bg-teal-50 border border-teal-200 p-6 mb-8">
-      <h3 className="font-serif font-bold text-xl mb-2">📧 Get Your Personal Guide</h3>
-      <p className="text-sm text-[var(--color-text-secondary)] mb-4">
-        Enter your email to receive step-by-step instructions for applying to your recommended plan, plus tips from members who've already switched.
+    <div className="card bg-blue-50 border border-blue-200 p-8 mb-8">
+      <h2 className="font-serif font-bold text-2xl mb-2 text-[var(--color-text)]">Get Your Full Results Emailed</h2>
+      <p className="text-sm text-[var(--color-text-secondary)] mb-6">
+        Receive personalized application instructions and tips from members who've already switched.
       </p>
       
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-        <input
-          type="email"
-          placeholder="your@email.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
-          disabled={loading}
-        />
-        
-        {error && <p className="text-sm text-red-600">{error}</p>}
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <input
+            type="email"
+            placeholder="your@email.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            onBlur={handleBlur}
+            required
+            className="w-full px-4 py-3 text-base border-2 border-[var(--color-border)] rounded-lg font-base transition-all"
+            disabled={loading}
+          />
+          {validationError && (
+            <p className="text-sm text-[var(--color-error)] mt-1 font-medium">{validationError}</p>
+          )}
+          {error && (
+            <p className="text-sm text-[var(--color-error)] mt-1 font-medium">{error}</p>
+          )}
+        </div>
         
         <button
           type="submit"
-          disabled={loading}
-          className="btn btn-primary w-full"
+          disabled={loading || !!validationError}
+          className="btn btn-primary w-full text-base font-semibold h-12"
         >
-          {loading ? 'Sending...' : 'Send Me My Guide'}
+          {loading ? 'Sending...' : 'Get My Results'}
         </button>
       </form>
 
-      <p className="text-xs text-[var(--color-text-muted)] mt-3 text-center">
-        No spam. Just helpful tips. Unsubscribe anytime.
+      <p className="text-xs text-[var(--color-text-muted)] mt-4 text-center">
+        No spam, unsubscribe anytime
       </p>
     </div>
   )

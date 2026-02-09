@@ -22,17 +22,28 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[var(--color-primary-lighter)] to-[var(--color-bg)] py-20 px-4">
+      <section className="relative bg-gradient-to-br from-blue-50 to-[var(--color-bg)] py-24 px-4 sm:py-32">
         <div className="container mx-auto max-w-4xl text-center">
-          <h1 className="font-serif font-bold text-5xl md:text-6xl mb-4 text-[var(--color-primary)]">
-            Find Your Best Option in 3 Questions
+          <h1 className="font-serif font-bold text-4xl sm:text-5xl lg:text-6xl mb-6 text-[var(--color-text)] leading-tight">
+            Find Your Best Health Sharing Plan in 6 Questions
           </h1>
-          <p className="text-xl text-[var(--color-text-secondary)] mb-8">
-            Take our quick quiz to find your top 3 matches from health sharing ministries, crowdfunding, and insurance. Independent, honest reviews with verified 2026 pricing.
+          <p className="text-lg sm:text-xl text-[var(--color-text-secondary)] mb-10 max-w-2xl mx-auto leading-relaxed">
+            Get personalized recommendations from 7 health sharing options with verified 2026 pricing. Fast, honest, and independent.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAButton href="/quiz" variant="primary">Start the Quiz →</CTAButton>
-            <CTAButton href="/compare" variant="secondary">Or Skip — Compare All 7</CTAButton>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <CTAButton href="/quiz" variant="primary" className="text-lg px-8 h-12 sm:h-14">
+              Start Quiz Now
+            </CTAButton>
+            <CTAButton href="/compare" variant="secondary" className="text-lg px-8 h-12 sm:h-14">
+              Skip to Compare
+            </CTAButton>
+          </div>
+
+          {/* Social Proof */}
+          <div className="bg-white border border-[var(--color-border)] rounded-lg py-4 px-6 inline-block">
+            <p className="text-sm text-[var(--color-text-secondary)]">
+              ⭐ <span className="font-semibold">Trusted by 8,000+ people</span> who've found their plan
+            </p>
           </div>
         </div>
       </section>

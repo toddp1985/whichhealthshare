@@ -54,12 +54,69 @@ export default function ComparePage() {
           </div>
         )}
 
-        {/* Comparison Table */}
-        <div className="overflow-x-auto mb-8">
+        {/* Mobile: Stacked Cards | Desktop: Table */}
+        {/* Mobile View (hidden on desktop) */}
+        <div className="md:hidden space-y-4 mb-8">
+          {ministries.map((ministry) => {
+            const minPrice = ministry.plans[0]?.monthlyRange?.individual?.min || 0
+            const maxPrice = ministry.plans[0]?.monthlyRange?.individual?.max || 0
+            
+            return (
+              <div key={ministry.slug} className="card p-6">
+                <div className="mb-4">
+                  <h3 className="font-serif font-bold text-xl mb-1">
+                    <Link href={`/reviews/${ministry.slug}`} className="text-[var(--color-accent)] hover:underline">
+                      {ministry.name}
+                    </Link>
+                  </h3>
+                  <div className="flex items-center gap-2">
+                    <StarRating rating={ministry.rating} />
+                    <span className="text-xs text-[var(--color-text-muted)]">{ministry.rating}/5</span>
+                  </div>
+                </div>
+
+                <div className="space-y-3 mb-6 text-sm">
+                  <div>
+                    <p className="text-xs font-semibold text-[var(--color-text-muted)] uppercase mb-1">Monthly Cost (Individual)</p>
+                    <p className="font-serif font-bold text-lg text-[var(--color-accent)]">${minPrice}-${maxPrice}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-[var(--color-text-muted)] uppercase mb-1">Type</p>
+                    <p>{ministry.type === 'healthshare' ? 'Health Sharing Ministry' : 'Insurance'}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-[var(--color-text-muted)] uppercase mb-1">Faith Requirement</p>
+                    <p>{ministry.faithRequirement === 'secular' ? 'None (Secular)' : 'Christian faith required'}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-[var(--color-text-muted)] uppercase mb-1">Pre-Existing Wait</p>
+                    <p>{ministry.preExisting.waitingPeriod || 'None'}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-[var(--color-text-muted)] uppercase mb-1">Coverage Cap</p>
+                    <p>{ministry.plans[0]?.coverageCap || 'Unlimited'}</p>
+                  </div>
+                </div>
+
+                <CTAButton
+                  href={ministry.website}
+                  variant="primary"
+                  className="w-full h-12"
+                  target="_blank"
+                >
+                  Visit Website →
+                </CTAButton>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Desktop: Table (hidden on mobile) */}
+        <div className="hidden md:block overflow-x-auto mb-8">
           <table className="w-full">
             <thead>
               <tr className="bg-[var(--color-bg-warm)]">
-                <th className="px-4 py-3 font-bold text-left">Plan</th>
+                <th className="px-4 py-3 font-bold text-left sticky left-0 bg-[var(--color-bg-warm)]">Plan</th>
                 <th className="px-4 py-3 font-bold text-left">Type</th>
                 <th className="px-4 py-3 font-bold text-left">Individual Price</th>
                 <th className="px-4 py-3 font-bold text-left">Faith Req</th>
@@ -75,9 +132,9 @@ export default function ComparePage() {
                 const maxPrice = ministry.plans[0]?.monthlyRange?.individual?.max || 0
                 
                 return (
-                  <tr key={ministry.slug} className="border-b border-[var(--color-border)] hover:bg-[var(--color-bg-warm)]">
-                    <td className="px-4 py-3">
-                      <Link href={`/reviews/${ministry.slug}`} className="text-[var(--color-primary)] hover:underline font-bold">
+                  <tr key={ministry.slug} className="border-b border-[var(--color-border)] hover:bg-[var(--color-bg-warm)] transition">
+                    <td className="px-4 py-3 sticky left-0 bg-white hover:bg-[var(--color-bg-warm)]">
+                      <Link href={`/reviews/${ministry.slug}`} className="text-[var(--color-accent)] hover:underline font-bold">
                         {ministry.name}
                       </Link>
                     </td>
@@ -93,7 +150,7 @@ export default function ComparePage() {
                       <CTAButton
                         href={ministry.website}
                         variant="primary"
-                        className="text-sm"
+                        className="text-sm h-10"
                         target="_blank"
                       >
                         Visit →
