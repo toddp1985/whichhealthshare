@@ -28,7 +28,7 @@ export default function HomePage() {
             Find Your Best Health Sharing Plan in 6 Questions
           </h1>
           <p className="text-lg sm:text-xl text-[var(--color-text-secondary)] mb-10 max-w-2xl mx-auto leading-relaxed">
-            Get personalized recommendations from 7 health sharing options with verified 2026 pricing. Fast, honest, and independent.
+            Compare 5 health sharing ministries, crowdfunding alternatives, and insurance options. Find your best fit in 6 questions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <CTAButton href="/quiz" variant="primary" className="text-lg px-8 h-12 sm:h-14">
@@ -73,7 +73,7 @@ export default function HomePage() {
           <div className="container mx-auto max-w-4xl">
             <div className="card-coral p-8">
               <div className="flex items-start gap-4 mb-4">
-                <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold">Featured — Crowdfunding</span>
+                <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold">Crowdfunding Alternative</span>
               </div>
               <h2 className="font-serif font-bold text-2xl mb-3">CrowdHealth: The Modern Alternative</h2>
               <p className="text-[var(--color-text-secondary)] mb-4">
@@ -129,9 +129,9 @@ export default function HomePage() {
           <h2 className="font-serif font-bold text-3xl mb-8 text-center">Why Use WhichHealthShare?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="card">
-              <h3 className="font-serif font-bold text-lg mb-2">✓ Verified 2026 Pricing</h3>
+              <h3 className="font-serif font-bold text-lg mb-2">✓ Current Pricing</h3>
               <p className="text-sm text-[var(--color-text-secondary)]">
-                We research each ministry's current pricing, coverage, and policies. No outdated information.
+                All 2026 costs, coverage limits, and policies. We update regularly so you get accurate information.
               </p>
             </div>
             <div className="card">
@@ -184,7 +184,7 @@ export default function HomePage() {
             <details className="card">
               <summary className="font-bold cursor-pointer">How do you make money?</summary>
               <p className="mt-4 text-[var(--color-text-secondary)]">
-                We earn affiliate commissions when you sign up through our links. This doesn't affect our ratings — we recommend the best plans regardless of commission.
+                We earn affiliate commissions when you sign up through our links. Commission amounts don't affect our recommendations—we suggest the plan that fits your situation.
               </p>
             </details>
           </div>

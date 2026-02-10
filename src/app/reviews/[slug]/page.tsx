@@ -29,10 +29,9 @@ export default function ReviewsPage({ params }: { params: { slug: string } }) {
         In-depth reviews of health sharing ministries, crowdfunding alternatives, and insurance options. Compare plans to find your best fit.
       </p>
 
-      {/* Featured Review */}
       {featured && (
         <div className="mb-12 p-8 bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-300 rounded-lg">
-          <h2 className="font-serif font-bold text-3xl mb-6">Featured: {featured.name}</h2>
+          <h2 className="font-serif font-bold text-3xl mb-6">{featured.name}</h2>
           <div className="flex justify-between items-start mb-6">
             <div>
               <StarRating rating={featured.rating} />

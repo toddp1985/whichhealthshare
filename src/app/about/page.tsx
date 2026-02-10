@@ -70,7 +70,7 @@ export default function AboutPage() {
             </li>
             <li className="flex gap-3">
               <span className="text-[var(--color-success)]">✓</span>
-              <span>We recommend the best plans for your needs, regardless of commission</span>
+              <span>We recommend the plans that fit your situation, regardless of commission</span>
             </li>
             <li className="flex gap-3">
               <span className="text-[var(--color-success)]">✓</span>

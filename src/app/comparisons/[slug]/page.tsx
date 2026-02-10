@@ -112,7 +112,7 @@ export default function ComparisonPage({ params }: { params: { slug: string } })
       </div>
 
       <div className="mb-8">
-        <h2 className="font-serif font-bold text-2xl mb-6">Featured Plans in This Comparison</h2>
+        <h2 className="font-serif font-bold text-2xl mb-6">All Plans Reviewed</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {ministries.slice(0, 4).map((ministry) => (
             <Link
