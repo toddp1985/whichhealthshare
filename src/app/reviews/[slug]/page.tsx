@@ -39,9 +39,6 @@ export default function ReviewsPage({ params }: { params: { slug: string } }) {
               <p className="text-sm text-[var(--color-text-secondary)] mt-2">{featured.memberCount}</p>
             </div>
           </div>
-          <p className="text-base text-[var(--color-text)] mb-6 leading-relaxed">
-            {featured.description}
-          </p>
           <p className="text-sm font-bold text-blue-700 mb-4">
             Best for: {featured.bestFor}
           </p>
