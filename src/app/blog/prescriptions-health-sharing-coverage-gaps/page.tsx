@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Prescriptions & Health Sharing: Coverage Gaps — WhichHealthShare',
-  description: 'Health sharing plans have prescription coverage gaps. See what medications are covered, what aren't, and real costs for insulin, antidepressants, and specialty drugs.',
+  title: "Prescriptions & Health Sharing: Coverage Gaps — WhichHealthShare",
+  description: "Health sharing plans have prescription coverage gaps. See what medications are covered, what aren't, and real costs for insulin, antidepressants, and specialty drugs.",
 }
 
 export default function Page() {
