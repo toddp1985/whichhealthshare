@@ -26,7 +26,7 @@ export default function ReviewsPage({ params }: { params: { slug: string } }) {
     <div className="section-narrow pt-8">
       <h1 className="font-serif font-bold text-4xl mb-4">Health Sharing Reviews</h1>
       <p className="text-lg text-[var(--color-text-secondary)] mb-8">
-        In-depth reviews of all 7 options including health sharing ministries, CrowdHealth crowdfunding, and Presidio insurance. All pricing verified February 2026.
+        In-depth reviews of health sharing ministries, crowdfunding alternatives, and insurance options. Compare plans to find your best fit.
       </p>
 
       {/* Featured Review */}

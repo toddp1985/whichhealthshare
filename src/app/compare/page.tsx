@@ -29,9 +29,9 @@ export default function ComparePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
 
       <div className="section-narrow pt-8">
-        <h1 className="font-serif font-bold text-4xl mb-4">Compare All 7 Options (Featured Plans Only)</h1>
+        <h1 className="font-serif font-bold text-4xl mb-4">Compare All 7 Plans</h1>
         <p className="text-lg text-[var(--color-text-secondary)] mb-8">
-          Side-by-side comparison of the 7 best plans: 5 health sharing ministries, CrowdHealth crowdfunding, and Presidio insurance. All pricing verified February 2026.
+          Side-by-side comparison of health sharing ministries, crowdfunding alternatives, and insurance options. Pricing current as of February 2026.
         </p>
 
         {/* CrowdHealth Banner */}
