@@ -2,23 +2,61 @@ import { loadAllMinistries } from '@/lib/data'
 import Link from 'next/link'
 import StarRating from '@/components/common/StarRating'
 
-export const metadata = {
-  title: 'Reviews of All 7 Options 2026 — WhichHealthShare',
-  description: 'Detailed reviews of 5 health sharing ministries, CrowdHealth crowdfunding, and Presidio insurance with verified pricing, coverage, and ratings. Updated February 2026.'
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const ministries = loadAllMinistries()
+  const featured = ministries.find(m => m.slug === params.slug)
+  
+  return {
+    title: featured ? `${featured.name} Review 2026 — WhichHealthShare` : 'Reviews',
+    description: featured ? `Detailed review of ${featured.name} with pricing, coverage, ratings, and comparisons. Updated February 2026.` : 'Health sharing reviews',
+  }
 }
 
-export default function ReviewsPage() {
+export default function ReviewsPage({ params }: { params: { slug: string } }) {
   const ministries = loadAllMinistries()
-  const healthShares = ministries.filter(m => m.type === 'healthshare')
-  const crowdhealth = ministries.find(m => m.slug === 'crowdhealth')
-  const presidio = ministries.find(m => m.slug === 'presidio-healthcare')
+  const featured = ministries.find(m => m.slug === params.slug)
+  
+  // Get all ministries except the featured one
+  const allOthers = ministries.filter(m => m.slug !== params.slug)
+  const healthShares = allOthers.filter(m => m.type === 'healthshare')
+  const crowdhealth = allOthers.find(m => m.slug === 'crowdhealth')
+  const presidio = allOthers.find(m => m.slug === 'presidio-healthcare')
 
   return (
     <div className="section-narrow pt-8">
       <h1 className="font-serif font-bold text-4xl mb-4">Health Sharing Reviews</h1>
       <p className="text-lg text-[var(--color-text-secondary)] mb-8">
-        In-depth reviews of {healthShares.length} health sharing ministries, plus CrowdHealth and Presidio. All pricing verified February 2026.
+        In-depth reviews of all 7 options including health sharing ministries, CrowdHealth crowdfunding, and Presidio insurance. All pricing verified February 2026.
       </p>
+
+      {/* Featured Review */}
+      {featured && (
+        <div className="mb-12 p-8 bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-300 rounded-lg">
+          <h2 className="font-serif font-bold text-3xl mb-6">Featured: {featured.name}</h2>
+          <div className="flex justify-between items-start mb-6">
+            <div>
+              <StarRating rating={featured.rating} />
+              <p className="text-sm text-[var(--color-text-secondary)] mt-2">{featured.memberCount}</p>
+            </div>
+          </div>
+          <p className="text-base text-[var(--color-text)] mb-6 leading-relaxed">
+            {featured.description}
+          </p>
+          <p className="text-sm font-bold text-blue-700 mb-4">
+            Best for: {featured.bestFor}
+          </p>
+          <Link
+            href={featured.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary inline-block"
+          >
+            Visit {featured.name} →
+          </Link>
+        </div>
+      )}
+
+      <h2 className="font-serif font-bold text-2xl mb-6">Other Options</h2>
 
       <div className="mb-12">
         <h2 className="font-serif font-bold text-2xl mb-6">Health Sharing Ministries</h2>
