@@ -2,6 +2,46 @@ import Link from 'next/link'
 
 const blogPosts = [
   {
+    slug: 'switching-insurance-health-sharing-guide',
+    title: 'Switching from Insurance to Health Sharing: Step-by-Step Guide',
+    excerpt: 'Complete step-by-step guide to switching from ACA, employer, or Medicare to health sharing, with timing strategies and common mistakes to avoid.',
+    date: 'Feb 10, 2026',
+    readTime: '12 min',
+    wordCount: 2486
+  },
+  {
+    slug: 'prescriptions-health-sharing-coverage-gaps',
+    title: 'Prescriptions & Health Sharing: Coverage Gaps Nobody Mentions',
+    excerpt: 'Health sharing plans have gaps in prescription drug coverage. Pre-existing medications face 6-12 month waiting periods, and specialty drugs are expensive.',
+    date: 'Feb 10, 2026',
+    readTime: '11 min',
+    wordCount: 2442
+  },
+  {
+    slug: 'health-sharing-waiting-periods-explained',
+    title: 'Health Sharing Waiting Periods Explained: What Actually Counts?',
+    excerpt: 'Waiting periods block coverage for pre-existing conditions for 6-12 months. See what gets blocked, what it costs, and which plans have no waiting periods.',
+    date: 'Feb 10, 2026',
+    readTime: '10 min',
+    wordCount: 2236
+  },
+  {
+    slug: 'family-health-sharing-plans-4-members',
+    title: 'Family Health Sharing Plans: Which Works Best for 4+ Member Households?',
+    excerpt: 'For families of 4-6+, health sharing costs $500-$900/month vs. ACA at $1,200-$2,000/month. Compare coverage, waiting periods, and real family scenarios.',
+    date: 'Feb 10, 2026',
+    readTime: '12 min',
+    wordCount: 2518
+  },
+  {
+    slug: 'self-employed-health-sharing-tax-strategy',
+    title: 'Choosing Health Sharing for Self-Employed: Tax Strategy + Cost Comparison',
+    excerpt: 'Self-employed health sharing contributions are tax-deductible. See real scenarios at $50K-$200K income levels, HSA strategies, and cost comparisons.',
+    date: 'Feb 10, 2026',
+    readTime: '11 min',
+    wordCount: 2424
+  },
+  {
     slug: 'health-sharing-vs-insurance-2026',
     title: 'Health Sharing vs Health Insurance: Which One Actually Saves You Money?',
     excerpt: 'As of February 2026, health sharing averaged $140–$350/month vs. insurance at $250–$800+/month. But which actually saves money? See 5 real-world scenarios with actual costs.',
