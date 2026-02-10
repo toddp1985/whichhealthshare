@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { sendWelcomeEmail } from '@/lib/email-sequences'
 
 // Supabase integration
 const SUPABASE_URL = process.env.SUPABASE_URL
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY
-const RESEND_API_KEY = process.env.RESEND_API_KEY
 
 // Handle CORS preflight
 export async function OPTIONS(request: NextRequest) {
@@ -31,9 +31,9 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Store in Supabase
+    // Store in Supabase with email_sent flag = false initially
     if (SUPABASE_URL && SUPABASE_ANON_KEY) {
-      const response = await fetch(`${SUPABASE_URL}/rest/v1/email_signups`, {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/email_captures`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,7 +42,10 @@ export async function POST(request: NextRequest) {
         },
         body: JSON.stringify({
           email,
-          quiz_result: quizResult || null,
+          quiz_results: quizResult || null,
+          created_at: new Date().toISOString(),
+          email_sent: false,
+          signup_completed: false,
         }),
       })
 
@@ -53,40 +56,39 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Send welcome email via Resend
-    if (RESEND_API_KEY) {
-      try {
-        await fetch('https://api.resend.com/emails', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${RESEND_API_KEY}`,
-          },
-          body: JSON.stringify({
-            from: 'WhichHealthShare <hello@whichhealthshare.com>',
-            to: email,
-            subject: 'Your personalized health sharing guide',
-            html: `
-              <h1>Your Quiz Results</h1>
-              <p>Hi there,</p>
-              <p>Based on your quiz answers, we've prepared a personalized guide to help you choose the right health sharing plan.</p>
-              <p>Check your dashboard at <a href="https://whichhealthshare.com/quiz">whichhealthshare.com</a> to see your results.</p>
-              <p>Questions? Reply to this email.</p>
-              <p>— WhichHealthShare</p>
-            `,
-          }),
-        })
-      } catch (emailError) {
-        console.error('Resend email error:', emailError)
-        // Still return success—email sending failure shouldn't break signup
+    // Send Email 1 (Welcome) immediately via email sequences
+    const emailSent = await sendWelcomeEmail(email, quizResult)
+
+    if (emailSent) {
+      // Update Supabase to mark email as sent
+      if (SUPABASE_URL && SUPABASE_ANON_KEY) {
+        try {
+          await fetch(`${SUPABASE_URL}/rest/v1/email_captures`, {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': SUPABASE_ANON_KEY,
+              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            },
+            body: JSON.stringify({
+              email_sent: true,
+              email_sent_at: new Date().toISOString(),
+            }),
+          })
+        } catch (updateError) {
+          console.error('Failed to update email sent status:', updateError)
+        }
       }
     }
 
     // Track in analytics
-    console.log('Email captured:', email, new Date().toISOString())
+    console.log('Email captured:', email, 'Email sent:', emailSent, new Date().toISOString())
 
     return NextResponse.json(
-      { message: 'Email captured successfully' },
+      { 
+        message: 'Email captured successfully',
+        emailSent,
+      },
       {
         status: 200,
         headers: {
