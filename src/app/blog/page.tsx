@@ -2,6 +2,22 @@ import Link from 'next/link'
 
 const blogPosts = [
   {
+    slug: 'health-sharing-vs-insurance-2026',
+    title: 'Health Sharing vs Health Insurance: Which One Actually Saves You Money?',
+    excerpt: 'As of February 2026, health sharing averaged $140–$350/month vs. insurance at $250–$800+/month. But which actually saves money? See 5 real-world scenarios with actual costs.',
+    date: 'Feb 9, 2026',
+    readTime: '12 min',
+    wordCount: 2485
+  },
+  {
+    slug: 'hidden-costs-health-sharing-2026',
+    title: 'Hidden Costs of Health Sharing Plans Nobody Talks About',
+    excerpt: 'Monthly contributions aren't the real cost. Factor in waiting periods, coverage caps, claim denials, and fees—the true cost is 2-4x higher than advertised.',
+    date: 'Feb 9, 2026',
+    readTime: '10 min',
+    wordCount: 2310
+  },
+  {
     slug: 'crowdhealth-vs-health-sharing',
     title: 'CrowdHealth vs Health Sharing Plans: Which Model Works Better?',
     excerpt: 'CrowdHealth is a healthcare crowdfunding platform that averaged $140/month for individuals under 55 and has no per-event coverage caps, while traditional health sharing ministries use pooled monthly contributions and typically cost $115–$405/month.',
