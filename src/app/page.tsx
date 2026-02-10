@@ -42,7 +42,7 @@ export default function HomePage() {
           {/* Social Proof */}
           <div className="bg-white border border-[var(--color-border)] rounded-lg py-4 px-6 inline-block">
             <p className="text-sm text-[var(--color-text-secondary)]">
-              ⭐ <span className="font-semibold">Trusted by 8,000+ people</span> who've found their plan
+              ⭐ <span className="font-semibold">Independent comparison</span> with real 2026 pricing
             </p>
           </div>
         </div>
@@ -81,16 +81,12 @@ export default function HomePage() {
               </p>
               <div className="flex flex-wrap gap-4 mb-6">
                 <div>
-                  <p className="text-sm text-[var(--color-text-muted)]">Monthly Cost (under 55)</p>
+                  <p className="text-sm text-[var(--color-text-muted)]">Average Cost</p>
                   <p className="font-bold text-lg">~$140/mo</p>
                 </div>
                 <div>
-                  <p className="text-sm text-[var(--color-text-muted)]">Members</p>
-                  <p className="font-bold text-lg">17,000+</p>
-                </div>
-                <div>
-                  <p className="text-sm text-[var(--color-text-muted)]">Rating</p>
-                  <p className="font-bold text-lg">4.6/5</p>
+                  <p className="text-sm text-[var(--color-text-muted)]">Model</p>
+                  <p className="font-bold text-lg">Crowdfunding</p>
                 </div>
               </div>
               <CTAButton href="/reviews/crowdhealth" variant="primary">Learn About CrowdHealth →</CTAButton>
