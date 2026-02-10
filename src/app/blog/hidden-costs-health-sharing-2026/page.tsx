@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Hidden Costs of Health Sharing Plans — WhichHealthShare',
-  description: 'The true cost of health sharing isn't just monthly contributions. Discover waiting periods, coverage caps, claim denials, and fees that can cost you thousands.',
+  description: 'The true cost of health sharing isn\'t just monthly contributions. Discover waiting periods, coverage caps, claim denials, and fees that can cost you thousands.',
 }
 
 export default function Page() {

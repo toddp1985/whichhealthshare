@@ -65,14 +65,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  // Answer pages (create stubs for these)
-  const answerPages: MetadataRoute.Sitemap = [
-    '/answers/what-is-health-sharing',
-    '/answers/best-health-sharing-plan',
-    '/answers/pre-existing-conditions',
-    '/answers/no-church-requirement',
-    '/answers/vs-insurance',
-    '/answers/crowdhealth-vs-health-sharing',
+  // Comparison pages
+  const comparisonPages: MetadataRoute.Sitemap = [
+    'chm-vs-sedera',
+    'zion-vs-medi-share',
+    'faith-based-vs-secular-health-sharing',
+    'crowdhealth-vs-aca-insurance',
+    'health-sharing-vs-presidio-insurance',
+    'samaritan-vs-crowdhealth',
+    'short-term-vs-long-term-health-sharing',
+  ].map(slug => ({
+    url: `${baseUrl}/comparisons/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }))
+
+  // Blog pages (dynamic from filesystem)
+  const blogPages: MetadataRoute.Sitemap = [
+    '/blog',
+    '/blog/health-sharing-vs-insurance-2026',
+    '/blog/left-health-insurance-crowdhealth',
+    '/blog/compared-15-health-sharing-plans',
+    '/blog/non-religious-health-sharing-options',
+    '/blog/hidden-costs-health-sharing-2026',
+    '/blog/2026-health-sharing-what-changed',
+    '/blog/hidden-cost-health-sharing',
+    '/blog/health-sharing-hsa-tax-strategy',
+    '/blog/crowdhealth-vs-health-sharing',
+    '/blog/5-questions-before-joining',
   ].map(path => ({
     url: `${baseUrl}${path}`,
     lastModified: new Date(),
@@ -80,5 +101,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticPages, ...reviewPages, ...answerPages]
+  return [...staticPages, ...reviewPages, ...comparisonPages, ...blogPages]
 }

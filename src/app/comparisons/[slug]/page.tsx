@@ -2,6 +2,19 @@ import { loadAllMinistries } from '@/lib/data'
 import Link from 'next/link'
 import StarRating from '@/components/common/StarRating'
 
+// Generate static paths for all comparison pages
+export async function generateStaticParams() {
+  return [
+    { slug: 'chm-vs-sedera' },
+    { slug: 'zion-vs-medi-share' },
+    { slug: 'faith-based-vs-secular-health-sharing' },
+    { slug: 'crowdhealth-vs-aca-insurance' },
+    { slug: 'health-sharing-vs-presidio-insurance' },
+    { slug: 'samaritan-vs-crowdhealth' },
+    { slug: 'short-term-vs-long-term-health-sharing' },
+  ]
+}
+
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const ministries = loadAllMinistries()
   const comparisons: { [key: string]: { title: string; description: string } } = {
