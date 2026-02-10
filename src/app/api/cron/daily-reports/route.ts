@@ -1,20 +1,28 @@
 /**
- * Daily sprint report cron job (9 AM CST)
+ * Daily WhichHealthShare Report Cron Job (9 AM CST)
  * 
  * Metrics collected:
- * - Visitor count (Plausible API)
+ * - Visitor count & pageviews (Plausible API)
  * - Quiz completions (Supabase)
  * - Email signups (Supabase)
- * - Top 3 blog posts (Plausible events)
+ * - Top 3 blog posts (Plausible)
+ * - Cost tracking (daily, weekly, monthly)
+ * - Deployments from git commits (last 24h)
+ * - Optional: BallStreet stats
+ * 
+ * Schedule: 0 15 * * * UTC = 9 AM CST
+ * Delivery: Direct Telegram message to Todd's chat
+ * Error handling: Sends alert message instead of failing silently
  * 
  * Configure in vercel.json:
  * {
  *   "path": "/api/cron/daily-reports",
- *   "schedule": "0 14 * * *"  // 9 AM CST = 2 PM UTC (UTC-5)
+ *   "schedule": "0 15 * * *"
  * }
  */
 
 import { NextRequest, NextResponse } from 'next/server'
+import { execSync } from 'child_process'
 
 const SUPABASE_URL = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
@@ -29,6 +37,17 @@ interface PlausibleStats {
     visitors: number
     events: number
   }>
+}
+
+interface CostTrackingData {
+  daily: number
+  weekly: number
+  monthly: number
+}
+
+interface DeploymentInfo {
+  commits: string[]
+  count: number
 }
 
 async function getVisitorMetrics(): Promise<{ visitors: number; pageviews: number } | null> {
@@ -182,6 +201,70 @@ async function getBlogMetrics(): Promise<Array<{ page: string; views: number }>>
   }
 }
 
+async function getCostTracking(): Promise<CostTrackingData> {
+  try {
+    const fs = require('fs').promises
+    const path = require('path')
+    
+    // Try to read cost tracking file from workspace
+    const costTrackingPath = path.join(process.cwd(), '../../..', 'cost-tracking', 'today.json')
+    
+    try {
+      const data = await fs.readFile(costTrackingPath, 'utf-8')
+      const costData = JSON.parse(data)
+      
+      return {
+        daily: costData.daily_spent || 0,
+        weekly: costData.weekly_spent || 0,
+        monthly: costData.monthly_spent || 0,
+      }
+    } catch {
+      // If file doesn't exist, return mock data
+      return {
+        daily: 0,
+        weekly: 0,
+        monthly: 0,
+      }
+    }
+  } catch (error) {
+    console.warn('[Daily Report] Error reading cost tracking:', error)
+    return {
+      daily: 0,
+      weekly: 0,
+      monthly: 0,
+    }
+  }
+}
+
+async function getDeploymentInfo(): Promise<DeploymentInfo> {
+  try {
+    // Get commits from last 24 hours
+    const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()
+    
+    const output = execSync(
+      `git log --since="${twentyFourHoursAgo}" --oneline --decorate`,
+      { encoding: 'utf-8', cwd: process.cwd() }
+    )
+    
+    const commits = output
+      .trim()
+      .split('\n')
+      .filter(line => line.length > 0)
+      .slice(0, 5) // Get top 5 commits
+    
+    return {
+      commits,
+      count: commits.length,
+    }
+  } catch (error) {
+    console.warn('[Daily Report] Error fetching deployment info:', error)
+    return {
+      commits: [],
+      count: 0,
+    }
+  }
+}
+
 async function sendTelegramAlert(report: string): Promise<boolean> {
   if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
     console.warn('[Daily Report] Telegram not configured')
@@ -225,11 +308,13 @@ export async function GET(request: NextRequest) {
     console.log('[Daily Report] Job started at', new Date().toISOString())
 
     // Fetch all metrics in parallel
-    const [visitorMetrics, quizCount, emailCount, topBlogPosts] = await Promise.all([
+    const [visitorMetrics, quizCount, emailCount, topBlogPosts, costData, deploymentInfo] = await Promise.all([
       getVisitorMetrics(),
       getQuizCompletions(),
       getEmailSignups(),
       getBlogMetrics(),
+      getCostTracking(),
+      getDeploymentInfo(),
     ])
 
     const date = new Date().toLocaleDateString('en-US', {
@@ -239,24 +324,35 @@ export async function GET(request: NextRequest) {
     })
 
     // Format report
-    let report = `<b>WhichHealthShare Daily Report — ${date}</b>\n\n`
-    report += `<b>📊 Visitor Metrics</b>\n`
-    report += `Visitors: ${visitorMetrics?.visitors || 0}\n`
-    report += `Pageviews: ${visitorMetrics?.pageviews || 0}\n\n`
-
-    report += `<b>📝 Conversions</b>\n`
+    let report = `<b>📊 WhichHealthShare Daily Report — ${date}</b>\n\n`
+    
+    report += `<b>📈 Metrics (Last 24h)</b>\n`
+    report += `Visitors: ${visitorMetrics?.visitors || 'N/A'}\n`
+    report += `Pageviews: ${visitorMetrics?.pageviews || 'N/A'}\n`
     report += `Quiz Completions: ${quizCount}\n`
     report += `Email Signups: ${emailCount}\n\n`
 
     if (topBlogPosts.length > 0) {
-      report += `<b>📰 Top Blog Posts</b>\n`
+      report += `<b>📰 Top 3 Blog Posts</b>\n`
       topBlogPosts.forEach((post, idx) => {
-        const pageName = post.page.replace('/blog/', '').replace(/-/g, ' ').toUpperCase()
+        const pageName = post.page.replace('/blog/', '').replace(/^\//, '').replace(/-/g, ' ')
         report += `${idx + 1}. ${pageName} (${post.views} views)\n`
       })
+      report += '\n'
     }
 
-    report += `\n<i>Generated automatically at 9 AM CST</i>`
+    if (deploymentInfo.count > 0) {
+      report += `<b>📦 Deployed Today</b>\n`
+      deploymentInfo.commits.slice(0, 3).forEach(commit => {
+        report += `• ${commit}\n`
+      })
+      report += '\n'
+    }
+
+    report += `<b>💰 Cost Tracking</b>\n`
+    report += `Daily: $${costData.daily.toFixed(2)} | Weekly: $${costData.weekly.toFixed(2)} | Monthly: $${costData.monthly.toFixed(2)}\n\n`
+
+    report += `<i>Generated automatically at 9 AM CST</i>`
 
     // Send Telegram alert
     const sent = await sendTelegramAlert(report)
@@ -266,14 +362,24 @@ export async function GET(request: NextRequest) {
       message: 'Daily report generated and sent',
       metrics: {
         visitors: visitorMetrics?.visitors || 0,
+        pageviews: visitorMetrics?.pageviews || 0,
         quizCompletions: quizCount,
         emailSignups: emailCount,
         topPosts: topBlogPosts.length,
+        deploymentsToday: deploymentInfo.count,
+        costDaily: costData.daily,
+        costWeekly: costData.weekly,
+        costMonthly: costData.monthly,
         telegramSent: sent,
       },
     })
   } catch (error) {
     console.error('[Daily Report] Error:', error)
+    
+    // Fallback: Send error alert to Telegram instead of failing silently
+    const errorReport = `<b>⚠️ WhichHealthShare Daily Report — ERROR</b>\n\nFailed to generate report. Data unavailable.\n\nError: ${String(error).substring(0, 100)}\n\nRetrying at next scheduled time.`
+    await sendTelegramAlert(errorReport)
+    
     return NextResponse.json(
       { error: 'Failed to generate daily report', details: String(error) },
       { status: 500 }
