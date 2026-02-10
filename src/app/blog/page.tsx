@@ -2,6 +2,86 @@ import Link from 'next/link'
 
 const blogPosts = [
   {
+    slug: 'health-sharing-family-plans-multigenerational',
+    title: 'Health Sharing Family Planners: Best Options for Multigenerational Families',
+    excerpt: 'Health sharing for families with parents, kids, and grandparents. Coverage limits, cost structure, and best plans for multiple generations and family sizes.',
+    date: 'Feb 10, 2026',
+    readTime: '12 min',
+    wordCount: 2680
+  },
+  {
+    slug: 'health-sharing-state-regulations-guide',
+    title: 'State-by-State Health Sharing Regulations (What You Need to Know)',
+    excerpt: 'Are health sharing plans legal in your state? State-by-state regulations, disclosure rules, and regulatory changes in 2026. Restrictions by state.',
+    date: 'Feb 10, 2026',
+    readTime: '12 min',
+    wordCount: 2840
+  },
+  {
+    slug: 'health-sharing-annual-assessments-budget-impact',
+    title: 'Annual Assessments Explained: Budget Impact & Hidden Costs',
+    excerpt: 'What are annual assessments in health sharing? How they impact your budget mid-year, real examples, and how to forecast the true cost of your contribution.',
+    date: 'Feb 10, 2026',
+    readTime: '10 min',
+    wordCount: 2520
+  },
+  {
+    slug: 'health-sharing-vs-short-term-insurance',
+    title: 'Health Sharing vs Short-Term Insurance: When to Use Each',
+    excerpt: 'When is short-term insurance better? When is health sharing the right choice? Coverage gaps, costs, and actual use cases compared side-by-side.',
+    date: 'Feb 10, 2026',
+    readTime: '10 min',
+    wordCount: 2840
+  },
+  {
+    slug: 'health-sharing-chronic-illness-10-year-cost',
+    title: 'Cost of Health Sharing with Chronic Illness (Realistic 10-Year Breakdown)',
+    excerpt: 'Real-world 10-year cost analysis for chronic conditions under health sharing. Diabetes, hypertension, asthma: actual numbers and coverage limits compared to insurance.',
+    date: 'Feb 10, 2026',
+    readTime: '13 min',
+    wordCount: 3040
+  },
+  {
+    slug: 'medicare-health-sharing-supplement-strategy',
+    title: 'Medicare + Health Sharing: Supplement Strategy 2026',
+    excerpt: 'Should you combine Medicare with health sharing? Strategy guide for retirees exploring hybrid coverage models in 2026. Costs, regulations, and real scenarios.',
+    date: 'Feb 10, 2026',
+    readTime: '12 min',
+    wordCount: 2860
+  },
+  {
+    slug: 'health-sharing-remote-workers-contractors-2026',
+    title: 'Health Sharing for Remote Workers & Contractors',
+    excerpt: 'Why health sharing makes sense for remote workers and contractors. No employer plan? No problem. Compare options and calculate real savings with no employer dependency.',
+    date: 'Feb 10, 2026',
+    readTime: '11 min',
+    wordCount: 2880
+  },
+  {
+    slug: 'pre-existing-conditions-health-sharing-guide',
+    title: 'Pre-Existing Conditions Guide: What Counts, What Doesn\'t',
+    excerpt: 'Complete guide to how health sharing plans handle pre-existing conditions. Waiting periods, exclusions, exemptions, and what conditions typically qualify.',
+    date: 'Feb 10, 2026',
+    readTime: '11 min',
+    wordCount: 2770
+  },
+  {
+    slug: 'health-sharing-small-business-plans-2026',
+    title: 'Health Sharing for Small Business Owners: 2-10 Employee Plans',
+    excerpt: 'Affordable health sharing options for small businesses with 2-10 employees. Compare group plans, individual enrollment, and cost advantages in 2026.',
+    date: 'Feb 10, 2026',
+    readTime: '11 min',
+    wordCount: 2930
+  },
+  {
+    slug: 'aca-to-health-sharing-switching-guide',
+    title: 'How to Switch from ACA to Health Sharing Without Losing Coverage',
+    excerpt: 'Step-by-step guide to transitioning from ACA insurance to health sharing plans. Avoid coverage gaps, understand waiting periods, and time your switch properly for 2026.',
+    date: 'Feb 10, 2026',
+    readTime: '12 min',
+    wordCount: 2810
+  },
+  {
     slug: 'switching-insurance-health-sharing-guide',
     title: 'Switching from Insurance to Health Sharing: Step-by-Step Guide',
     excerpt: 'Complete step-by-step guide to switching from ACA, employer, or Medicare to health sharing, with timing strategies and common mistakes to avoid.',
