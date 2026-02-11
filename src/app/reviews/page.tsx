@@ -6,13 +6,13 @@ export const metadata = {
 }
 
 const plans = [
-  { slug: 'zion', name: 'Zion HealthShare', rating: 4.8 },
   { slug: 'medi-share', name: 'Medi-Share', rating: 4.5 },
+  { slug: 'presidio-healthcare', name: 'Presidio Healthcare', rating: 4.7 },
+  { slug: 'crowdhealth', name: 'CrowdHealth', rating: 4.6 },
+  { slug: 'zion', name: 'Zion HealthShare', rating: 4.8 },
   { slug: 'chm', name: 'CHM', rating: 4.5 },
   { slug: 'sedera', name: 'Sedera', rating: 4.3 },
   { slug: 'samaritan', name: 'Samaritan Ministries', rating: 4.4 },
-  { slug: 'crowdhealth', name: 'CrowdHealth', rating: 4.6 },
-  { slug: 'presidio', name: 'Presidio Healthcare', rating: 4.7 },
 ]
 
 export default function ReviewsPage() {

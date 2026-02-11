@@ -2,6 +2,13 @@ import { loadAllMinistries } from '@/lib/data'
 import Link from 'next/link'
 import StarRating from '@/components/common/StarRating'
 
+export async function generateStaticParams() {
+  const ministries = loadAllMinistries()
+  return ministries.map(m => ({
+    slug: m.slug,
+  }))
+}
+
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const ministries = loadAllMinistries()
   const featured = ministries.find(m => m.slug === params.slug)
@@ -15,6 +22,21 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 export default function ReviewsPage({ params }: { params: { slug: string } }) {
   const ministries = loadAllMinistries()
   const featured = ministries.find(m => m.slug === params.slug)
+  
+  // Fallback if plan not found
+  if (!featured) {
+    return (
+      <div className="section-narrow pt-8 text-center">
+        <h1 className="font-serif font-bold text-4xl mb-4">Plan Not Found</h1>
+        <p className="text-lg text-[var(--color-text-secondary)] mb-8">
+          The review you're looking for doesn't exist.
+        </p>
+        <Link href="/reviews" className="btn btn-primary">
+          Back to Reviews →
+        </Link>
+      </div>
+    )
+  }
   
   // Get all ministries except the featured one
   const allOthers = ministries.filter(m => m.slug !== params.slug)
