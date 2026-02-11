@@ -303,6 +303,14 @@ export default function QuizPage() {
           </div>
         )}
 
+        {/* Email Capture - After Results */}
+        <div className="mt-12 pt-8 border-t border-[var(--color-border)]">
+          <h3 className="font-serif font-bold text-2xl mb-6 text-center text-[var(--color-text)]">Get Your Results Emailed</h3>
+          <div className="max-w-md mx-auto">
+            <EmailCaptureForm onSuccess={handleEmailCaptured} showMessage={true} />
+          </div>
+        </div>
+
         {/* Retake Quiz */}
         <div className="text-center mt-12 pt-8 border-t border-[var(--color-border)]">
           <button
