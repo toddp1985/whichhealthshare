@@ -82,17 +82,21 @@ export default function ReviewsPage({ params }: { params: { slug: string } }) {
           <h2 className="font-serif font-bold text-2xl mb-6">Crowdfunding Alternative</h2>
           <Link
             href={`/reviews/crowdhealth`}
-            className="card-coral p-6 hover:shadow-lg transition"
+            className="card-coral hover:shadow-lg transition flex flex-col gap-4 p-6"
           >
-            <h3 className="font-serif font-bold text-lg mb-2">{crowdhealth.name}</h3>
-            <div className="flex justify-between items-start mb-4">
-              <StarRating rating={crowdhealth.rating} />
-              <span className="text-sm text-[var(--color-text-muted)]">{crowdhealth.memberCount}</span>
+            <div>
+              <h3 className="font-serif font-bold text-lg mb-2">{crowdhealth.name}</h3>
+              <div className="flex justify-between items-start mb-4">
+                <StarRating rating={crowdhealth.rating} />
+                <span className="text-sm text-[var(--color-text-muted)]">{crowdhealth.memberCount}</span>
+              </div>
             </div>
-            <p className="text-sm text-[var(--color-text-secondary)] mb-3">
-              ~$140/mo (avg under 55)
-            </p>
-            <p className="text-sm font-bold text-[var(--color-primary)]">{crowdhealth.bestFor}</p>
+            <div>
+              <p className="text-sm text-[var(--color-text-secondary)] mb-3">
+                ~$140/mo (avg under 55)
+              </p>
+              <p className="text-sm font-bold text-[var(--color-primary)] leading-relaxed">{crowdhealth.bestFor}</p>
+            </div>
           </Link>
         </div>
       )}
