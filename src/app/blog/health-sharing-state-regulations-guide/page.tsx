@@ -1,4 +1,14 @@
-import { Metadata } from "next";
-import { structuredData, faqData } from "./page.mdx";
-export const metadata: Metadata = { title: "State-by-State Health Sharing Regulations (What You Need to Know) | WhichHealthShare", description: "Are health sharing plans legal in your state? State-by-state regulations, disclosure rules, and regulatory changes in 2026. Restrictions by state." };
-export default function BlogPost({ children }) { return (<article><script type="application/ld+json">{JSON.stringify(structuredData)}</script><script type="application/ld+json">{JSON.stringify(faqData)}</script>{children}</article>); }
+export const metadata = {
+  title: "State-by-State Health Sharing Regulations (What You Need to Know)",
+  description: "Health sharing regulations vary by state. Learn which plans are legal in your state, restrictions, and how state laws affect your coverage options."
+}
+
+export default function Page() {
+  return (
+    <div className="section-narrow py-12 max-w-3xl">
+      <h1 className="font-serif font-bold text-5xl mb-4">State-by-State Health Sharing Regulations (What You Need to Know)</h1>
+      <div className="text-sm text-[var(--color-text-muted)] mb-8">Feb 10, 2026 • 12 min read</div>
+      <p className="text-lg mb-6">Health sharing regulations differ by state. Some states restrict certain plans or require licensing. Know your state's rules before enrolling.</p>
+    </div>
+  )
+}
