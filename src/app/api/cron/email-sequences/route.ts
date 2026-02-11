@@ -1,42 +1,48 @@
-/**
- * Cron job for email sequences (Day 3 and Day 7 follow-ups)
- * 
- * Configure in vercel.json:
- * {
- *   "crons": [
- *     {
- *       "path": "/api/cron/email-sequences",
- *       "schedule": "0 9 * * *"  // Daily at 9 AM UTC
- *     }
- *   ]
- * }
- */
-
 import { NextRequest, NextResponse } from 'next/server'
 import { sendDay3Email, sendDay7Email } from '@/lib/email-sequences'
 
 const SUPABASE_URL = process.env.SUPABASE_URL
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY
+const CRON_SECRET = process.env.CRON_SECRET
 
-export async function GET(request: NextRequest) {
-  // Verify Vercel cron secret
-  const authHeader = request.headers.get('authorization')
-  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  }
-
+export async function POST(request: NextRequest) {
   try {
-    console.log('[Cron] Email sequences job started')
+    // Verify cron secret
+    const authHeader = request.headers.get('authorization')
+    if (!authHeader || !CRON_SECRET || authHeader !== `Bearer ${CRON_SECRET}`) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      )
+    }
 
-    // Get emails that need Day 3 send (3 days after signup, no conversion)
-    if (SUPABASE_URL && SUPABASE_ANON_KEY) {
-      const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString()
-      
-      // Fetch users who signed up 3+ days ago, haven't converted, and haven't received email 2
+    if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+      return NextResponse.json(
+        { error: 'Supabase credentials missing' },
+        { status: 500 }
+      )
+    }
+
+    const results = {
+      day3_sent: 0,
+      day7_sent: 0,
+      errors: [] as string[]
+    }
+
+    // SEND EMAIL 2 (Day 3)
+    try {
+      const day3Date = new Date()
+      day3Date.setDate(day3Date.getDate() - 3)
+      const day3Start = new Date(day3Date.getFullYear(), day3Date.getMonth(), day3Date.getDate())
+      const day3End = new Date(day3Start.getTime() + 24 * 60 * 60 * 1000)
+
+      // Query emails created 3 days ago that haven't had Email 2 sent yet
       const day3Response = await fetch(
-        `${SUPABASE_URL}/rest/v1/email_captures?select=email&created_at=lt.${threeDaysAgo}&signup_completed=eq.false&email_2_sent=eq.false&limit=100`,
+        `${SUPABASE_URL}/rest/v1/email_captures?created_at=gte.${day3Start.toISOString()}&created_at=lt.${day3End.toISOString()}&email_sent_day3=eq.false`,
         {
+          method: 'GET',
           headers: {
+            'Content-Type': 'application/json',
             'apikey': SUPABASE_ANON_KEY,
             'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
           },
@@ -44,39 +50,56 @@ export async function GET(request: NextRequest) {
       )
 
       if (day3Response.ok) {
-        const day3Emails = await day3Response.json()
-        console.log(`[Cron] Sending ${day3Emails.length} Day 3 emails`)
+        const emails: any[] = await day3Response.json()
+        console.log(`[Email Sequences] Found ${emails.length} emails for Day 3`)
 
-        for (const record of day3Emails) {
-          const sent = await sendDay3Email(record.email)
-          if (sent) {
-            // Update record to mark email 2 as sent
-            await fetch(
-              `${SUPABASE_URL}/rest/v1/email_captures?email=eq.${record.email}`,
-              {
-                method: 'PATCH',
-                headers: {
-                  'Content-Type': 'application/json',
-                  'apikey': SUPABASE_ANON_KEY,
-                  'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-                },
-                body: JSON.stringify({
-                  email_2_sent: true,
-                  email_2_sent_at: new Date().toISOString(),
-                }),
-              }
-            )
+        for (const record of emails) {
+          try {
+            const sent = await sendDay3Email(record.email)
+            if (sent) {
+              results.day3_sent++
+              // Mark as sent in Supabase
+              await fetch(
+                `${SUPABASE_URL}/rest/v1/email_captures?email=eq.${encodeURIComponent(record.email)}`,
+                {
+                  method: 'PATCH',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'apikey': SUPABASE_ANON_KEY,
+                    'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                  },
+                  body: JSON.stringify({
+                    email_sent_day3: true,
+                    email_sent_day3_at: new Date().toISOString(),
+                  }),
+                }
+              )
+            }
+          } catch (error) {
+            results.errors.push(`Day 3 email to ${record.email} failed: ${error}`)
           }
         }
+      } else {
+        results.errors.push(`Day 3 query failed: ${day3Response.status}`)
       }
+    } catch (error) {
+      results.errors.push(`Day 3 process failed: ${error}`)
+    }
 
-      // Get emails that need Day 7 send (7 days after signup, no conversion)
-      const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()
-      
+    // SEND EMAIL 3 (Day 7)
+    try {
+      const day7Date = new Date()
+      day7Date.setDate(day7Date.getDate() - 7)
+      const day7Start = new Date(day7Date.getFullYear(), day7Date.getMonth(), day7Date.getDate())
+      const day7End = new Date(day7Start.getTime() + 24 * 60 * 60 * 1000)
+
+      // Query emails created 7 days ago that haven't had Email 3 sent yet
       const day7Response = await fetch(
-        `${SUPABASE_URL}/rest/v1/email_captures?select=email&created_at=lt.${sevenDaysAgo}&signup_completed=eq.false&email_3_sent=eq.false&limit=100`,
+        `${SUPABASE_URL}/rest/v1/email_captures?created_at=gte.${day7Start.toISOString()}&created_at=lt.${day7End.toISOString()}&email_sent_day7=eq.false`,
         {
+          method: 'GET',
           headers: {
+            'Content-Type': 'application/json',
             'apikey': SUPABASE_ANON_KEY,
             'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
           },
@@ -84,38 +107,49 @@ export async function GET(request: NextRequest) {
       )
 
       if (day7Response.ok) {
-        const day7Emails = await day7Response.json()
-        console.log(`[Cron] Sending ${day7Emails.length} Day 7 emails`)
+        const emails: any[] = await day7Response.json()
+        console.log(`[Email Sequences] Found ${emails.length} emails for Day 7`)
 
-        for (const record of day7Emails) {
-          const sent = await sendDay7Email(record.email)
-          if (sent) {
-            // Update record to mark email 3 as sent
-            await fetch(
-              `${SUPABASE_URL}/rest/v1/email_captures?email=eq.${record.email}`,
-              {
-                method: 'PATCH',
-                headers: {
-                  'Content-Type': 'application/json',
-                  'apikey': SUPABASE_ANON_KEY,
-                  'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-                },
-                body: JSON.stringify({
-                  email_3_sent: true,
-                  email_3_sent_at: new Date().toISOString(),
-                }),
-              }
-            )
+        for (const record of emails) {
+          try {
+            const sent = await sendDay7Email(record.email)
+            if (sent) {
+              results.day7_sent++
+              // Mark as sent in Supabase
+              await fetch(
+                `${SUPABASE_URL}/rest/v1/email_captures?email=eq.${encodeURIComponent(record.email)}`,
+                {
+                  method: 'PATCH',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'apikey': SUPABASE_ANON_KEY,
+                    'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                  },
+                  body: JSON.stringify({
+                    email_sent_day7: true,
+                    email_sent_day7_at: new Date().toISOString(),
+                  }),
+                }
+              )
+            }
+          } catch (error) {
+            results.errors.push(`Day 7 email to ${record.email} failed: ${error}`)
           }
         }
+      } else {
+        results.errors.push(`Day 7 query failed: ${day7Response.status}`)
       }
+    } catch (error) {
+      results.errors.push(`Day 7 process failed: ${error}`)
     }
 
-    return NextResponse.json({ success: true, message: 'Email sequences sent' })
+    console.log('[Email Sequences] Cron complete:', results)
+
+    return NextResponse.json(results, { status: 200 })
   } catch (error) {
-    console.error('[Cron] Error:', error)
+    console.error('[Email Sequences] Error:', error)
     return NextResponse.json(
-      { error: 'Failed to send email sequences' },
+      { error: 'Cron failed', details: String(error) },
       { status: 500 }
     )
   }
