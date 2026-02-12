@@ -1,0 +1,29 @@
+SIMPLE COST CALCULATOR
+WhichHealthShare.com
+
+Instructions:
+1. Enter your family size and selected plan below
+2. The calculator shows monthly and annual costs
+3. Adjust the IUA (Initial Unshared Amount) to see how it affects costs
+
+PLAN SELECTION:
+Enter plan name: _________________
+Monthly cost (min): $_________________
+Monthly cost (max): $_________________
+IUA (deductible): $_________________
+
+FAMILY SIZE:
+Number of people: _________________
+
+ANNUAL COST CALCULATION:
+Monthly cost x 12 = Annual cost
+
+Example:
+If you choose Medi-Share at $300/month for a family of 4:
+$300 x 12 = $3,600 annual cost
+Plus potential costs up to IUA if needed
+
+Note: This calculator shows base costs only.
+Actual costs depend on your health needs and coverage decisions.
+
+TODO: Convert to Excel with formulas

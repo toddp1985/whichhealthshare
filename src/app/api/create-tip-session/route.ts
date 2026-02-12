@@ -4,7 +4,7 @@ const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY
 
 export async function POST(request: NextRequest) {
   try {
-    const { amount } = await request.json()
+    const { amount, email, tier } = await request.json()
 
     if (!STRIPE_SECRET_KEY) {
       return NextResponse.json(
@@ -21,6 +21,9 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    const tierValue = tier || '5'
+    const emailParam = email ? `&email=${encodeURIComponent(email)}` : ''
+
     // Create Stripe checkout session
     const response = await fetch('https://api.stripe.com/v1/checkout/sessions', {
       method: 'POST',
@@ -36,7 +39,7 @@ export async function POST(request: NextRequest) {
         'line_items[0][price_data][product_data][description]': 'Independent health sharing reviews',
         'line_items[0][quantity]': '1',
         'mode': 'payment',
-        'success_url': 'https://whichhealthshare.com?tip=success',
+        'success_url': `https://whichhealthshare.com/premium-success?tier=${tierValue}${emailParam}`,
         'cancel_url': 'https://whichhealthshare.com?tip=cancelled',
       }),
     })

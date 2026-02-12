@@ -19,11 +19,14 @@ export function TippingPopup({ isOpen, onClose, context = 'general' }: TippingPo
     try {
       setLoading(true)
       const amountCents = amount * 100
+      
+      // Get email from localStorage (set during quiz email capture)
+      const email = typeof window !== 'undefined' ? localStorage.getItem('userEmail') || '' : ''
 
       const response = await fetch('/api/create-tip-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ amount: amountCents }),
+        body: JSON.stringify({ amount: amountCents, email, tier: amount.toString() }),
       })
 
       const data = await response.json()

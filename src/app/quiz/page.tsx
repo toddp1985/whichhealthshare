@@ -104,6 +104,11 @@ export default function QuizPage() {
   }
 
   const handleEmailCaptured = (email: string) => {
+    // Store email for exit-intent tipping modal
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('userEmail', email)
+    }
+
     // Now that email is captured, calculate and show results
     if (ministries.length > 0) {
       const recs = getQuizRecommendations(ministries, answers as QuizAnswers)
