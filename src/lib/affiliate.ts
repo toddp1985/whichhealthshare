@@ -33,7 +33,7 @@ export function buildCrowdHealthLink(referralCode: string = '', pageType: string
 
 // Presidio Healthcare link
 export function buildPresidioLink(pageType: string = 'review'): string {
-  const baseUrl = 'https://www.presidio.com'
+  const baseUrl = 'https://presidiocare.com'
   return buildAffiliateLink(baseUrl, pageType, 'presidio-healthcare')
 }
 
