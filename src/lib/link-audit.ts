@@ -39,9 +39,10 @@ function extractLinks(content: string): string[] {
  * Check if a link is valid (GET request)
  */
 async function checkLink(url: string): Promise<{ status: number; statusText: string }> {
+  let timeout: NodeJS.Timeout | undefined
   try {
     const controller = new AbortController()
-    const timeout = setTimeout(() => controller.abort(), TIMEOUT)
+    timeout = setTimeout(() => controller.abort(), TIMEOUT)
 
     const response = await fetch(url, {
       method: 'HEAD',
@@ -49,10 +50,10 @@ async function checkLink(url: string): Promise<{ status: number; statusText: str
       redirect: 'follow'
     })
 
-    clearTimeout(timeout)
+    if (timeout) clearTimeout(timeout)
     return { status: response.status, statusText: response.statusText }
   } catch (error) {
-    clearTimeout(timeout as NodeJS.Timeout)
+    if (timeout) clearTimeout(timeout)
     // Fallback to GET if HEAD fails
     try {
       const response = await fetch(url, { redirect: 'follow', signal: AbortSignal.timeout(TIMEOUT) })
