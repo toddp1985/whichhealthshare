@@ -1,16 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY
-const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET
 
 export async function POST(request: NextRequest) {
   try {
-    const { amount, planName, planUrl } = await request.json()
+    const { amount } = await request.json()
 
     if (!STRIPE_SECRET_KEY) {
       return NextResponse.json(
         { error: 'Stripe not configured' },
         { status: 500 }
+      )
+    }
+
+    // Validate amount
+    if (!amount || amount < 100) {
+      return NextResponse.json(
+        { error: 'Invalid amount' },
+        { status: 400 }
       )
     }
 
@@ -25,18 +32,18 @@ export async function POST(request: NextRequest) {
         'payment_method_types[]': 'card',
         'line_items[0][price_data][currency]': 'usd',
         'line_items[0][price_data][unit_amount]': amount.toString(),
-        'line_items[0][price_data][product_data][name]': `Tip: WhichHealthShare Research`,
-        'line_items[0][price_data][product_data][description]': `Supporting independent health sharing reviews`,
+        'line_items[0][price_data][product_data][name]': 'Support WhichHealthShare',
+        'line_items[0][price_data][product_data][description]': 'Independent health sharing reviews',
         'line_items[0][quantity]': '1',
         'mode': 'payment',
-        'success_url': `https://whichhealthshare.com?tip_success=true&redirect=${encodeURIComponent(planUrl)}`,
-        'cancel_url': `https://whichhealthshare.com?tip_cancelled=true&redirect=${encodeURIComponent(planUrl)}`,
+        'success_url': 'https://whichhealthshare.com?tip=success',
+        'cancel_url': 'https://whichhealthshare.com?tip=cancelled',
       }),
     })
 
     if (!response.ok) {
       const error = await response.text()
-      console.error('Stripe error:', error)
+      console.error('Stripe API error:', error)
       return NextResponse.json(
         { error: 'Failed to create checkout session' },
         { status: 500 }
@@ -46,7 +53,7 @@ export async function POST(request: NextRequest) {
     const session = await response.json()
 
     return NextResponse.json(
-      { sessionId: session.id },
+      { url: session.url },
       { status: 200 }
     )
   } catch (error) {

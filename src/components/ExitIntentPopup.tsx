@@ -5,14 +5,15 @@ import { TippingPopup } from './TippingModal'
 
 export default function ExitIntentPopup() {
   const [showTippingModal, setShowTippingModal] = useState(false)
-  const [exitIntent, setExitIntent] = useState(false)
+  const [exitIntentTriggered, setExitIntentTriggered] = useState(false)
+  const [pendingLink, setPendingLink] = useState<string | null>(null)
 
   useEffect(() => {
     // Detect mouse leaving from top (back button region)
     const handleMouseLeave = (e: MouseEvent) => {
-      if (e.clientY <= 0 && !exitIntent) {
+      if (e.clientY <= 0 && !exitIntentTriggered) {
         setShowTippingModal(true)
-        setExitIntent(true)
+        setExitIntentTriggered(true)
       }
     }
 
@@ -21,25 +22,15 @@ export default function ExitIntentPopup() {
       const target = e.target as HTMLElement
       const link = target.closest('a')
       
-      if (link) {
+      if (link && !exitIntentTriggered) {
         const href = link.getAttribute('href')
         const isExternal = href && !href.startsWith('/') && !href.startsWith('#') && !href.startsWith('?') && !href.startsWith('mailto:')
         
-        if (isExternal && !exitIntent) {
+        if (isExternal) {
           e.preventDefault()
+          setPendingLink(href)
           setShowTippingModal(true)
-          setExitIntent(true)
-          
-          // Allow them to proceed after 5 seconds or if they close modal
-          const timer = setTimeout(() => {
-            if (link.target === '_blank') {
-              window.open(href, '_blank')
-            } else {
-              window.location.href = href
-            }
-          }, 5000)
-          
-          return () => clearTimeout(timer)
+          setExitIntentTriggered(true)
         }
       }
     }
@@ -51,10 +42,17 @@ export default function ExitIntentPopup() {
       document.removeEventListener('mouseleave', handleMouseLeave)
       document.removeEventListener('click', handleLinkClick)
     }
-  }, [exitIntent])
+  }, [exitIntentTriggered])
 
   const handleCloseTipping = () => {
     setShowTippingModal(false)
+    
+    // If a link was pending, navigate after modal closes
+    if (pendingLink) {
+      setTimeout(() => {
+        window.open(pendingLink, '_blank')
+      }, 300)
+    }
   }
 
   return (

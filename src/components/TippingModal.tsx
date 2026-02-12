@@ -1,46 +1,37 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
-interface TippingModalProps {
+interface TippingPopupProps {
   isOpen?: boolean
   onClose?: () => void
   context?: string
 }
 
-export function TippingPopup({ isOpen, onClose, context = 'general' }: TippingModalProps) {
-  const [selectedAmount, setSelectedAmount] = useState<number>(10)
-  const [customAmount, setCustomAmount] = useState<string>('')
+export function TippingPopup({ isOpen, onClose, context = 'general' }: TippingPopupProps) {
   const [loading, setLoading] = useState(false)
+  const [customAmount, setCustomAmount] = useState<string>('')
   const [showCustomInput, setShowCustomInput] = useState(false)
 
   const presetAmounts = [5, 10, 20]
 
-  const handleTip = async () => {
+  const handleTip = async (amount: number) => {
     try {
       setLoading(true)
-      const amount = showCustomInput ? parseInt(customAmount) * 100 : selectedAmount * 100
-
-      if (!amount || amount < 100) {
-        alert('Minimum tip is $1')
-        setLoading(false)
-        return
-      }
+      const amountCents = amount * 100
 
       const response = await fetch('/api/create-tip-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          amount,
-          planName: 'WhichHealthShare Support',
-          planUrl: window.location.href,
-        }),
+        body: JSON.stringify({ amount: amountCents }),
       })
 
       const data = await response.json()
-      if (data.sessionId) {
+      if (data.url) {
         // Redirect to Stripe checkout
-        window.location.href = `https://checkout.stripe.com/pay/${data.sessionId}`
+        window.location.href = data.url
+      } else if (data.error) {
+        alert(`Error: ${data.error}`)
       }
     } catch (error) {
       console.error('Tipping error:', error)
@@ -49,8 +40,6 @@ export function TippingPopup({ isOpen, onClose, context = 'general' }: TippingMo
       setLoading(false)
     }
   }
-
-  const displayAmount = showCustomInput ? customAmount : selectedAmount
 
   if (!isOpen) return null
 
@@ -81,64 +70,58 @@ export function TippingPopup({ isOpen, onClose, context = 'general' }: TippingMo
           </p>
 
           <div className="space-y-4">
-            {/* Preset Amount Buttons */}
+            {/* Preset Amount Buttons - One Click Checkout */}
             <div className="grid grid-cols-3 gap-3">
               {presetAmounts.map(amount => (
                 <button
                   key={amount}
-                  onClick={() => {
-                    setSelectedAmount(amount)
-                    setShowCustomInput(false)
-                    setCustomAmount('')
-                  }}
-                  className={`py-3 px-4 rounded-lg font-semibold text-center transition-all ${
-                    !showCustomInput && selectedAmount === amount
-                      ? 'bg-amber-500 text-white shadow-md'
-                      : 'bg-white border-2 border-amber-200 text-[var(--color-text)] hover:border-amber-400'
-                  }`}
+                  onClick={() => handleTip(amount)}
+                  disabled={loading}
+                  className="py-3 px-4 rounded-lg font-semibold text-center transition-all bg-amber-500 hover:bg-amber-600 disabled:bg-gray-300 text-white shadow-md disabled:cursor-not-allowed"
                 >
-                  ${amount}
+                  {loading ? '...' : `$${amount}`}
                 </button>
               ))}
             </div>
 
             {/* Custom Amount Input */}
-            <div className="flex gap-2">
+            {!showCustomInput ? (
               <button
-                onClick={() => setShowCustomInput(!showCustomInput)}
-                className={`flex-1 py-3 px-4 rounded-lg font-semibold text-center transition-all ${
-                  showCustomInput
-                    ? 'bg-amber-500 text-white shadow-md'
-                    : 'bg-white border-2 border-amber-200 text-[var(--color-text)] hover:border-amber-400'
-                }`}
+                onClick={() => setShowCustomInput(true)}
+                className="w-full py-3 px-4 rounded-lg font-semibold text-center transition-all bg-white border-2 border-amber-200 text-[var(--color-text)] hover:border-amber-400"
               >
-                Custom
+                Custom Amount
               </button>
-              {showCustomInput && (
+            ) : (
+              <div className="flex gap-2">
                 <input
                   type="number"
                   min="1"
                   value={customAmount}
                   onChange={e => setCustomAmount(e.target.value)}
-                  placeholder="$"
-                  className="w-20 py-3 px-3 rounded-lg border-2 border-amber-200 font-semibold text-center focus:outline-none focus:border-amber-400"
+                  placeholder="Enter amount"
+                  className="flex-1 py-3 px-3 rounded-lg border-2 border-amber-200 font-semibold text-center focus:outline-none focus:border-amber-400"
+                  autoFocus
                 />
-              )}
-            </div>
-
-            {/* Tip Button */}
-            <button
-              onClick={handleTip}
-              disabled={loading || (showCustomInput && !customAmount)}
-              className="w-full py-3 px-6 bg-amber-500 hover:bg-amber-600 disabled:bg-gray-300 text-white font-semibold rounded-lg transition-all shadow-md disabled:cursor-not-allowed"
-            >
-              {loading ? 'Processing...' : `Tip $${displayAmount}`}
-            </button>
+                <button
+                  onClick={() => {
+                    if (customAmount) {
+                      handleTip(parseInt(customAmount))
+                    }
+                  }}
+                  disabled={!customAmount || loading}
+                  className="py-3 px-6 bg-amber-500 hover:bg-amber-600 disabled:bg-gray-300 text-white font-semibold rounded-lg transition-all disabled:cursor-not-allowed"
+                >
+                  {loading ? '...' : 'Tip'}
+                </button>
+              </div>
+            )}
 
             {/* Skip Button */}
             <button
               onClick={onClose}
-              className="w-full py-3 px-6 bg-gray-100 hover:bg-gray-200 text-[var(--color-text)] font-semibold rounded-lg transition-all"
+              disabled={loading}
+              className="w-full py-3 px-6 bg-gray-100 hover:bg-gray-200 disabled:bg-gray-200 text-[var(--color-text)] font-semibold rounded-lg transition-all disabled:cursor-not-allowed"
             >
               Skip
             </button>
@@ -151,49 +134,4 @@ export function TippingPopup({ isOpen, onClose, context = 'general' }: TippingMo
       </div>
     </>
   )
-}
-
-// Hook for detecting exit intent
-export function useExitIntent() {
-  const [showTipModal, setShowTipModal] = useState(false)
-
-  useEffect(() => {
-    // Detect when user tries to leave via window close
-    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-      // Show modal instead of default browser warning
-      e.preventDefault()
-      e.returnValue = ''
-    }
-
-    // Detect clicks on external links
-    const handleLinkClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement
-      const link = target.closest('a')
-      
-      if (link) {
-        const href = link.getAttribute('href')
-        
-        // Check if it's an external link
-        if (href && !href.startsWith('/') && !href.startsWith('#') && !href.startsWith('?')) {
-          e.preventDefault()
-          setShowTipModal(true)
-          
-          // Allow them to proceed after modal closes or timeout
-          setTimeout(() => {
-            window.open(href, link.target || '_blank')
-          }, 3000)
-        }
-      }
-    }
-
-    document.addEventListener('click', handleLinkClick)
-    window.addEventListener('beforeunload', handleBeforeUnload)
-
-    return () => {
-      document.removeEventListener('click', handleLinkClick)
-      window.removeEventListener('beforeunload', handleBeforeUnload)
-    }
-  }, [])
-
-  return { showTipModal, setShowTipModal }
 }
