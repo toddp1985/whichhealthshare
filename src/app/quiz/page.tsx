@@ -340,34 +340,36 @@ export default function QuizPage() {
   return (
     <div className="section-narrow pt-8 pb-20 sm:pb-8">
       {/* Progress Indicator */}
-      <div className="mb-12">
-        <div className="flex justify-between items-center mb-3">
-          <span className="font-serif font-bold text-lg text-[var(--color-accent)]">
-            Step {step + 1}/{questions.length}
-          </span>
-          <span className="text-sm text-[var(--color-text-muted)]">{Math.round(progress)}%</span>
+      <div className="mb-16">
+        <div className="flex justify-between items-center mb-4">
+          <div>
+            <span className="font-serif font-bold text-lg text-[var(--color-accent)]">
+              Question {step + 1} of {questions.length}
+            </span>
+          </div>
+          <span className="inline-block bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm font-semibold">{Math.round(progress)}% Complete</span>
         </div>
-        <div className="w-full bg-[var(--color-border)] rounded-full h-3 overflow-hidden">
+        <div className="w-full bg-[var(--color-border)] rounded-full h-2 overflow-hidden">
           <div
-            className="bg-[var(--color-accent)] h-3 rounded-full transition-all duration-300"
+            className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full transition-all duration-300"
             style={{ width: `${progress}%` }}
           ></div>
         </div>
       </div>
 
       <div className="max-w-3xl mx-auto">
-        <h2 className="font-serif font-bold text-3xl sm:text-4xl mb-10 text-[var(--color-text)] leading-tight">
+        <h2 className="font-serif font-bold text-4xl sm:text-5xl mb-12 text-[var(--color-text)] leading-tight">
           {currentQuestion.question}
         </h2>
 
-        <div className="space-y-3 mb-10">
+        <div className="space-y-4 mb-12">
           {currentQuestion.options.map(option => (
             <button
               key={option.value}
               onClick={() => handleAnswer(option.value)}
-              className={`w-full px-6 py-4 rounded-lg text-center font-semibold text-lg transition-all duration-200 border-2 min-h-[56px] flex items-center justify-center ${
+              className={`w-full px-8 py-5 rounded-xl text-center font-semibold text-lg transition-all duration-200 border-2 min-h-[64px] flex items-center justify-center transform hover:scale-105 ${
                 answers[currentQuestion.id as keyof QuizAnswers] === option.value
-                  ? 'bg-[var(--color-accent)] text-white border-[var(--color-accent)] shadow-lg'
+                  ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white border-blue-600 shadow-lg scale-105'
                   : 'bg-white text-[var(--color-text)] border-[var(--color-border)] hover:border-[var(--color-accent)] hover:bg-blue-50'
               }`}
             >
@@ -376,11 +378,11 @@ export default function QuizPage() {
           ))}
         </div>
 
-        <div className="flex gap-4 mt-12">
+        <div className="flex gap-4 mt-16">
           {step > 0 && (
             <button
               onClick={() => setStep(step - 1)}
-              className="btn btn-secondary px-6 h-12 flex-shrink-0"
+              className="btn btn-secondary px-8 h-14 flex-shrink-0 font-semibold"
             >
               ← Back
             </button>
@@ -388,9 +390,9 @@ export default function QuizPage() {
           <button
             onClick={() => handleAnswer(answers[currentQuestion.id as keyof QuizAnswers])}
             disabled={!answers[currentQuestion.id as keyof QuizAnswers]}
-            className="btn btn-primary flex-1 h-12 text-lg font-semibold"
+            className="btn btn-primary flex-1 h-14 text-lg font-bold"
           >
-            {step === questions.length - 1 ? 'See Results' : 'Next →'}
+            {step === questions.length - 1 ? '✓ See My Results' : 'Next Question →'}
           </button>
         </div>
       </div>

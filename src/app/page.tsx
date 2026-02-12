@@ -23,45 +23,66 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 to-[var(--color-bg)] py-24 px-4 sm:py-32">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h1 className="font-serif font-bold text-4xl sm:text-5xl lg:text-6xl mb-6 text-[var(--color-text)] leading-tight">
-            Find Your Best Health Sharing Plan in 6 Questions
+      <section className="relative bg-gradient-to-br from-blue-50 via-white to-[var(--color-bg-warm)] py-32 px-4 sm:py-48">
+        <div className="container mx-auto max-w-5xl text-center">
+          <div className="mb-8">
+            <span className="inline-block bg-blue-100 text-blue-900 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              🎯 Personalized Recommendations
+            </span>
+          </div>
+          
+          <h1 className="font-serif font-bold text-5xl sm:text-6xl lg:text-7xl mb-8 text-[var(--color-text)] leading-tight">
+            Find Your Perfect Health Sharing Plan
           </h1>
-          <p className="text-lg sm:text-xl text-[var(--color-text-secondary)] mb-10 max-w-2xl mx-auto leading-relaxed">
-            Compare 5 health sharing ministries, crowdfunding alternatives, and insurance options. Find your best fit in 6 questions.
+          
+          <p className="text-xl sm:text-2xl text-[var(--color-text-secondary)] mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+            Answer 6 simple questions and discover which health sharing plan, insurance, or crowdfunding option is right for you.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <CTAButton href="/quiz" variant="primary" className="text-lg px-8 h-12 sm:h-14">
-              Start Quiz Now
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <CTAButton href="/quiz" variant="primary" className="text-lg px-10 h-14 sm:h-16 font-semibold shadow-lg">
+              Start Quiz Now →
             </CTAButton>
-            <CTAButton href="/compare" variant="secondary" className="text-lg px-8 h-12 sm:h-14">
-              Skip to Compare
+            <CTAButton href="/compare" variant="secondary" className="text-lg px-10 h-14 sm:h-16 font-semibold">
+              Compare All Plans
             </CTAButton>
           </div>
 
-          {/* Social Proof */}
-          <div className="bg-white border border-[var(--color-border)] rounded-lg py-4 px-6 inline-block">
-            <p className="text-sm text-[var(--color-text-secondary)]">
-              ⭐ <span className="font-semibold">Independent comparison</span> with real 2026 pricing
-            </p>
+          {/* Social Proof - Enhanced */}
+          <div className="bg-white border border-[var(--color-border)] rounded-2xl py-6 px-8 inline-block shadow-sm hover:shadow-md transition">
+            <div className="flex items-center gap-3 mb-2">
+              <span className="text-xl">⭐</span>
+              <p className="text-base text-[var(--color-text-secondary)]">
+                <span className="font-semibold text-[var(--color-text)]">Independent & Honest</span> — No affiliate bias, real 2026 pricing
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Featured Plans Preview */}
-      <section className="section py-16">
+      <section className="py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="font-serif font-bold text-3xl mb-8 text-center">All 7 Options</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="text-center mb-16">
+            <span className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-4 inline-block">Compare Options</span>
+            <h2 className="font-serif font-bold text-4xl sm:text-5xl mb-4 text-[var(--color-text)]">7 Health Plans & Alternatives</h2>
+            <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto">Health sharing ministries, crowdfunding, and insurance options compared side-by-side</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {topMinistries.map((ministry) => (
-              <Link key={ministry.slug} href={`/reviews/${ministry.slug}`} className="card hover:shadow-lg transition">
-                <h3 className="font-serif font-bold mb-2">{ministry.name}</h3>
-                <StarRating rating={ministry.rating} />
-                <p className="text-sm text-[var(--color-text-secondary)] mt-2">
-                  {ministry.plans[0]?.monthlyRange?.individual?.min ? `From $${ministry.plans[0].monthlyRange.individual.min}/mo` : 'Check pricing'}
-                </p>
-                <p className="text-xs text-[var(--color-text-muted)] mt-1 line-clamp-2">{ministry.bestFor}</p>
+              <Link key={ministry.slug} href={`/reviews/${ministry.slug}`} className="card hover:shadow-lg hover:-translate-y-1 transition duration-200">
+                <div className="mb-4">
+                  <h3 className="font-serif font-bold text-xl mb-3 text-[var(--color-text)]">{ministry.name}</h3>
+                  <StarRating rating={ministry.rating} />
+                </div>
+                <div className="bg-blue-50 rounded-lg p-3 mb-4">
+                  <p className="text-sm text-[var(--color-text-muted)]">Monthly Cost</p>
+                  <p className="font-serif font-bold text-lg text-blue-600">
+                    {ministry.plans[0]?.monthlyRange?.individual?.min ? `$${ministry.plans[0].monthlyRange.individual.min}-$${ministry.plans[0].monthlyRange.individual.max}` : 'Variable'}
+                  </p>
+                </div>
+                <p className="text-sm text-[var(--color-text-secondary)]">{ministry.bestFor}</p>
               </Link>
             ))}
           </div>
