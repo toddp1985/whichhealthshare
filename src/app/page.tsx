@@ -185,7 +185,7 @@ export default function HomePage() {
             <details className="card">
               <summary className="font-bold cursor-pointer">How do you make money?</summary>
               <p className="mt-4 text-[var(--color-text-secondary)]">
-                We earn affiliate commissions when you sign up through our links. Commission amounts don't affect our recommendations—we suggest the plan that fits your situation.
+                WhichHealthShare is user-supported. If you find our research helpful, consider supporting us with a tip. This helps us keep our analysis independent and honest.
               </p>
             </details>
           </div>
