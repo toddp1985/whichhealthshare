@@ -23,36 +23,36 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-[var(--color-bg-warm)] py-32 px-4 sm:py-48">
+      <section className="relative bg-gradient-to-br from-blue-50 via-white to-[var(--color-bg-warm)] py-16 px-4 sm:py-32 md:py-48">
         <div className="container mx-auto max-w-5xl text-center">
-          <div className="mb-8">
-            <span className="inline-block bg-blue-100 text-blue-900 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+          <div className="mb-6">
+            <span className="inline-block bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold mb-4">
               🎯 Personalized Recommendations
             </span>
           </div>
           
-          <h1 className="font-serif font-bold text-5xl sm:text-6xl lg:text-7xl mb-8 text-[var(--color-text)] leading-tight">
+          <h1 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 sm:mb-8 text-[var(--color-text)] leading-tight px-2">
             Find Your Perfect Health Sharing Plan
           </h1>
           
-          <p className="text-xl sm:text-2xl text-[var(--color-text-secondary)] mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-base sm:text-lg md:text-xl text-[var(--color-text-secondary)] mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed font-light px-2">
             Answer 6 simple questions and discover which health sharing plan, insurance, or crowdfunding option is right for you.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <CTAButton href="/quiz" variant="primary" className="text-lg px-10 h-14 sm:h-16 font-semibold shadow-lg">
+          <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center mb-12 sm:mb-16 px-2">
+            <CTAButton href="/quiz" variant="primary" className="text-base sm:text-lg px-6 sm:px-10 h-12 sm:h-14 md:h-16 font-semibold shadow-lg w-full sm:w-auto">
               Start Quiz Now →
             </CTAButton>
-            <CTAButton href="/compare" variant="secondary" className="text-lg px-10 h-14 sm:h-16 font-semibold">
+            <CTAButton href="/compare" variant="secondary" className="text-base sm:text-lg px-6 sm:px-10 h-12 sm:h-14 md:h-16 font-semibold w-full sm:w-auto">
               Compare All Plans
             </CTAButton>
           </div>
 
           {/* Social Proof - Enhanced */}
-          <div className="bg-white border border-[var(--color-border)] rounded-2xl py-6 px-8 inline-block shadow-sm hover:shadow-md transition">
-            <div className="flex items-center gap-3 mb-2">
-              <span className="text-xl">⭐</span>
-              <p className="text-base text-[var(--color-text-secondary)]">
+          <div className="bg-white border border-[var(--color-border)] rounded-xl sm:rounded-2xl py-4 sm:py-6 px-4 sm:px-8 inline-block shadow-sm hover:shadow-md transition mx-2">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-3 gap-2">
+              <span className="text-lg sm:text-xl">⭐</span>
+              <p className="text-xs sm:text-base text-[var(--color-text-secondary)]">
                 <span className="font-semibold text-[var(--color-text)]">Independent & Honest</span> — No affiliate bias, real 2026 pricing
               </p>
             </div>
@@ -61,15 +61,15 @@ export default function HomePage() {
       </section>
 
       {/* Featured Plans Preview */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <span className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-4 inline-block">Compare Options</span>
-            <h2 className="font-serif font-bold text-4xl sm:text-5xl mb-4 text-[var(--color-text)]">7 Health Plans & Alternatives</h2>
-            <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto">Health sharing ministries, crowdfunding, and insurance options compared side-by-side</p>
+          <div className="text-center mb-10 sm:mb-16">
+            <span className="text-xs sm:text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3 sm:mb-4 inline-block">Compare Options</span>
+            <h2 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4 text-[var(--color-text)]">7 Health Plans & Alternatives</h2>
+            <p className="text-base sm:text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto">Health sharing ministries, crowdfunding, and insurance options compared side-by-side</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {topMinistries.map((ministry) => (
               <Link key={ministry.slug} href={`/reviews/${ministry.slug}`} className="card hover:shadow-lg hover:-translate-y-1 transition duration-200">
                 <div className="mb-4">

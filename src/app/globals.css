@@ -117,7 +117,9 @@ input:disabled, textarea:disabled, select:disabled {
 
 /* CTA Buttons */
 .btn {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.75rem 1.5rem;
   border-radius: 100px;
   font-weight: 600;
@@ -127,10 +129,17 @@ input:disabled, textarea:disabled, select:disabled {
   cursor: pointer;
   font-family: 'DM Sans', sans-serif;
   outline: none;
-  min-height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  font-size: 1rem;
+}
+
+/* Mobile-optimized buttons */
+@media (min-width: 640px) {
+  .btn {
+    min-height: 48px;
+    font-size: 1.1rem;
+  }
 }
 
 .btn:hover {
@@ -187,13 +196,30 @@ input:disabled, textarea:disabled, select:disabled {
   background-color: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1.25rem;
   transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 1.5rem;
+  }
 }
 
 .card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Touch-friendly cards on mobile */
+@media (hover: none) {
+  .card:active {
+    transform: translateY(0px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
 }
 
 /* Gold Treatment (Presidio) */
@@ -249,15 +275,39 @@ tr:hover {
 
 /* Sections */
 .section {
-  padding: 4rem 2rem;
+  padding: 2rem 1rem;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .section {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 4rem 2rem;
+  }
 }
 
 .section-narrow {
   max-width: 720px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-narrow {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-narrow {
+    padding: 2rem 1rem;
+  }
 }
 
 /* Animations */

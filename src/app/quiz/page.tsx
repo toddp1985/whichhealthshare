@@ -340,14 +340,14 @@ export default function QuizPage() {
   return (
     <div className="section-narrow pt-8 pb-20 sm:pb-8">
       {/* Progress Indicator */}
-      <div className="mb-16">
-        <div className="flex justify-between items-center mb-4">
+      <div className="mb-10 sm:mb-16">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-4 mb-4">
           <div>
-            <span className="font-serif font-bold text-lg text-[var(--color-accent)]">
+            <span className="font-serif font-bold text-base sm:text-lg text-[var(--color-accent)]">
               Question {step + 1} of {questions.length}
             </span>
           </div>
-          <span className="inline-block bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm font-semibold">{Math.round(progress)}% Complete</span>
+          <span className="inline-block bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">{Math.round(progress)}% Complete</span>
         </div>
         <div className="w-full bg-[var(--color-border)] rounded-full h-2 overflow-hidden">
           <div
@@ -357,17 +357,17 @@ export default function QuizPage() {
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto">
-        <h2 className="font-serif font-bold text-4xl sm:text-5xl mb-12 text-[var(--color-text)] leading-tight">
+      <div className="max-w-3xl mx-auto px-2 sm:px-0">
+        <h2 className="font-serif font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-8 sm:mb-12 text-[var(--color-text)] leading-tight">
           {currentQuestion.question}
         </h2>
 
-        <div className="space-y-4 mb-12">
+        <div className="space-y-3 sm:space-y-4 mb-10 sm:mb-12">
           {currentQuestion.options.map(option => (
             <button
               key={option.value}
               onClick={() => handleAnswer(option.value)}
-              className={`w-full px-8 py-5 rounded-xl text-center font-semibold text-lg transition-all duration-200 border-2 min-h-[64px] flex items-center justify-center transform hover:scale-105 ${
+              className={`w-full px-4 sm:px-8 py-4 sm:py-5 rounded-lg sm:rounded-xl text-left sm:text-center font-semibold text-base sm:text-lg transition-all duration-200 border-2 min-h-[56px] sm:min-h-[64px] flex items-center justify-center transform active:scale-95 hover:scale-105 ${
                 answers[currentQuestion.id as keyof QuizAnswers] === option.value
                   ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white border-blue-600 shadow-lg scale-105'
                   : 'bg-white text-[var(--color-text)] border-[var(--color-border)] hover:border-[var(--color-accent)] hover:bg-blue-50'
@@ -378,22 +378,22 @@ export default function QuizPage() {
           ))}
         </div>
 
-        <div className="flex gap-4 mt-16">
+        <div className="flex flex-col-reverse sm:flex-row gap-3 sm:gap-4 mt-12 sm:mt-16">
+          <button
+            onClick={() => handleAnswer(answers[currentQuestion.id as keyof QuizAnswers])}
+            disabled={!answers[currentQuestion.id as keyof QuizAnswers]}
+            className="btn btn-primary flex-1 h-12 sm:h-14 text-base sm:text-lg font-bold"
+          >
+            {step === questions.length - 1 ? '✓ See My Results' : 'Next Question →'}
+          </button>
           {step > 0 && (
             <button
               onClick={() => setStep(step - 1)}
-              className="btn btn-secondary px-8 h-14 flex-shrink-0 font-semibold"
+              className="btn btn-secondary h-12 sm:h-14 px-4 sm:px-8 font-semibold text-base"
             >
               ← Back
             </button>
           )}
-          <button
-            onClick={() => handleAnswer(answers[currentQuestion.id as keyof QuizAnswers])}
-            disabled={!answers[currentQuestion.id as keyof QuizAnswers]}
-            className="btn btn-primary flex-1 h-14 text-lg font-bold"
-          >
-            {step === questions.length - 1 ? '✓ See My Results' : 'Next Question →'}
-          </button>
         </div>
       </div>
     </div>
