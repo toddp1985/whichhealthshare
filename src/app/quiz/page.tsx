@@ -318,6 +318,7 @@ export default function QuizPage() {
               setStep(0)
               setAnswers({})
               setResults(null)
+              setQuizCompleted(false)
             }}
             className="btn btn-secondary px-8"
           >
