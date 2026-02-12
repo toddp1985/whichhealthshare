@@ -17,54 +17,75 @@ interface EmailQueueItem {
 const email1Template = (email: string, quizResult?: any) => ({
   subject: 'Your health sharing matches are ready (ranked for your situation)',
   html: `
-    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
-      <h1 style="font-size: 24px; margin-bottom: 16px;">Your Quiz Results Are Ready</h1>
-      
-      <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
-        Hi,
-      </p>
-      
-      <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
-        Your quiz results are ready. Most people spend 15 minutes researching health coverage before committing $1,800–$4,800/year. That's less time than choosing a restaurant.
-      </p>
-      
-      <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
-        You just did something smarter: You answered 8 questions that narrow 40+ health sharing plans down to the ones that actually match your situation.
-      </p>
-      
-      <p style="font-size: 16px; line-height: 1.6; margin-bottom: 24px;">
-        <strong>Your Personalized Results Include:</strong><br>
-        • Your top 3 matches ranked by fit (not by what we think you should buy)<br>
-        • Honest pros and cons for each plan<br>
-        • True total cost including fees most comparison sites hide<br>
-        • Side-by-side breakdown of what you actually get
-      </p>
-      
-      <div style="background: #f0f9ff; border-left: 4px solid #0284c7; padding: 16px; margin-bottom: 24px;">
-        <p style="font-size: 14px; margin: 0;">
-          <a href="https://whichhealthshare.com/quiz" style="color: #0284c7; text-decoration: none; font-weight: 600;">View Your Results →</a>
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background: #fff; color: #1a1a1a;">
+      <!-- Header -->
+      <div style="background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%); padding: 40px 24px 32px; text-align: center; border-bottom: 1px solid #e5e5e5;">
+        <h1 style="font-size: 28px; font-weight: 700; margin: 0 0 8px 0; color: #1a1a1a;">Your Results Are Ready</h1>
+        <p style="font-size: 14px; color: #666; margin: 0;">Personalized health sharing matches, ranked for your situation</p>
+      </div>
+
+      <!-- Body -->
+      <div style="padding: 32px 24px;">
+        <p style="font-size: 16px; line-height: 1.7; color: #1a1a1a; margin: 0 0 24px 0;">
+          Hi,
+        </p>
+        
+        <p style="font-size: 16px; line-height: 1.7; color: #1a1a1a; margin: 0 0 20px 0;">
+          Most people spend 15 minutes comparing health coverage options for a $1,800–$4,800/year decision. You just did something smarter.
+        </p>
+        
+        <p style="font-size: 16px; line-height: 1.7; color: #1a1a1a; margin: 0 0 28px 0;">
+          You answered 8 targeted questions that narrow 40+ plans down to <strong>the ones that actually fit your situation</strong>—not generic recommendations, but matches ranked for your age, budget, and health needs.
+        </p>
+
+        <!-- Key Points -->
+        <div style="background: #f9fafb; border-radius: 8px; padding: 20px; margin-bottom: 28px; border-left: 4px solid #0284c7;">
+          <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; margin: 0 0 12px 0;">Your Results Include:</p>
+          <ul style="font-size: 14px; line-height: 1.8; color: #1a1a1a; margin: 0; padding-left: 20px;">
+            <li>Your top 3 matches ranked by fit for you (not by commission)</li>
+            <li>Honest pros and cons for each plan</li>
+            <li>True total cost, including hidden fees</li>
+            <li>Real coverage limits and waiting periods</li>
+          </ul>
+        </div>
+
+        <!-- CTA Button -->
+        <div style="text-align: center; margin-bottom: 32px;">
+          <a href="https://whichhealthshare.com/quiz" style="display: inline-block; background: #0284c7; color: #fff; text-decoration: none; font-weight: 600; padding: 14px 32px; border-radius: 6px; font-size: 16px;">
+            View Your Personalized Results →
+          </a>
+        </div>
+
+        <!-- Context -->
+        <p style="font-size: 15px; line-height: 1.7; color: #1a1a1a; margin: 0 0 20px 0;">
+          <strong>What happens next:</strong> About 70% of people pick a plan within 3 days. The other 30% bookmark and return when their coverage ends. Both work. Your results don't expire.
+        </p>
+        
+        <p style="font-size: 15px; line-height: 1.7; color: #1a1a1a; margin: 0 0 28px 0;">
+          <strong>Important timing note:</strong> Most plans take 2–5 business days to approve. If you're losing coverage soon, factor that into your timeline.
+        </p>
+
+        <!-- Next Email -->
+        <div style="background: #f0fdf4; border-radius: 8px; padding: 16px; margin-bottom: 28px; border-left: 4px solid #16a34a;">
+          <p style="font-size: 14px; color: #1a1a1a; margin: 0;"><strong>In 3 days:</strong> We'll send real-world scenarios (ER visit, prescriptions, etc.) so you can see how each plan actually works.</p>
+        </div>
+
+        <!-- Footer -->
+        <p style="font-size: 14px; line-height: 1.6; color: #666; margin: 0 0 16px 0; padding-top: 20px; border-top: 1px solid #e5e5e5;">
+          Questions about your matches? Reply here — we respond personally, usually within 2–3 hours.
+        </p>
+        
+        <p style="font-size: 14px; color: #666; margin: 0;">
+          — WhichHealthShare Team
         </p>
       </div>
-      
-      <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
-        Here's what typically happens: About 70% of people choose a plan within 3 days of viewing their results. The other 30% save them and come back when their current coverage ends. Either approach works. Your results stay available.
-      </p>
-      
-      <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
-        One important note: Most health sharing plans take 2-5 business days to process applications. If you're losing coverage soon or have a medical need coming up, factor that timing into your decision.
-      </p>
-      
-      <p style="font-size: 14px; color: #666; margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee;">
-        Questions about any of your matches? Reply to this email — we respond to every question, usually within 2-3 hours.
-      </p>
-      
-      <p style="font-size: 14px; color: #666;">
-        — WhichHealthShare Team
-      </p>
-      
-      <p style="font-size: 12px; color: #999; margin-top: 16px;">
-        P.S. In 3 days, we'll send you a breakdown of how different plans handle real-world scenarios (like a $5,000 ER visit or ongoing prescriptions). It'll help clarify which type of coverage structure actually works for your situation.
-      </p>
+
+      <!-- Footer -->
+      <div style="background: #fafafa; padding: 16px 24px; border-top: 1px solid #e5e5e5; text-align: center;">
+        <p style="font-size: 12px; color: #999; margin: 0;">
+          © 2026 WhichHealthShare. <a href="https://whichhealthshare.com/privacy" style="color: #0284c7; text-decoration: none;">Privacy Policy</a>
+        </p>
+      </div>
     </div>
   `
 })
@@ -73,7 +94,7 @@ const email1Template = (email: string, quizResult?: any) => ({
 const email2Template = (email: string) => ({
   subject: 'What happens when you actually use health sharing (3 real scenarios)',
   html: `
-    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background: #fff; color: #1a1a1a;">
       <h1 style="font-size: 24px; margin-bottom: 16px;">What Happens When You Actually Use Health Sharing</h1>
       
       <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
