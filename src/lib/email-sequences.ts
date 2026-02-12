@@ -15,78 +15,129 @@ interface EmailQueueItem {
 
 // Email 1: Welcome + Quiz Results (Send Immediately)
 const email1Template = (email: string, quizResult?: any) => ({
-  subject: 'Your health sharing matches are ready (ranked for your situation)',
+  subject: 'Your personalized health sharing matches',
   html: `
-    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background: #fff; color: #1a1a1a;">
-      <!-- Header -->
-      <div style="background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%); padding: 40px 24px 32px; text-align: center; border-bottom: 1px solid #e5e5e5;">
-        <h1 style="font-size: 28px; font-weight: 700; margin: 0 0 8px 0; color: #1a1a1a;">Your Results Are Ready</h1>
-        <p style="font-size: 14px; color: #666; margin: 0;">Personalized health sharing matches, ranked for your situation</p>
-      </div>
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+    </head>
+    <body style="margin: 0; padding: 0; background: #f8f8f8;">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background: #f8f8f8;">
+        <tr>
+          <td align="center" style="padding: 20px 0;">
+            <!-- Main container -->
+            <table width="600" border="0" cellspacing="0" cellpadding="0" style="background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+              
+              <!-- Hero section -->
+              <tr>
+                <td style="background: linear-gradient(to bottom, #f5f5f5, #fafafa); padding: 48px 40px; text-align: center;">
+                  <h1 style="font-family: Georgia, serif; font-size: 32px; font-weight: 400; margin: 0 0 12px 0; color: #1a1a1a; letter-spacing: -0.5px;">Your Results Are Ready</h1>
+                  <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; color: #666; margin: 0;">Three personalized health sharing matches, ranked just for you</p>
+                </td>
+              </tr>
 
-      <!-- Body -->
-      <div style="padding: 32px 24px;">
-        <p style="font-size: 16px; line-height: 1.7; color: #1a1a1a; margin: 0 0 24px 0;">
-          Hi,
-        </p>
-        
-        <p style="font-size: 16px; line-height: 1.7; color: #1a1a1a; margin: 0 0 20px 0;">
-          Most people spend 15 minutes comparing health coverage options for a $1,800–$4,800/year decision. You just did something smarter.
-        </p>
-        
-        <p style="font-size: 16px; line-height: 1.7; color: #1a1a1a; margin: 0 0 28px 0;">
-          You answered 8 targeted questions that narrow 40+ plans down to <strong>the ones that actually fit your situation</strong>—not generic recommendations, but matches ranked for your age, budget, and health needs.
-        </p>
+              <!-- Body -->
+              <tr>
+                <td style="padding: 40px 40px;">
+                  <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.6; color: #333; margin: 0 0 20px 0;">Hi there,</p>
+                  
+                  <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.6; color: #333; margin: 0 0 28px 0;">
+                    You just answered 8 questions that narrow 40+ plans down to the ones that actually fit <strong>your</strong> situation. Not generic recommendations. Not biased toward commission. Just matches ranked for your age, budget, and health needs.
+                  </p>
 
-        <!-- Key Points -->
-        <div style="background: #f9fafb; border-radius: 8px; padding: 20px; margin-bottom: 28px; border-left: 4px solid #0284c7;">
-          <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; margin: 0 0 12px 0;">Your Results Include:</p>
-          <ul style="font-size: 14px; line-height: 1.8; color: #1a1a1a; margin: 0; padding-left: 20px;">
-            <li>Your top 3 matches ranked by fit for you (not by commission)</li>
-            <li>Honest pros and cons for each plan</li>
-            <li>True total cost, including hidden fees</li>
-            <li>Real coverage limits and waiting periods</li>
-          </ul>
-        </div>
+                  <!-- CTA -->
+                  <div style="text-align: center; margin-bottom: 40px;">
+                    <a href="https://whichhealthshare.com/quiz" style="display: inline-block; background: #0284c7; color: white; text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; font-weight: 500; padding: 16px 48px; border-radius: 4px; letter-spacing: 0.2px;">
+                      View Your Matches
+                    </a>
+                  </div>
 
-        <!-- CTA Button -->
-        <div style="text-align: center; margin-bottom: 32px;">
-          <a href="https://whichhealthshare.com/quiz" style="display: inline-block; background: #0284c7; color: #fff; text-decoration: none; font-weight: 600; padding: 14px 32px; border-radius: 6px; font-size: 16px;">
-            View Your Personalized Results →
-          </a>
-        </div>
+                  <!-- Key benefits cards -->
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 32px;">
+                    <tr>
+                      <td width="50%" style="padding-right: 16px; padding-bottom: 16px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background: #f9f9f9; border-radius: 4px;">
+                          <tr>
+                            <td style="padding: 20px;">
+                              <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12px; color: #666; margin: 0 0 8px 0; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Real Costs</p>
+                              <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; color: #333; margin: 0; line-height: 1.5;">Monthly + hidden fees, so you know what you're actually paying</p>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td width="50%" style="padding-bottom: 16px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background: #f9f9f9; border-radius: 4px;">
+                          <tr>
+                            <td style="padding: 20px;">
+                              <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12px; color: #666; margin: 0 0 8px 0; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Honest Assessment</p>
+                              <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; color: #333; margin: 0; line-height: 1.5;">Pros and cons for each plan, not just marketing speak</p>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="50%" style="padding-right: 16px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background: #f9f9f9; border-radius: 4px;">
+                          <tr>
+                            <td style="padding: 20px;">
+                              <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12px; color: #666; margin: 0 0 8px 0; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Ranked for You</p>
+                              <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; color: #333; margin: 0; line-height: 1.5;">Top pick based on your answers, not what makes us money</p>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td width="50%">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background: #f9f9f9; border-radius: 4px;">
+                          <tr>
+                            <td style="padding: 20px;">
+                              <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12px; color: #666; margin: 0 0 8px 0; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Coverage Details</p>
+                              <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; color: #333; margin: 0; line-height: 1.5;">Limits, waiting periods, and what you actually get</p>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
 
-        <!-- Context -->
-        <p style="font-size: 15px; line-height: 1.7; color: #1a1a1a; margin: 0 0 20px 0;">
-          <strong>What happens next:</strong> About 70% of people pick a plan within 3 days. The other 30% bookmark and return when their coverage ends. Both work. Your results don't expire.
-        </p>
-        
-        <p style="font-size: 15px; line-height: 1.7; color: #1a1a1a; margin: 0 0 28px 0;">
-          <strong>Important timing note:</strong> Most plans take 2–5 business days to approve. If you're losing coverage soon, factor that into your timeline.
-        </p>
+                  <!-- Info blocks -->
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 32px;">
+                    <tr>
+                      <td style="background: #f0f9ff; border-left: 4px solid #0284c7; padding: 16px 20px; border-radius: 0 4px 4px 0; margin-bottom: 12px;">
+                        <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; color: #0c3a5e; margin: 0;"><strong>Timing:</strong> Most plans take 2–5 business days to process. If you're losing coverage soon, factor that in.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="background: #f0fdf4; border-left: 4px solid #16a34a; padding: 16px 20px; border-radius: 0 4px 4px 0;">
+                        <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; color: #15803d; margin: 0;"><strong>Next email:</strong> In 3 days, we'll show real-world scenarios (ER visit, prescriptions) so you see how each plan actually works.</p>
+                      </td>
+                    </tr>
+                  </table>
 
-        <!-- Next Email -->
-        <div style="background: #f0fdf4; border-radius: 8px; padding: 16px; margin-bottom: 28px; border-left: 4px solid #16a34a;">
-          <p style="font-size: 14px; color: #1a1a1a; margin: 0;"><strong>In 3 days:</strong> We'll send real-world scenarios (ER visit, prescriptions, etc.) so you can see how each plan actually works.</p>
-        </div>
+                  <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.6; color: #666; margin: 0 0 20px 0;">
+                    Questions? Reply to this email. We respond personally, usually within a few hours.
+                  </p>
+                </td>
+              </tr>
 
-        <!-- Footer -->
-        <p style="font-size: 14px; line-height: 1.6; color: #666; margin: 0 0 16px 0; padding-top: 20px; border-top: 1px solid #e5e5e5;">
-          Questions about your matches? Reply here — we respond personally, usually within 2–3 hours.
-        </p>
-        
-        <p style="font-size: 14px; color: #666; margin: 0;">
-          — WhichHealthShare Team
-        </p>
-      </div>
+              <!-- Footer -->
+              <tr>
+                <td style="background: #f8f8f8; padding: 24px 40px; border-top: 1px solid #e5e5e5; text-align: center;">
+                  <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; color: #999; margin: 0 0 8px 0;">WhichHealthShare Team</p>
+                  <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12px; color: #bbb; margin: 0;">
+                    © 2026 WhichHealthShare · <a href="https://whichhealthshare.com/privacy" style="color: #0284c7; text-decoration: none;">Privacy</a>
+                  </p>
+                </td>
+              </tr>
 
-      <!-- Footer -->
-      <div style="background: #fafafa; padding: 16px 24px; border-top: 1px solid #e5e5e5; text-align: center;">
-        <p style="font-size: 12px; color: #999; margin: 0;">
-          © 2026 WhichHealthShare. <a href="https://whichhealthshare.com/privacy" style="color: #0284c7; text-decoration: none;">Privacy Policy</a>
-        </p>
-      </div>
-    </div>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </body>
+    </html>
   `
 })
 
