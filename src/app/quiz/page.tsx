@@ -269,7 +269,7 @@ export default function QuizPage() {
                 Learn More →
               </Link>
               <CTAButton
-                href="https://www.gocrowdhealth.com"
+                href="https://www.joincrowdhealth.com"
                 variant="primary"
                 className="flex-1 text-center text-sm"
                 target="_blank"

@@ -44,7 +44,7 @@ export default function ComparePage() {
                 <p className="text-sm text-[var(--color-text-secondary)] mb-3">
                   Crowdfunding platform (not health sharing): $60 advocacy + ~$80 crowdfunding = ~$140/mo (avg under 55). No coverage caps. No faith requirement.
                 </p>
-                <CTAButton href="https://www.gocrowdhealth.com" variant="primary" target="_blank">Visit CrowdHealth →</CTAButton>
+                <CTAButton href="https://www.joincrowdhealth.com" variant="primary" target="_blank">Visit CrowdHealth →</CTAButton>
               </div>
               <div className="text-right">
                 <StarRating rating={crowdhealth.rating} />
