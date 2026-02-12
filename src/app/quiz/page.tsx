@@ -7,6 +7,7 @@ import StarRating from '@/components/common/StarRating'
 // Affiliate links removed - using direct website URLs instead
 import Link from 'next/link'
 import EmailCaptureForm from '@/components/EmailCaptureForm'
+import TippingModal from '@/components/TippingModal'
 import { trackQuizStart, trackQuizCompletion, trackAffiliateClick } from '@/lib/analytics'
 
 export default function QuizPage() {
@@ -309,6 +310,11 @@ export default function QuizPage() {
           <div className="max-w-md mx-auto">
             <EmailCaptureForm onSuccess={handleEmailCaptured} showMessage={true} />
           </div>
+        </div>
+
+        {/* Support This Site - Tipping Modal (After Recommendations) */}
+        <div className="mt-12 mb-12 max-w-2xl mx-auto">
+          <TippingModal context="quiz" />
         </div>
 
         {/* Retake Quiz */}
