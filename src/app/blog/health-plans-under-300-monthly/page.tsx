@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Monthly Budget Under $300? Here's What You Can Actually Get — WhichHealthShare',
-  description: 'Can you get health coverage for under $300/month? Compare what health sharing plans, ACA Bronze, and Medicare offer in the under-$300 price range.',
+  title: "Monthly Budget Under $300? Here's What You Can Actually Get — WhichHealthShare",
+  description: "Can you get health coverage for under $300/month? Compare what health sharing plans, ACA Bronze, and Medicare offer in the under-$300 price range.",
 }
 
 export default function Page() {
