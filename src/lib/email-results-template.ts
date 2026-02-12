@@ -55,7 +55,8 @@ export function generateResultsEmailHTML(topPlans: any[], email: string, tier: s
           <div style="background: #f9f9f9; padding: 16px; border-radius: 6px; margin: 20px 0;">
             <h3 style="margin-top: 0;">Your Premium Downloads</h3>
             <p>${downloadMessage}</p>
-            <a href="https://whichhealthshare.com/premium-success?tier=${tier}&email=${encodeURIComponent(email)}" class="cta-button">Download Your Resources</a>
+            <p style="font-size: 13px; color: #666; margin: 12px 0;">Download links available on your receipt page:</p>
+            <a href="https://whichhealthshare.com/premium-success?tier=${tier}&email=${encodeURIComponent(email)}" class="cta-button">Access Your Downloads</a>
           </div>
 
           <p>Next steps:</p>

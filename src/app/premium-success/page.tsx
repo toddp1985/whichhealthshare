@@ -36,8 +36,8 @@ function PremiumSuccessContent() {
           title: 'Thank You for Your Support!',
           message: 'Your contribution helps us keep WhichHealthShare independent and honest.',
           files: [
-            { name: 'Health-Sharing-Comparison-Guide.pdf', label: 'Comparison PDF' },
-            { name: 'Cost-Calculator-Simple.xlsx', label: 'Simple Cost Calculator' }
+            { name: 'Health-Sharing-Comparison-Guide.html', label: 'Comparison Guide (Print to PDF)' },
+            { name: 'Cost-Calculator-Simple.csv', label: 'Simple Cost Calculator' }
           ]
         }
       case '10':
@@ -46,8 +46,8 @@ function PremiumSuccessContent() {
           title: 'Thank You for Your Support!',
           message: 'Your contribution includes email support to help answer specific questions about your health plan options.',
           files: [
-            { name: 'Health-Sharing-Comparison-Guide.pdf', label: 'Comparison PDF' },
-            { name: 'Cost-Calculator-Simple.xlsx', label: 'Simple Cost Calculator' }
+            { name: 'Health-Sharing-Comparison-Guide.html', label: 'Comparison Guide (Print to PDF)' },
+            { name: 'Cost-Calculator-Simple.csv', label: 'Simple Cost Calculator' }
           ]
         }
       case '20':
@@ -56,9 +56,9 @@ function PremiumSuccessContent() {
           title: 'Thank You for Your Premium Support!',
           message: 'Your contribution includes advanced scenario analysis and email support to guide you through the switching process.',
           files: [
-            { name: 'Health-Sharing-Comparison-Guide.pdf', label: 'Comparison PDF' },
-            { name: 'Cost-Calculator-Simple.xlsx', label: 'Simple Cost Calculator' },
-            { name: 'Scenario-Calculator-Advanced.xlsx', label: 'Advanced Scenario Calculator' }
+            { name: 'Health-Sharing-Comparison-Guide.html', label: 'Comparison Guide (Print to PDF)' },
+            { name: 'Cost-Calculator-Simple.csv', label: 'Simple Cost Calculator' },
+            { name: 'Scenario-Calculator-Advanced.csv', label: 'Advanced Scenario Calculator' }
           ]
         }
       default:
@@ -116,9 +116,9 @@ function PremiumSuccessContent() {
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-[var(--color-text-secondary)]">
             <p className="font-semibold text-[var(--color-text)] mb-2">What's Included:</p>
             <ul className="space-y-1">
-              <li>✓ Comparison PDF with plan features checklist</li>
-              <li>✓ Cost calculator to model your specific scenario</li>
-              {tier === '20' && <li>✓ Advanced scenario calculator for medical cost analysis</li>}
+              <li>✓ Comparison checklist guide (print to PDF)</li>
+              <li>✓ Simple cost calculator (CSV opens in Excel/Sheets)</li>
+              {tier === '20' && <li>✓ Advanced scenario calculator for different medical situations</li>}
               {(tier === '10' || tier === '20') && <li>✓ Email support for 30 days (email us anytime)</li>}
             </ul>
           </div>

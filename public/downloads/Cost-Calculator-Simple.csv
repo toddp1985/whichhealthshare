@@ -1,0 +1,18 @@
+SIMPLE COST CALCULATOR - WhichHealthShare.com
+"Plan Name","Monthly Cost","Family Size","Annual Cost"
+"Medi-Share","$300","4","$3,600"
+"Zion HealthShare","$250","4","$3,000"
+"CHM","$280","4","$3,360"
+"","",""
+
+Instructions:
+1. Enter your plan name and monthly cost in row 1
+2. Enter your family size 
+3. Annual cost = Monthly Cost x 12
+
+Example: If your plan costs $300/month, annual cost is $3,600
+
+Notes:
+- This shows base costs only
+- Actual costs depend on medical needs
+- Add your expected doctor visits to get total costs

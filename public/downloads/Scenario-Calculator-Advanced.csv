@@ -1,0 +1,36 @@
+ADVANCED SCENARIO CALCULATOR - WhichHealthShare.com
+"Medical Scenario","Your IUA","Coinsurance %","Total Cost Estimate"
+"Minor Care (Doctor Visit, Antibiotics)","$500","20%","$500 + copay"
+"Surgery (Appendectomy)","$1,000","20%","$1,000 + 20% of surgery cost"
+"Chronic (Diabetes - 3 visits/year)","$500","20%","$500 + copay x 3"
+"Major (Cancer Treatment, Hospitalization)","$2,000","20%","$2,000 + 20% of treatment"
+
+How to use this calculator:
+1. Enter your plan's IUA (Initial Unshared Amount / Deductible)
+2. Enter your plan's coinsurance percentage
+3. For each scenario, you'll pay: IUA + (percent coinsurance on costs beyond IUA)
+
+SCENARIO BREAKDOWN:
+
+Scenario 1: Minor Care (Doctor Visit + Antibiotics)
+- Doctor visit: $150
+- Antibiotics: $30
+- Total medical cost: $180
+- YOU PAY: Your IUA (up to $500) = $180 (less than IUA)
+- Your cost: $180 (if you haven't hit your IUA yet)
+
+Scenario 2: Surgery (Appendectomy)
+- Surgery + hospital: $15,000
+- YOU PAY: Your IUA + 20% coinsurance on $14,500 = $2,900 + IUA
+
+Scenario 3: Chronic Condition (Diabetes Management)
+- 3 doctor visits x $150 = $450
+- Monthly supplies = $100 x 12 = $1,200
+- Total: $1,650/year
+- YOU PAY: Your IUA + 20% of $1,150 = IUA + $230
+
+Scenario 4: Major Event (Cancer Treatment)
+- Chemotherapy + hospital: $50,000
+- YOU PAY: Your IUA + 20% coinsurance on $49,000 = IUA + $9,800
+
+Compare your actual plan's costs to these scenarios to understand your true expenses.
