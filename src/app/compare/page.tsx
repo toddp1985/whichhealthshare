@@ -173,7 +173,7 @@ export default function ComparePage() {
                 <p className="text-sm text-[var(--color-text-secondary)] mb-3">
                   Regulated health insurance (not health sharing): $300-$600/mo. Guaranteed coverage. Pre-existing conditions covered from day one. Unlimited cap.
                 </p>
-                <CTAButton href="https://presidiohealthcare.com" variant="primary" target="_blank">Explore Presidio →</CTAButton>
+                <CTAButton href="https://presidiocare.com" variant="primary" target="_blank">Explore Presidio →</CTAButton>
               </div>
               <div className="text-right">
                 <StarRating rating={presidio.rating} />
