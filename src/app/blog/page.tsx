@@ -1,252 +1,260 @@
 import Link from 'next/link'
+import { Metadata } from 'next'
 
-const blogPosts = [
-  {
-    slug: 'health-sharing-family-plans-multigenerational',
-    title: 'Health Sharing Family Planners: Best Options for Multigenerational Families',
-    excerpt: 'Health sharing for families with parents, kids, and grandparents. Coverage limits, cost structure, and best plans for multiple generations and family sizes.',
-    date: 'Feb 10, 2026',
-    readTime: '12 min',
-    wordCount: 2680
-  },
-  {
-    slug: 'health-sharing-state-regulations-guide',
-    title: 'State-by-State Health Sharing Regulations (What You Need to Know)',
-    excerpt: 'Are health sharing plans legal in your state? State-by-state regulations, disclosure rules, and regulatory changes in 2026. Restrictions by state.',
-    date: 'Feb 10, 2026',
-    readTime: '12 min',
-    wordCount: 2840
-  },
-  {
-    slug: 'health-sharing-annual-assessments-budget-impact',
-    title: 'Annual Assessments Explained: Budget Impact & Hidden Costs',
-    excerpt: 'What are annual assessments in health sharing? How they impact your budget mid-year, real examples, and how to forecast the true cost of your contribution.',
-    date: 'Feb 10, 2026',
-    readTime: '10 min',
-    wordCount: 2520
-  },
-  {
-    slug: 'health-sharing-vs-short-term-insurance',
-    title: 'Health Sharing vs Short-Term Insurance: When to Use Each',
-    excerpt: 'When is short-term insurance better? When is health sharing the right choice? Coverage gaps, costs, and actual use cases compared side-by-side.',
-    date: 'Feb 10, 2026',
-    readTime: '10 min',
-    wordCount: 2840
-  },
-  {
-    slug: 'health-sharing-chronic-illness-10-year-cost',
-    title: 'Cost of Health Sharing with Chronic Illness (Realistic 10-Year Breakdown)',
-    excerpt: 'Real-world 10-year cost analysis for chronic conditions under health sharing. Diabetes, hypertension, asthma: actual numbers and coverage limits compared to insurance.',
-    date: 'Feb 10, 2026',
-    readTime: '13 min',
-    wordCount: 3040
-  },
-  {
-    slug: 'medicare-health-sharing-supplement-strategy',
-    title: 'Medicare + Health Sharing: Supplement Strategy 2026',
-    excerpt: 'Should you combine Medicare with health sharing? Strategy guide for retirees exploring hybrid coverage models in 2026. Costs, regulations, and real scenarios.',
-    date: 'Feb 10, 2026',
-    readTime: '12 min',
-    wordCount: 2860
-  },
-  {
-    slug: 'health-sharing-remote-workers-contractors-2026',
-    title: 'Health Sharing for Remote Workers & Contractors',
-    excerpt: 'Why health sharing makes sense for remote workers and contractors. No employer plan? No problem. Compare options and calculate real savings with no employer dependency.',
-    date: 'Feb 10, 2026',
-    readTime: '11 min',
-    wordCount: 2880
-  },
-  {
-    slug: 'pre-existing-conditions-health-sharing-guide',
-    title: 'Pre-Existing Conditions Guide: What Counts, What Doesn\'t',
-    excerpt: 'Complete guide to how health sharing plans handle pre-existing conditions. Waiting periods, exclusions, exemptions, and what conditions typically qualify.',
-    date: 'Feb 10, 2026',
-    readTime: '11 min',
-    wordCount: 2770
-  },
-  {
-    slug: 'health-sharing-small-business-plans-2026',
-    title: 'Health Sharing for Small Business Owners: 2-10 Employee Plans',
-    excerpt: 'Affordable health sharing options for small businesses with 2-10 employees. Compare group plans, individual enrollment, and cost advantages in 2026.',
-    date: 'Feb 10, 2026',
-    readTime: '11 min',
-    wordCount: 2930
-  },
-  {
-    slug: 'aca-to-health-sharing-switching-guide',
-    title: 'How to Switch from ACA to Health Sharing Without Losing Coverage',
-    excerpt: 'Step-by-step guide to transitioning from ACA insurance to health sharing plans. Avoid coverage gaps, understand waiting periods, and time your switch properly for 2026.',
-    date: 'Feb 10, 2026',
-    readTime: '12 min',
-    wordCount: 2810
-  },
-  {
-    slug: 'switching-insurance-health-sharing-guide',
-    title: 'Switching from Insurance to Health Sharing: Step-by-Step Guide',
-    excerpt: 'Complete step-by-step guide to switching from ACA, employer, or Medicare to health sharing, with timing strategies and common mistakes to avoid.',
-    date: 'Feb 10, 2026',
-    readTime: '12 min',
-    wordCount: 2486
-  },
-  {
-    slug: 'prescriptions-health-sharing-coverage-gaps',
-    title: 'Prescriptions & Health Sharing: Coverage Gaps Nobody Mentions',
-    excerpt: 'Health sharing plans have gaps in prescription drug coverage. Pre-existing medications face 6-12 month waiting periods, and specialty drugs are expensive.',
-    date: 'Feb 10, 2026',
-    readTime: '11 min',
-    wordCount: 2442
-  },
-  {
-    slug: 'health-sharing-waiting-periods-explained',
-    title: 'Health Sharing Waiting Periods Explained: What Actually Counts?',
-    excerpt: 'Waiting periods block coverage for pre-existing conditions for 6-12 months. See what gets blocked, what it costs, and which plans have no waiting periods.',
-    date: 'Feb 10, 2026',
-    readTime: '10 min',
-    wordCount: 2236
-  },
-  {
-    slug: 'family-health-sharing-plans-4-members',
-    title: 'Family Health Sharing Plans: Which Works Best for 4+ Member Households?',
-    excerpt: 'For families of 4-6+, health sharing costs $500-$900/month vs. ACA at $1,200-$2,000/month. Compare coverage, waiting periods, and real family scenarios.',
-    date: 'Feb 10, 2026',
-    readTime: '12 min',
-    wordCount: 2518
-  },
-  {
-    slug: 'self-employed-health-sharing-tax-strategy',
-    title: 'Choosing Health Sharing for Self-Employed: Tax Strategy + Cost Comparison',
-    excerpt: 'Self-employed health sharing contributions are tax-deductible. See real scenarios at $50K-$200K income levels, HSA strategies, and cost comparisons.',
-    date: 'Feb 10, 2026',
-    readTime: '11 min',
-    wordCount: 2424
-  },
-  {
-    slug: 'health-sharing-vs-insurance-2026',
-    title: 'Health Sharing vs Health Insurance: Which One Actually Saves You Money?',
-    excerpt: 'As of February 2026, health sharing averaged $140–$350/month vs. insurance at $250–$800+/month. But which actually saves money? See 5 real-world scenarios with actual costs.',
-    date: 'Feb 9, 2026',
-    readTime: '12 min',
-    wordCount: 2485
-  },
-  {
-    slug: 'hidden-costs-health-sharing-2026',
-    title: 'Hidden Costs of Health Sharing Plans Nobody Talks About',
-    excerpt: 'Monthly contributions aren\'t the real cost. Factor in waiting periods, coverage caps, claim denials, and fees—the true cost is 2-4x higher than advertised.',
-    date: 'Feb 9, 2026',
-    readTime: '10 min',
-    wordCount: 2310
-  },
-  {
-    slug: 'crowdhealth-vs-health-sharing',
-    title: 'CrowdHealth vs Health Sharing Plans: Which Model Works Better?',
-    excerpt: 'CrowdHealth is a healthcare crowdfunding platform that averaged $140/month for individuals under 55 and has no per-event coverage caps, while traditional health sharing ministries use pooled monthly contributions and typically cost $115–$405/month.',
-    date: 'Feb 8, 2026',
-    readTime: '8 min',
-    wordCount: 1600
-  },
-  {
-    slug: '2026-health-sharing-what-changed',
-    title: '2026 Health Sharing Plans: What Changed and What Didn\'t',
-    excerpt: 'Pricing updates, coverage rule changes, and which plans improved or worsened in 2026. Updated January 2026.',
-    date: 'Feb 8, 2026',
-    readTime: '7 min',
-    wordCount: 1400
-  },
-  {
-    slug: 'hidden-cost-health-sharing',
-    title: 'The Hidden Cost of Health Sharing Nobody Talks About',
-    excerpt: 'Out-of-pocket amounts, claim rejections, coverage gaps, and true annual costs calculated for all 7 plans.',
-    date: 'Feb 8, 2026',
-    readTime: '6 min',
-    wordCount: 1200
-  },
-  {
-    slug: 'compared-15-health-sharing-plans',
-    title: 'I Compared 15 Health Sharing Plans So You Don\'t Have To',
-    excerpt: 'Analysis of all 15 health sharing plans, identifying the top 3 and ranking the rest by cost, coverage, and restrictions.',
-    date: 'Feb 8, 2026',
-    readTime: '8 min',
-    wordCount: 1500
-  },
-  {
-    slug: 'health-sharing-hsa-tax-strategy',
-    title: 'Health Sharing and Your HSA: The 2026 Tax Strategy',
-    excerpt: 'Zion + HSA Secure bundle, tax math, and when HSA pairing makes sense for self-employed people.',
-    date: 'Feb 8, 2026',
-    readTime: '6 min',
-    wordCount: 1200
-  },
-  {
-    slug: '5-questions-before-joining',
-    title: '5 Questions to Ask Before Joining Any Health Sharing Plan',
-    excerpt: 'Pre-existing conditions, faith requirements, claim frequency, emergency savings, and income/subsidies — the critical questions.',
-    date: 'Feb 8, 2026',
-    readTime: '5 min',
-    wordCount: 1000
-  },
-  {
-    slug: 'non-religious-health-sharing-options',
-    title: 'Non-Religious Health Sharing: Your 2026 Options',
-    excerpt: 'Only 3 secular options: CrowdHealth, Zion, and Sedera. Comparison and decision tree.',
-    date: 'Feb 8, 2026',
-    readTime: '6 min',
-    wordCount: 1300
-  },
-  {
-    slug: 'left-health-insurance-crowdhealth',
-    title: 'I Left Health Insurance for CrowdHealth — What Happened',
-    excerpt: 'Personal narrative: switching from $385/month ACA to $140/month CrowdHealth, 6-month experience, and lessons learned.',
-    date: 'Feb 8, 2026',
-    readTime: '8 min',
-    wordCount: 1500
-  }
-]
-
-export const metadata = {
-  title: 'Blog — WhichHealthShare',
-  description: 'Read our latest articles on health sharing plans, crowdfunding, and insurance alternatives.',
-  openGraph: {
-    title: 'Blog — WhichHealthShare',
-    description: 'Read our latest articles on health sharing plans, crowdfunding, and insurance alternatives.',
-    url: 'https://whichhealthshare.com/blog',
-    type: 'website'
-  }
+export const metadata: Metadata = {
+  title: 'Health Sharing & Insurance Blog — WhichHealthShare',
+  description: 'In-depth guides, comparisons, and personal stories on health sharing plans, insurance alternatives, and coverage strategies.',
 }
 
-export default function BlogPage() {
+const blogPosts = [
+  // Comparisons
+  {
+    category: 'Comparison',
+    title: 'Health Sharing vs Health Insurance: Which One Actually Saves You Money?',
+    slug: 'health-sharing-vs-insurance',
+    excerpt: 'Side-by-side cost comparison including hidden fees, coverage gaps, and real annual costs.',
+  },
+  {
+    category: 'Comparison',
+    title: 'Health Sharing vs ACA: Real Cost Comparison 2026',
+    slug: 'health-sharing-vs-aca',
+    excerpt: 'ACA marketplace plans vs health sharing. Which is cheaper? Which covers more? Complete breakdown.',
+  },
+  {
+    category: 'Comparison',
+    title: 'Health Sharing vs Short-Term Insurance: When to Use Each',
+    slug: 'health-sharing-vs-short-term-insurance',
+    excerpt: 'When temporary coverage makes sense, and when you need longer-term health sharing plans.',
+  },
+  {
+    category: 'Comparison',
+    title: 'Health Sharing vs Presidio Insurance: Which Covers More?',
+    slug: 'health-sharing-vs-presidio-insurance',
+    excerpt: 'Presidio insurance vs health sharing. Pre-existing conditions, waiting periods, and guaranteed coverage.',
+  },
+  {
+    category: 'Comparison',
+    title: 'CrowdHealth vs Health Sharing Plans: Which Model Works Better?',
+    slug: 'crowdhealth-vs-health-sharing',
+    excerpt: 'Healthcare crowdfunding vs traditional health sharing ministries. Cost, coverage, and how they work.',
+  },
+  {
+    category: 'Comparison',
+    title: 'CrowdHealth vs ACA Insurance: The Real Cost Comparison',
+    slug: 'crowdhealth-vs-aca-insurance',
+    excerpt: 'Is crowdfunding cheaper than ACA? Coverage limits, waiting periods, and real costs.',
+  },
+  {
+    category: 'Comparison',
+    title: 'Samaritan Ministries vs CrowdHealth: Community vs Crowdfunding',
+    slug: 'samaritan-vs-crowdhealth',
+    excerpt: 'Traditional health sharing vs modern crowdfunding. Which model suits your needs?',
+  },
+
+  // Plan Comparisons
+  {
+    category: 'Plan Comparison',
+    title: 'CHM vs Sedera: Budget vs Secular Health Sharing',
+    slug: 'chm-vs-sedera',
+    excerpt: 'Christian Healthcare Ministries vs Sedera. Cost, coverage, and faith requirements.',
+  },
+  {
+    category: 'Plan Comparison',
+    title: 'Zion HealthShare vs Medi-Share: Which Plan Wins in 2026?',
+    slug: 'zion-vs-medi-share',
+    excerpt: 'Direct pricing comparison, coverage limits, waiting periods, and member experiences.',
+  },
+
+  // Guides
+  {
+    category: 'Guide',
+    title: 'Switching from Insurance to Health Sharing: Step-by-Step Guide',
+    slug: 'switching-from-insurance-to-health-sharing',
+    excerpt: 'How to transition, timing your switch, coverage gaps to avoid, and application process.',
+  },
+  {
+    category: 'Guide',
+    title: 'Non-Religious Health Sharing: Your 2026 Options',
+    slug: 'non-religious-health-sharing-options',
+    excerpt: 'Secular health sharing plans without faith requirements or lifestyle restrictions.',
+  },
+  {
+    category: 'Guide',
+    title: 'Health Sharing and Your HSA: The 2026 Tax Strategy',
+    slug: 'health-sharing-hsa-tax-strategy',
+    excerpt: 'How to pair health sharing with HSAs for maximum tax benefits.',
+  },
+  {
+    category: 'Guide',
+    title: 'Why Health Sharing Plans Have Waiting Periods (And Why It Matters)',
+    slug: 'health-sharing-waiting-periods',
+    excerpt: 'What waiting periods are, why they exist, and how they affect your coverage timeline.',
+  },
+  {
+    category: 'Guide',
+    title: 'State-by-State Health Sharing Regulations (What You Need to Know)',
+    slug: 'health-sharing-state-regulations',
+    excerpt: 'Which states allow health sharing, which restrict it, and what rules apply to you.',
+  },
+  {
+    category: 'Guide',
+    title: 'Prescriptions & Health Sharing: Coverage Gaps Nobody Mentions',
+    slug: 'health-sharing-prescriptions',
+    excerpt: 'How different plans handle prescription costs, hidden limits, and pharmacy networks.',
+  },
+
+  // Industry/Trends
+  {
+    category: 'Trends',
+    title: 'What Changed in Health Sharing in 2026?',
+    slug: '2026-health-sharing-what-changed',
+    excerpt: 'New regulations, pricing updates, coverage changes, and what it means for you.',
+  },
+  {
+    category: 'Trends',
+    title: 'Hidden Costs of Health Sharing Plans Nobody Talks About',
+    slug: 'hidden-cost-health-sharing',
+    excerpt: 'Out-of-pocket amounts, claim rejections, coverage gaps, and true annual costs.',
+  },
+  {
+    category: 'Trends',
+    title: 'The Hidden Cost of Health Sharing Nobody Talks About',
+    slug: 'hidden-costs-nobody-talks-about',
+    excerpt: 'Fees, claim rejections, and surprise out-of-pocket costs that derail budgets.',
+  },
+
+  // Self-Employed / Business
+  {
+    category: 'Self-Employed',
+    title: 'Health Sharing for Small Business Owners: 2-10 Employee Plans',
+    slug: 'health-sharing-small-business',
+    excerpt: 'Plans for small business owners, solo 401k strategies, and cost-saving options.',
+  },
+  {
+    category: 'Self-Employed',
+    title: 'Health Sharing for Freelancers and Self-Employed (2026)',
+    slug: 'health-sharing-for-freelancers',
+    excerpt: 'Coverage for variable income, no employer requirements, tax-efficient strategies.',
+  },
+  {
+    category: 'Self-Employed',
+    title: 'Choosing Health Sharing for Self-Employed: Tax Strategy + Cost Comparison',
+    slug: 'health-sharing-self-employed-tax',
+    excerpt: 'Tax deductions, 1099 strategies, and cost comparison vs employee insurance.',
+  },
+  {
+    category: 'Self-Employed',
+    title: 'Health Sharing for Remote Workers & Contractors',
+    slug: 'health-sharing-remote-workers',
+    excerpt: 'Coverage options for distributed teams, contractors, and digital nomads.',
+  },
+
+  // Family & Special Situations
+  {
+    category: 'Family',
+    title: 'Family Health Sharing Plans: Which Works Best for 4+ Member Households?',
+    slug: 'family-health-sharing-plans',
+    excerpt: 'Family pricing, coverage for children, maternity, and managing multi-generation costs.',
+  },
+  {
+    category: 'Family',
+    title: 'Health Sharing Family Planners: Best Options for Multigenerational Families',
+    slug: 'health-sharing-multigenerational-families',
+    excerpt: 'Extended family coverage, aging parents, and plans that work for 5+ members.',
+  },
+
+  // Specific Situations
+  {
+    category: 'Chronic Illness',
+    title: 'Cost of Health Sharing with Chronic Illness (Realistic 10-Year Breakdown)',
+    slug: 'health-sharing-chronic-illness',
+    excerpt: 'Real costs for ongoing conditions, pre-existing exclusions, and long-term planning.',
+  },
+  {
+    category: 'Budget',
+    title: 'Monthly Budget Under $300? Here\'s What You Can Actually Get',
+    slug: 'health-sharing-under-300',
+    excerpt: 'Plans under $300/month, what coverage you get, and tradeoffs to understand.',
+  },
+  {
+    category: 'Time Frame',
+    title: 'Short-Term vs Long-Term Health Sharing Strategies: Which Timeframe Fits?',
+    slug: 'short-term-vs-long-term-strategies',
+    excerpt: 'Whether to plan short-term (1-2 years) or long-term (5+ years) health coverage.',
+  },
+  {
+    category: 'Faith',
+    title: 'Faith-Based vs Secular Health Sharing: Which Community Fits You?',
+    slug: 'faith-based-vs-secular',
+    excerpt: 'Religious vs non-religious plans, lifestyle requirements, and community models.',
+  },
+
+  // Personal Stories
+  {
+    category: 'Personal Story',
+    title: 'I Left Health Insurance for CrowdHealth — What Happened',
+    slug: 'left-insurance-for-crowdhealth',
+    excerpt: 'Real experience switching from traditional insurance to crowdfunding model.',
+  },
+  {
+    category: 'Personal Story',
+    title: 'I Compared 15 Health Sharing Plans So You Don\'t Have To',
+    slug: 'compared-15-plans',
+    excerpt: 'Hands-on comparison of the biggest plans, what I learned, and why I chose mine.',
+  },
+]
+
+export default function BlogIndexPage() {
+  const categories = [...new Set(blogPosts.map(p => p.category))].sort()
+
   return (
-    <div className="section-narrow py-12">
-      <h1 className="font-serif font-bold text-5xl mb-4 text-center">Blog</h1>
-      <p className="text-lg text-center text-[var(--color-text-secondary)] mb-12 max-w-2xl mx-auto">
-        Research, analysis, and honest reviews of health sharing plans, crowdfunding alternatives, and insurance options.
-      </p>
+    <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
+      {/* Hero */}
+      <section className="section-narrow py-16 sm:py-24 text-center">
+        <h1 className="font-serif font-bold text-4xl sm:text-5xl mb-4">
+          Health Sharing Blog & Guides
+        </h1>
+        <p className="text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto mb-8">
+          Deep dives into health sharing plans, insurance alternatives, cost breakdowns, and real-world strategies.
+        </p>
+      </section>
 
-      <div className="space-y-6">
-        {blogPosts.map((post) => (
-          <Link key={post.slug} href={`/blog/${post.slug}`} className="card hover:shadow-lg transition block">
-            <h2 className="font-serif font-bold text-2xl mb-3 text-blue-600 hover:text-blue-700">
-              {post.title}
-            </h2>
-            <p className="text-[var(--color-text-secondary)] mb-4">
-              {post.excerpt}
-            </p>
-            <div className="flex flex-wrap gap-4 text-sm text-[var(--color-text-muted)]">
-              <span>{post.date}</span>
-              <span>•</span>
-              <span>{post.readTime} read</span>
-            </div>
-          </Link>
-        ))}
-      </div>
+      {/* Posts by Category */}
+      {categories.map(category => (
+        <section key={category} className="section-narrow py-12 border-b border-blue-100">
+          <h2 className="font-serif font-bold text-2xl mb-6">{category}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {blogPosts
+              .filter(p => p.category === category)
+              .map(post => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="card hover:shadow-lg transition group"
+                >
+                  <h3 className="font-serif font-bold text-lg mb-2 group-hover:text-blue-600 transition leading-snug">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-[var(--color-text-secondary)] line-clamp-2">
+                    {post.excerpt}
+                  </p>
+                  <div className="mt-4 pt-4 border-t border-[var(--color-border)]">
+                    <span className="text-sm font-semibold text-blue-600 group-hover:text-blue-800">
+                      Read Article →
+                    </span>
+                  </div>
+                </Link>
+              ))}
+          </div>
+        </section>
+      ))}
 
-      <div className="mt-12 p-6 card bg-blue-50 text-center">
-        <h3 className="font-serif font-bold text-xl mb-2">Not sure which plan is right for you?</h3>
-        <p className="text-[var(--color-text-secondary)] mb-4">Take our quick 6-question quiz to get personalized recommendations.</p>
-        <Link href="/quiz" className="text-blue-600 hover:text-blue-700 font-bold">
-          Start the Quiz →
-        </Link>
-      </div>
+      {/* Footer */}
+      <section className="section-narrow py-12 text-center">
+        <p className="text-[var(--color-text-secondary)]">
+          {blogPosts.length} articles covering everything you need to know about health sharing plans.
+        </p>
+      </section>
     </div>
   )
 }
