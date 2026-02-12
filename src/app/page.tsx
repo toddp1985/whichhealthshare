@@ -3,6 +3,7 @@ import { loadAllMinistries, getCrowdHealth, getPresidio } from '@/lib/data'
 import CTAButton from '@/components/common/CTAButton'
 import EmailCapture from '@/components/common/EmailCapture'
 import StarRating from '@/components/common/StarRating'
+import BlogCarousel from '@/components/BlogCarousel'
 import { generateBreadcrumb, generateOrganizationSchema, generateWebsiteSchema } from '@/lib/schema'
 
 export default function HomePage() {
@@ -191,34 +192,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Latest Blog Posts */}
-      <section className="section py-16 bg-[var(--color-bg-warm)]">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="font-serif font-bold text-3xl mb-8 text-center">Latest Articles</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Link href="/blog/crowdhealth-vs-health-sharing" className="card hover:shadow-lg transition">
-              <h3 className="font-serif font-bold text-lg mb-2 text-blue-600 hover:text-blue-700">CrowdHealth vs Health Sharing</h3>
-              <p className="text-sm text-[var(--color-text-secondary)]">CrowdHealth is a healthcare crowdfunding platform that averaged $140/month for individuals under 55 and has no per-event coverage caps.</p>
-              <p className="text-xs text-[var(--color-text-muted)] mt-3">1,600 words • Feb 8, 2026</p>
-            </Link>
-            <Link href="/blog/2026-health-sharing-what-changed" className="card hover:shadow-lg transition">
-              <h3 className="font-serif font-bold text-lg mb-2 text-blue-600 hover:text-blue-700">What Changed in 2026</h3>
-              <p className="text-sm text-[var(--color-text-secondary)]">Pricing updates, coverage rule changes, and which plans improved or got worse in 2026.</p>
-              <p className="text-xs text-[var(--color-text-muted)] mt-3">1,400 words • Feb 8, 2026</p>
-            </Link>
-            <Link href="/blog/hidden-cost-health-sharing" className="card hover:shadow-lg transition">
-              <h3 className="font-serif font-bold text-lg mb-2 text-blue-600 hover:text-blue-700">Hidden Costs Nobody Talks About</h3>
-              <p className="text-sm text-[var(--color-text-secondary)]">Out-of-pocket amounts, claim rejections, coverage gaps, and true annual costs calculated.</p>
-              <p className="text-xs text-[var(--color-text-muted)] mt-3">1,200 words • Feb 8, 2026</p>
-            </Link>
-          </div>
-          <div className="text-center mt-8">
-            <Link href="/blog" className="text-blue-600 hover:text-blue-700 font-bold text-lg">
-              Read All Articles →
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Blog Carousel */}
+      <BlogCarousel />
     </>
   )
 }
