@@ -4,8 +4,8 @@ export default function Footer() {
   return (
     <footer className="bg-[var(--color-bg-warm)] border-t border-[var(--color-border)] mt-12">
       <div className="container mx-auto px-4 py-12 max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8 items-start">
-          <div className="md:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 items-start">
+          <div>
             <h3 className="font-serif font-bold text-lg mb-4">WhichHealthShare</h3>
             <p className="text-sm text-[var(--color-text-secondary)]">
               Find the right health sharing plan for your family.
