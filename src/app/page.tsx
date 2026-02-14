@@ -5,7 +5,7 @@ import EmailCapture from '@/components/common/EmailCapture'
 import StarRating from '@/components/common/StarRating'
 import BlogCarousel from '@/components/BlogCarousel'
 import Testimonials from '@/components/Testimonials'
-import { generateBreadcrumb, generateOrganizationSchema, generateWebsiteSchema } from '@/lib/schema'
+import { generateBreadcrumb, generateOrganizationSchema, generateWebsiteSchema, generateFAQSchema } from '@/lib/schema'
 
 export default function HomePage() {
   const ministries = loadAllMinistries()
@@ -17,11 +17,31 @@ export default function HomePage() {
     { name: 'Home', url: '/' }
   ])
 
+  const faqSchema = generateFAQSchema([
+    {
+      question: "What's the difference between health sharing and insurance?",
+      answer: "Health sharing is voluntary. Members pool money to help each other pay medical bills. Insurance is guaranteed regulated coverage. Health sharing is cheaper but not guaranteed. Insurance is more expensive but guaranteed."
+    },
+    {
+      question: "What about pre-existing conditions?",
+      answer: "Most health sharing ministries have waiting periods (6-12 months). Insurance covers pre-existing conditions from day one. This is a major difference."
+    },
+    {
+      question: "Which plan should I choose?",
+      answer: "Take our 6-question quiz. It'll recommend the top 3 options based on your household size, budget, health needs, and faith preference."
+    },
+    {
+      question: "How do you make money?",
+      answer: "WhichHealthShare is user-supported. If you find our research helpful, consider supporting us with a tip. This helps us keep our analysis independent and honest."
+    }
+  ])
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateOrganizationSchema()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateWebsiteSchema()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-50 via-white to-[var(--color-bg-warm)] py-16 px-4 sm:py-32 md:py-48">
