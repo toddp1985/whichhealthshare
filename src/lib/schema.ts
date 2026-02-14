@@ -72,12 +72,29 @@ export function generateOrganizationSchema() {
     name: 'WhichHealthShare',
     url: 'https://whichhealthshare.com',
     logo: 'https://whichhealthshare.com/logo.png',
+    description: 'Independent comparison site for health sharing plans, health insurance alternatives, and medical cost-sharing programs. Compare 16 plans with verified 2026 pricing.',
+    foundingDate: '2024',
     sameAs: ['https://twitter.com/whichhealthshare'],
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Customer Support',
-      email: 'hello@whichhealthshare.com'
-    }
+      email: 'hello@whichhealthshare.com',
+      availableLanguage: 'en'
+    },
+    areaServed: {
+      '@type': 'Country',
+      name: 'United States'
+    },
+    knowsAbout: [
+      'Health Sharing Ministries',
+      'Health Insurance Alternatives',
+      'Christian Healthcare Ministries',
+      'Medi-Share',
+      'Samaritan Ministries',
+      'CrowdHealth',
+      'Medical Cost Sharing',
+      'ACA Alternatives'
+    ]
   }
 }
 
@@ -96,5 +113,31 @@ export function generateWebsiteSchema() {
       },
       query_input: 'required name=search_term_string'
     }
+  }
+}
+
+export function generateItemListSchema(items: Array<{ name: string; url: string; description: string; rating?: number }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Product',
+        name: item.name,
+        url: `https://whichhealthshare.com${item.url}`,
+        description: item.description,
+        ...(item.rating && {
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: item.rating,
+            bestRating: 5,
+            worstRating: 1,
+            ratingCount: 1
+          }
+        })
+      }
+    }))
   }
 }

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { loadAllMinistries } from '@/lib/data'
 import StarRating from '@/components/common/StarRating'
-import { generateBreadcrumb } from '@/lib/schema'
+import { generateBreadcrumb, generateItemListSchema } from '@/lib/schema'
 
 export const metadata = {
   title: 'All 16 Plan Reviews 2026 — WhichHealthShare',
@@ -16,6 +16,15 @@ export default function ReviewsIndexPage() {
     { name: 'Reviews', url: '/reviews' }
   ])
 
+  const itemListSchema = generateItemListSchema(
+    ministries.map(m => ({
+      name: m.name,
+      url: `/reviews/${m.slug}`,
+      description: m.bestFor,
+      rating: m.rating
+    }))
+  )
+
   const healthShares = ministries.filter(m => m.type === 'healthshare')
   const crowdhealth = ministries.find(m => m.slug === 'crowdhealth')
   const presidio = ministries.find(m => m.slug === 'presidio-healthcare')
@@ -23,6 +32,7 @@ export default function ReviewsIndexPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
 
       <div className="section-narrow py-12">
         <h1 className="font-serif font-bold text-5xl mb-4 text-center">Plan Reviews</h1>
