@@ -1,0 +1,82 @@
+{
+  "slug": "united-refuah",
+  "name": "United Refuah HealthShare",
+  "type": "healthshare",
+  "founded": 2018,
+  "headquarters": "Cleveland Heights, OH",
+  "memberCount": "~8,000",
+  "accredited": false,
+  "website": "https://unitedrefuahhs.org",
+  "affiliateLink": "https://unitedrefuahhs.org",
+  "affiliatePartner": "",
+  "faithRequirement": "jewish",
+  "statementOfFaith": "Members must abide by the ethical and practical laws and lifestyle of Judaism based upon the dictates of the Torah. Commitments to abstain from tobacco/marijuana, avoid substance abuse, and maintain health through balanced diet and exercise.",
+  "churchAttendanceRequired": false,
+  "plans": [
+    {
+      "name": "United Refuah Standard",
+      "monthlyRange": {
+        "individual": { "min": 199, "max": 199 },
+        "couple": { "min": 349, "max": 349 },
+        "family": { "min": 499, "max": 499 }
+      },
+      "coverageCap": "$1,000,000 per incident / no lifetime limit",
+      "iua": [500, 1000, 1500],
+      "coShare": "20% after APA, capped at $1,000 (single) / $2,000 (couple) / $4,000 (family)",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": true,
+        "mentalHealth": true,
+        "dental": true,
+        "vision": true,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    }
+  ],
+  "network": {
+    "type": "any-doctor",
+    "name": null,
+    "providerCount": null,
+    "canUseAnyDoctor": true
+  },
+  "preExisting": {
+    "accepted": true,
+    "waitingPeriod": "12 months",
+    "phasedSharing": true,
+    "sharingLimits": "Year 1: not shared. Years 2-3: up to $25,000/condition/year. Year 4+: fully shareable. Some conditions may require permanent waivers."
+  },
+  "hsaCompatible": false,
+  "processingTime": "5-30 days",
+  "rating": 3.5,
+  "bestFor": "Jewish families seeking faith-aligned health sharing with simple flat-rate pricing, low deductibles, and included dental/vision",
+  "pros": [
+    "Simple flat-rate pricing regardless of age — $199/$349/$499 per month",
+    "Very low Annual PreShare Amounts ($500-$1,500) compared to most health shares",
+    "$1,000,000 per-incident limit with no lifetime maximum",
+    "Includes dental ($300/year), vision ($50/year), and mental health (12 visits/year) — uncommon among health shares",
+    "Preventive care shared at 100% with no APA/CoShare requirement"
+  ],
+  "cons": [
+    "Jewish faith requirement limits eligibility to Jewish individuals and families",
+    "Strict pre-notification/pre-approval required for many procedures — failure may result in denied sharing",
+    "Maternity restrictions: must be married at conception, 10-month enrollment waiting period",
+    "Standard prescriptions not covered (only hospital inpatient and high-dollar medications)"
+  ],
+  "aiSummary": "United Refuah HealthShare is the only Jewish health sharing ministry, founded in 2018 in Cleveland Heights, OH with approximately 8,000 members. It uses simple, age-independent flat-rate pricing: $199/month (single), $349/month (couple), $499/month (family). APA (deductible) ranges from $500-$1,500. Coverage cap of $1,000,000 per incident with no lifetime limit. Unique among health shares in including dental ($300/year), vision ($50/year), and mental health (12 visits/year). Covers telehealth (TeleRefuah, $0), maternity (with restrictions), preventive care at 100%, emergency, and surgery. Requires Jewish faith. No provider network — any doctor, reimbursed at up to 150% of Medicare rates.",
+  "aiKeyFacts": [
+    "Monthly cost: $199 (single), $349 (couple), $499 (family) — flat rate regardless of age",
+    "APA (deductible): $500 (single), $1,000 (couple), $1,500 (family)",
+    "Per-incident cap: $1,000,000 with no lifetime maximum",
+    "Co-share: 20% after APA, capped at $1,000-$4,000/year",
+    "Jewish faith requirement",
+    "Includes dental ($300/yr), vision ($50/yr), mental health (12 visits/yr)",
+    "Preventive care shared at 100% (no APA applies)",
+    "No provider network — any doctor, reimbursed at 150% of Medicare",
+    "5-30 day processing time (fast compared to industry)"
+  ],
+  "lastUpdated": "2026-02-13",
+  "lastVerified": "2026-02-13"
+}

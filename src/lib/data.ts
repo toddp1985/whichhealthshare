@@ -71,7 +71,7 @@ export function loadMinistry(slug: string): Ministry | null {
   }
 }
 
-// Featured plans (7 total) - explicit whitelist
+// Featured plans (16 total) - explicit whitelist
 const FEATURED_PLANS = [
   'zion-healthshare',
   'medi-share',
@@ -79,7 +79,16 @@ const FEATURED_PLANS = [
   'sedera',
   'samaritan-ministries',
   'crowdhealth',
-  'presidio-healthcare'
+  'presidio-healthcare',
+  'hsa-secure',
+  'jhs-community',
+  'oneshare-health',
+  'liberty-healthshare',
+  'solidarity-healthshare',
+  'altrua-healthshare',
+  'netwell',
+  'impact-health-sharing',
+  'united-refuah'
 ]
 
 export function loadAllMinistries(): Ministry[] {

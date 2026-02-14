@@ -18,8 +18,8 @@ export default function StarRating({ rating, maxRating = 5, showLabel = true }: 
   })
 
   return (
-    <div className="flex items-center gap-2">
-      <div className="flex gap-0.5">
+    <div className="flex items-center gap-2" role="img" aria-label={`${rating} out of ${maxRating} stars`}>
+      <div className="flex gap-0.5" aria-hidden="true">
         {stars.map((fill, i) => {
           if (fill === 1) {
             return (

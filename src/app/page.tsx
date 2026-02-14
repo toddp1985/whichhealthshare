@@ -4,11 +4,12 @@ import CTAButton from '@/components/common/CTAButton'
 import EmailCapture from '@/components/common/EmailCapture'
 import StarRating from '@/components/common/StarRating'
 import BlogCarousel from '@/components/BlogCarousel'
+import Testimonials from '@/components/Testimonials'
 import { generateBreadcrumb, generateOrganizationSchema, generateWebsiteSchema } from '@/lib/schema'
 
 export default function HomePage() {
   const ministries = loadAllMinistries()
-  const topMinistries = ministries  // Show all 7 plans
+  const topMinistries = ministries.slice(0, 6)  // Show top 6 rated plans on homepage
   const crowdhealth = getCrowdHealth()
   const presidio = getPresidio()
 
@@ -65,8 +66,8 @@ export default function HomePage() {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-10 sm:mb-16">
             <span className="text-xs sm:text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3 sm:mb-4 inline-block">Compare Options</span>
-            <h2 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4 text-[var(--color-text)]">7 Health Plans & Alternatives</h2>
-            <p className="text-base sm:text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto">Health sharing ministries, crowdfunding, and insurance options compared side-by-side</p>
+            <h2 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4 text-[var(--color-text)]">16 Health Plans Compared</h2>
+            <p className="text-base sm:text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto">Health sharing ministries, crowdfunding, and insurance options compared side-by-side with verified 2026 pricing</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -171,6 +172,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials */}
+      <Testimonials />
 
       {/* Email Capture */}
       <section className="section py-16">

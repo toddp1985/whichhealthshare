@@ -1,0 +1,126 @@
+{
+  "slug": "jhs-community",
+  "name": "JHS Community (Jericho Health Share)",
+  "type": "healthshare",
+  "founded": 2021,
+  "headquarters": "Houston, TX",
+  "memberCount": "Not disclosed",
+  "accredited": false,
+  "website": "https://jhsdivinecommunity.org/",
+  "affiliateLink": "https://hsaforamerica.com/jhs-community/",
+  "affiliatePartner": "HSA for America",
+  "faithRequirement": "any-faith",
+  "statementOfFaith": "Members affirm a belief in the fundamental and religious right to worship God in their own way and commitment to a caring community. No specific Christian doctrine required.",
+  "churchAttendanceRequired": false,
+  "plans": [
+    {
+      "name": "Distinct",
+      "monthlyRange": {
+        "individual": { "min": 75, "max": 200 },
+        "couple": { "min": 150, "max": 400 },
+        "family": { "min": 225, "max": 600 }
+      },
+      "coverageCap": "$250,000/year, $1M lifetime",
+      "iua": [2500, 5000, 10000],
+      "coShare": "50% of next $10,000 after MRA (AMRA caps: $5,000 member, $10,000 couple, $15,000 family)",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": true,
+        "maternity": false,
+        "mentalHealth": false,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    },
+    {
+      "name": "Diverse",
+      "monthlyRange": {
+        "individual": { "min": 125, "max": 275 },
+        "couple": { "min": 250, "max": 550 },
+        "family": { "min": 375, "max": 825 }
+      },
+      "coverageCap": "$750,000/year, $2M lifetime",
+      "iua": [2500, 5000, 10000],
+      "coShare": "20% of next $10,000 after MRA (AMRA caps: $2,000 member, $4,000 couple, $6,000 family)",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": true,
+        "maternity": true,
+        "mentalHealth": false,
+        "dental": true,
+        "vision": true,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    },
+    {
+      "name": "Dynamic",
+      "monthlyRange": {
+        "individual": { "min": 175, "max": 375 },
+        "couple": { "min": 350, "max": 750 },
+        "family": { "min": 525, "max": 1125 }
+      },
+      "coverageCap": "$1,000,000/year, $3M lifetime",
+      "iua": [2500, 5000, 10000],
+      "coShare": "0% after MRA (no AMRA -- 100% shared after MRA)",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": true,
+        "maternity": true,
+        "mentalHealth": false,
+        "dental": true,
+        "vision": true,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    }
+  ],
+  "network": {
+    "type": "ppo",
+    "name": "First Health / PHCS (MultiPlan)",
+    "providerCount": "1,000,000+",
+    "canUseAnyDoctor": true
+  },
+  "preExisting": {
+    "accepted": true,
+    "waitingPeriod": "12 months",
+    "phasedSharing": true,
+    "sharingLimits": "24-month lookback period. Pre-existing conditions not shareable for first 12 months (excludes office visits and urgent care). Phased sharing applies after waiting period."
+  },
+  "hsaCompatible": true,
+  "processingTime": "60-90 days",
+  "rating": 3.2,
+  "bestFor": "Healthy individuals seeking the lowest possible monthly cost with catastrophic-level protection and high deductible tolerance",
+  "pros": [
+    "Among the lowest monthly contributions in the health sharing industry",
+    "No strict faith requirement -- open to all beliefs",
+    "Access to First Health/PHCS network with 1M+ providers (no reduction for out-of-network)",
+    "Can be combined with HSA via MEC plan for tax-free savings",
+    "Includes MDLIVE telehealth and Drexi prescription drug benefits"
+  ],
+  "cons": [
+    "Not available in 17 states (AK, CA, CT, DC, HI, KY, MA, MD, MN, MT, ND, NH, NM, OR, PA, WA, WI)",
+    "BBB complaints and government enforcement actions (NH, ND settlements) raise concerns",
+    "Mental health expenses not shareable",
+    "Maternity only on Diverse ($8,000 cap) and Dynamic ($12,000 cap) with 9-month waiting period"
+  ],
+  "aiSummary": "JHS Community, also known as Jericho Health Share, is a 501(c)(3) nonprofit health care sharing ministry based in Houston, TX, offering catastrophic-focused health sharing at some of the lowest monthly costs in the industry. The DIVINE product line includes three tiers: Distinct (most affordable, $250K/year cap, 50% co-share after MRA), Diverse (balanced, $750K/year cap, 20% co-share), and Dynamic (most comprehensive, $1M/year cap, 0% co-share). Members choose a Member Responsibility Amount (MRA) of $2,500, $5,000, or $10,000. The plans include MDLIVE telehealth, Drexi prescription discounts, and access to the First Health/PHCS network with over 1 million providers. Notable limitations include no mental health sharing, limited maternity coverage (Diverse/Dynamic only with 9-month wait), a 12-month pre-existing conditions waiting period, and unavailability in 17 states. The organization has faced regulatory scrutiny, including settlements with New Hampshire and North Dakota attorneys general.",
+  "aiKeyFacts": [
+    "Plans: Distinct ($250K cap), Diverse ($750K cap), Dynamic ($1M cap)",
+    "MRA options: $2,500, $5,000, or $10,000",
+    "Co-share: 50% (Distinct), 20% (Diverse), 0% (Dynamic) of next $10K after MRA",
+    "Network: First Health/PHCS with 1M+ providers",
+    "Includes: MDLIVE telehealth, Drexi Rx discounts, wellness services ($500-$2,000/year)",
+    "Office visits: $40 copay, up to $400 shared (4/8/12 visits by tier)",
+    "Not available in 17 states including CA, MA, PA, WA",
+    "Maternity: Diverse up to $8K, Dynamic up to $12K (9-month wait); not on Distinct",
+    "Pre-existing: 12-month wait with 24-month lookback"
+  ],
+  "lastUpdated": "2026-02-13",
+  "lastVerified": "2026-02-13"
+}

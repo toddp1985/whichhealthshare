@@ -1,16 +1,15 @@
 import { loadAllMinistries, getCrowdHealth, getPresidio } from '@/lib/data'
-import CTAButton from '@/components/common/CTAButton'
 import StarRating from '@/components/common/StarRating'
-// Affiliate links removed - using direct website URLs instead
+import { buildMinistryLink, buildCrowdHealthLink, buildPresidioLink } from '@/lib/affiliate'
 import { generateBreadcrumb } from '@/lib/schema'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Compare All 7 Options 2026 — WhichHealthShare',
-  description: 'Side-by-side comparison of the 7 best health sharing ministries, CrowdHealth crowdfunding, and Presidio insurance. All 2026 pricing verified.',
+  title: 'Compare All 16 Health Sharing Plans 2026 — WhichHealthShare',
+  description: 'Side-by-side comparison of 16 health sharing plans including Zion, Medi-Share, CHM, Sedera, CrowdHealth, and Presidio insurance. All 2026 pricing verified.',
   openGraph: {
-    title: 'Compare All 7 Options',
-    description: 'Compare 5 health sharing ministries, CrowdHealth crowdfunding, and Presidio insurance with verified 2026 pricing.'
+    title: 'Compare All 16 Health Sharing Plans',
+    description: 'Compare 14 health sharing ministries, CrowdHealth crowdfunding, and Presidio insurance with verified 2026 pricing.'
   }
 }
 
@@ -29,7 +28,7 @@ export default function ComparePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
 
       <div className="section-narrow pt-8">
-        <h1 className="font-serif font-bold text-4xl mb-4">Compare All 7 Plans</h1>
+        <h1 className="font-serif font-bold text-4xl mb-4">Compare All 16 Plans</h1>
         <p className="text-lg text-[var(--color-text-secondary)] mb-8">
           Side-by-side comparison of health sharing ministries, crowdfunding alternatives, and insurance options. Pricing current as of February 2026.
         </p>
@@ -44,7 +43,7 @@ export default function ComparePage() {
                 <p className="text-sm text-[var(--color-text-secondary)] mb-3">
                   Crowdfunding platform (not health sharing): $60 advocacy + ~$80 crowdfunding = ~$140/mo (avg under 55). No coverage caps. No faith requirement.
                 </p>
-                <CTAButton href="https://www.joincrowdhealth.com" variant="primary" target="_blank">Visit CrowdHealth →</CTAButton>
+                <a href={buildCrowdHealthLink('', 'compare')} className="btn btn-primary" target="_blank" rel="noopener noreferrer">Visit CrowdHealth →</a>
               </div>
               <div className="text-right">
                 <StarRating rating={crowdhealth.rating} />
@@ -98,14 +97,14 @@ export default function ComparePage() {
                   </div>
                 </div>
 
-                <CTAButton
-                  href={ministry.website}
-                  variant="primary"
-                  className="w-full h-12"
+                <a
+                  href={buildMinistryLink(ministry.affiliateLink || ministry.website, ministry.slug, 'compare')}
+                  className="btn btn-primary w-full h-12"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Visit Website →
-                </CTAButton>
+                </a>
               </div>
             )
           })}
@@ -147,14 +146,14 @@ export default function ComparePage() {
                       <StarRating rating={ministry.rating} />
                     </td>
                     <td className="px-4 py-3">
-                      <CTAButton
-                        href={ministry.website}
-                        variant="primary"
-                        className="text-sm h-10"
+                      <a
+                        href={buildMinistryLink(ministry.affiliateLink || ministry.website, ministry.slug, 'compare')}
+                        className="btn btn-primary text-sm h-10"
                         target="_blank"
+                        rel="noopener noreferrer"
                       >
                         Visit →
-                      </CTAButton>
+                      </a>
                     </td>
                   </tr>
                 )
@@ -173,7 +172,7 @@ export default function ComparePage() {
                 <p className="text-sm text-[var(--color-text-secondary)] mb-3">
                   Regulated health insurance (not health sharing): $300-$600/mo. Guaranteed coverage. Pre-existing conditions covered from day one. Unlimited cap.
                 </p>
-                <CTAButton href="https://presidiocare.com" variant="primary" target="_blank">Explore Presidio →</CTAButton>
+                <a href={buildPresidioLink('compare')} className="btn btn-primary" target="_blank" rel="noopener noreferrer">Explore Presidio →</a>
               </div>
               <div className="text-right">
                 <StarRating rating={presidio.rating} />
@@ -187,7 +186,7 @@ export default function ComparePage() {
           <p className="text-[var(--color-text)] mb-4">
             Not sure which plan is right for you?
           </p>
-          <CTAButton href="/quiz" variant="primary">Take Our Free Quiz →</CTAButton>
+          <Link href="/quiz" className="btn btn-primary">Take Our Free Quiz →</Link>
         </div>
       </div>
     </>

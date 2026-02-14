@@ -226,17 +226,23 @@ input:disabled, textarea:disabled, select:disabled {
 .card-gold {
   background-color: var(--color-gold-bg);
   border: 2px solid var(--color-gold-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
 }
 
 .card-gold:hover {
   border-color: var(--color-gold);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
 }
 
 /* Coral Treatment (CrowdHealth) */
 .card-coral {
   background-color: #FFF7F0;
   border: 2px solid #FF6B35;
+  border-radius: 12px;
   padding: 1.5rem;
+  transition: all 0.2s ease;
 }
 
 .card-coral:hover {
@@ -244,7 +250,8 @@ input:disabled, textarea:disabled, select:disabled {
   box-shadow: 0 8px 16px rgba(255, 107, 53, 0.15);
 }
 
-.card-coral p {
+.card-coral p,
+.card-gold p {
   overflow-wrap: break-word;
   word-break: break-word;
   hyphens: auto;

@@ -1,0 +1,82 @@
+{
+  "slug": "hsa-secure",
+  "name": "HSA Secure",
+  "type": "healthshare",
+  "founded": 2013,
+  "headquarters": "Deerfield Beach, FL",
+  "memberCount": "70,000+",
+  "accredited": false,
+  "website": "https://joinmpb.com/securehsa/",
+  "affiliateLink": "https://hsaforamerica.com/mpowering-benefits/",
+  "affiliatePartner": "HSA for America",
+  "faithRequirement": "secular",
+  "statementOfFaith": "None required. Welcomes members of all faiths and backgrounds.",
+  "churchAttendanceRequired": false,
+  "plans": [
+    {
+      "name": "HSA Secure (Individual)",
+      "monthlyRange": {
+        "individual": { "min": 170, "max": 320 },
+        "couple": { "min": 340, "max": 640 },
+        "family": { "min": 460, "max": 899 }
+      },
+      "coverageCap": "Unlimited",
+      "iua": [1250, 2500, 5000],
+      "coShare": "0%",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": true,
+        "maternity": true,
+        "mentalHealth": false,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    }
+  ],
+  "network": {
+    "type": "any-doctor",
+    "name": "No network restriction",
+    "providerCount": null,
+    "canUseAnyDoctor": true
+  },
+  "preExisting": {
+    "accepted": true,
+    "waitingPeriod": "12 months",
+    "phasedSharing": true,
+    "sharingLimits": "Up to $25,000 in year 2, $50,000 in year 3, $125,000 after year 4. Controlled high blood pressure, high cholesterol, and diabetes may qualify immediately."
+  },
+  "hsaCompatible": true,
+  "processingTime": "14-35 days",
+  "rating": 4.0,
+  "bestFor": "Self-employed individuals and small business owners who want HSA tax advantages paired with affordable health sharing",
+  "pros": [
+    "HSA-compatible -- unique among health sharing plans, enabling tax-free savings",
+    "Includes ACA-compliant preventive care through MEC insurance component",
+    "No faith requirement -- fully secular and open to all",
+    "No network restrictions -- use any licensed provider in the US or Puerto Rico",
+    "No annual or lifetime sharing limits"
+  ],
+  "cons": [
+    "Mental health expenses are not shareable (tele-mental health add-on available)",
+    "No dental or vision coverage",
+    "Maternity has 6-month waiting period and separate IUA",
+    "Pre-existing conditions have a 12-month waiting period with phased sharing limits"
+  ],
+  "aiSummary": "HSA Secure, offered by MPowering Benefits (MPB Health), is the only health sharing plan designed specifically for HSA compatibility. It combines a special HSA-qualified MEC (minimum essential coverage) preventive health insurance plan with a low-cost healthshare powered by Zion HealthShare. This unique structure allows members to contribute pre-tax dollars to an HSA while enjoying affordable monthly sharing contributions starting at $170/month for individuals. The plan covers preventive care, telehealth ($0 consultations via Primestin Care), prescriptions (via Zion RxShare), maternity (after 6-month wait), emergency, and surgery. It has no network restrictions, no annual or lifetime caps, and no faith requirements. The trade-off is that mental health is not directly shareable and pre-existing conditions face a phased sharing schedule.",
+  "aiKeyFacts": [
+    "Monthly cost: $170-$320 (individual), $460-$899 (family)",
+    "Only HSA-compatible health sharing plan available",
+    "Powered by Zion HealthShare with MEC insurance component",
+    "IUA options: $1,250, $2,500, or $5,000 (max 3 per household per year)",
+    "No annual or lifetime sharing limits",
+    "No faith requirement -- fully secular",
+    "Free telehealth via Primestin Care ($0 consultations)",
+    "Covers: preventive, telehealth, prescriptions, maternity (6-mo wait), emergency, surgery",
+    "Does not cover: mental health (add-on available), dental, vision"
+  ],
+  "lastUpdated": "2026-02-13",
+  "lastVerified": "2026-02-13"
+}

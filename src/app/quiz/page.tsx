@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { getQuizRecommendations, shouldShowPresidio, QuizAnswers } from '@/lib/quiz-logic'
 import CTAButton from '@/components/common/CTAButton'
 import StarRating from '@/components/common/StarRating'
-// Affiliate links removed - using direct website URLs instead
+import { buildMinistryLink, buildCrowdHealthLink, buildPresidioLink } from '@/lib/affiliate'
 import Link from 'next/link'
 import EmailCaptureForm from '@/components/EmailCaptureForm'
 import { trackQuizStart, trackQuizCompletion, trackAffiliateClick } from '@/lib/analytics'
@@ -15,6 +15,29 @@ export default function QuizPage() {
   const [results, setResults] = useState<any[] | null>(null)
   const [quizCompleted, setQuizCompleted] = useState<boolean>(false)
   const [ministries, setMinistries] = useState<any[]>([])
+
+  // Restore progress from localStorage
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('quizProgress')
+      if (saved) {
+        const { step: savedStep, answers: savedAnswers } = JSON.parse(saved)
+        if (savedStep > 0 && savedAnswers) {
+          setStep(savedStep)
+          setAnswers(savedAnswers)
+        }
+      }
+    } catch {}
+  }, [])
+
+  // Save progress on each step change
+  useEffect(() => {
+    if (step > 0 || Object.keys(answers).length > 0) {
+      try {
+        localStorage.setItem('quizProgress', JSON.stringify({ step, answers }))
+      } catch {}
+    }
+  }, [step, answers])
 
   useEffect(() => {
     // Fetch ministries from API
@@ -97,46 +120,23 @@ export default function QuizPage() {
     if (step < questions.length - 1) {
       setStep(step + 1)
     } else {
-      // Quiz complete - show email capture form before revealing results
+      // Quiz complete - calculate and show results immediately
       setQuizCompleted(true)
-      trackQuizStart() // Signal quiz completion to analytics
-    }
-  }
-
-  const handleEmailCaptured = (email: string) => {
-    // Store email for exit-intent tipping modal
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('userEmail', email)
-    }
-
-    // Now that email is captured, calculate and show results
-    if (ministries.length > 0) {
-      const recs = getQuizRecommendations(ministries, answers as QuizAnswers)
-      setResults(recs)
-      
-      // Track quiz completion with top recommendation
-      if (recs.length > 0) {
-        trackQuizCompletion(recs[0].ministry.slug)
+      try { localStorage.removeItem('quizProgress') } catch {}
+      if (ministries.length > 0) {
+        const recs = getQuizRecommendations(ministries, newAnswers as QuizAnswers)
+        setResults(recs)
+        if (recs.length > 0) {
+          trackQuizCompletion(recs[0].ministry.slug)
+        }
       }
     }
   }
 
-  // Show email capture form when quiz is completed but email not yet captured
-  if (quizCompleted && !results) {
-    return (
-      <div className="section-narrow pt-12 pb-12">
-        <h1 className="font-serif font-bold text-4xl sm:text-5xl mb-3 text-center text-[var(--color-text)]">
-          Almost there!
-        </h1>
-        <p className="text-lg text-center text-[var(--color-text-secondary)] mb-12">
-          Enter your email to see your personalized health plan recommendations
-        </p>
-        
-        <div className="max-w-md mx-auto">
-          <EmailCaptureForm onSuccess={handleEmailCaptured} showMessage={false} />
-        </div>
-      </div>
-    )
+  const handleEmailCaptured = (email: string) => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('userEmail', email)
+    }
   }
 
   if (results) {
@@ -201,14 +201,15 @@ export default function QuizPage() {
               <Link href={`/reviews/${topResult.ministry.slug}`} className="btn btn-secondary flex-1 h-12">
                 Read Full Review →
               </Link>
-              <CTAButton
-                href={topResult.ministry.website}
-                variant="primary"
-                className="flex-1 h-12"
+              <a
+                href={buildMinistryLink(topResult.ministry.affiliateLink || topResult.ministry.website, topResult.ministry.slug, 'quiz')}
+                className="btn btn-primary flex-1 h-12"
                 target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackAffiliateClick(topResult.ministry.slug, 'quiz-top-result')}
               >
                 Visit Website →
-              </CTAButton>
+              </a>
             </div>
           </div>
         )}
@@ -247,14 +248,15 @@ export default function QuizPage() {
                     <Link href={`/reviews/${result.ministry.slug}`} className="btn btn-secondary flex-1 text-center text-sm h-10">
                       Read Review →
                     </Link>
-                    <CTAButton
-                      href={result.ministry.website}
-                      variant="primary"
-                      className="flex-1 text-center text-sm h-10"
+                    <a
+                      href={buildMinistryLink(result.ministry.affiliateLink || result.ministry.website, result.ministry.slug, 'quiz')}
+                      className="btn btn-primary flex-1 text-center text-sm h-10"
                       target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackAffiliateClick(result.ministry.slug, 'quiz-other')}
                     >
                       Visit →
-                    </CTAButton>
+                    </a>
                   </div>
                 </div>
               ))}
@@ -273,14 +275,15 @@ export default function QuizPage() {
               <Link href={`/reviews/crowdhealth`} className="btn btn-secondary flex-1 text-center text-sm">
                 Learn More →
               </Link>
-              <CTAButton
-                href="https://www.joincrowdhealth.com"
-                variant="primary"
-                className="flex-1 text-center text-sm"
+              <a
+                href={buildCrowdHealthLink('', 'quiz')}
+                className="btn btn-primary flex-1 text-center text-sm"
                 target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackAffiliateClick('crowdhealth', 'quiz-alternative')}
               >
                 Visit Website →
-              </CTAButton>
+              </a>
             </div>
           </div>
         )}
@@ -296,14 +299,15 @@ export default function QuizPage() {
               <Link href={`/reviews/presidio-healthcare`} className="btn btn-secondary flex-1 text-center text-sm">
                 Learn More →
               </Link>
-              <CTAButton
-                href="https://presidiocare.com"
-                variant="primary"
-                className="flex-1 text-center text-sm"
+              <a
+                href={buildPresidioLink('quiz')}
+                className="btn btn-primary flex-1 text-center text-sm"
                 target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackAffiliateClick('presidio-healthcare', 'quiz-alternative')}
               >
                 Visit Website →
-              </CTAButton>
+              </a>
             </div>
           </div>
         )}

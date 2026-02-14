@@ -4,8 +4,8 @@ export default function Footer() {
   return (
     <footer className="bg-[var(--color-bg-warm)] border-t border-[var(--color-border)] mt-12">
       <div className="container mx-auto px-4 py-12 max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-8 items-start">
-          <div className="col-span-1">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8 items-start">
+          <div className="md:col-span-2">
             <h3 className="font-serif font-bold text-lg mb-4">WhichHealthShare</h3>
             <p className="text-sm text-[var(--color-text-secondary)]">
               Find the right health sharing plan for your family.
@@ -34,21 +34,31 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-bold mb-4">Learn</h4>
+            <h4 className="font-bold mb-4">Answers</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/blog/2026-health-sharing-what-changed" className="text-[var(--color-primary)] hover:underline">
-                  What Changed in 2026
+                <Link href="/answers/what-is-health-sharing" className="text-[var(--color-primary)] hover:underline">
+                  What Is Health Sharing?
                 </Link>
               </li>
               <li>
-                <Link href="/blog/crowdhealth-vs-health-sharing" className="text-[var(--color-primary)] hover:underline">
-                  CrowdHealth vs Health Sharing
+                <Link href="/answers/vs-insurance" className="text-[var(--color-primary)] hover:underline">
+                  vs. Insurance
                 </Link>
               </li>
               <li>
-                <Link href="/blog/non-religious-health-sharing-options" className="text-[var(--color-primary)] hover:underline">
-                  Secular Options
+                <Link href="/answers/pre-existing-conditions" className="text-[var(--color-primary)] hover:underline">
+                  Pre-Existing Conditions
+                </Link>
+              </li>
+              <li>
+                <Link href="/answers/best-health-sharing-plan" className="text-[var(--color-primary)] hover:underline">
+                  Best Plan for 2026
+                </Link>
+              </li>
+              <li>
+                <Link href="/answers" className="text-[var(--color-primary)] hover:underline">
+                  All Answers →
                 </Link>
               </li>
             </ul>

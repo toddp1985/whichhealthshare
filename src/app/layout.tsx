@@ -7,13 +7,18 @@ import StickyQuizCTA from '@/components/StickyQuizCTA'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'WhichHealthShare — Find Your Health Sharing Plan',
-  description: 'Compare health sharing plans, CrowdHealth crowdfunding, and insurance alternatives. Independent reviews of 15+ ministries.',
+  title: 'WhichHealthShare — Compare 16 Health Sharing Plans (2026)',
+  description: 'Compare 16 health sharing plans side-by-side with verified 2026 pricing. Independent reviews of Zion, Medi-Share, CHM, Sedera, CrowdHealth, Presidio, and more.',
+  metadataBase: new URL('https://whichhealthshare.com'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: 'WhichHealthShare — Find Your Health Sharing Plan',
-    description: 'Compare health sharing plans, CrowdHealth, and insurance alternatives.',
+    title: 'WhichHealthShare — Compare 16 Health Sharing Plans (2026)',
+    description: 'Compare 16 health sharing plans with verified 2026 pricing. Independent reviews, no affiliate bias.',
     url: 'https://whichhealthshare.com',
-    type: 'website'
+    siteName: 'WhichHealthShare',
+    type: 'website',
   }
 }
 

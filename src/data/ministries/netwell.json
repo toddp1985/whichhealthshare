@@ -1,0 +1,104 @@
+{
+  "slug": "netwell",
+  "name": "netWell HealthShare",
+  "type": "healthshare",
+  "founded": 2020,
+  "headquarters": "Austin, TX",
+  "memberCount": "~25,000",
+  "accredited": true,
+  "website": "https://www.netwell.com",
+  "affiliateLink": "https://www.netwell.com",
+  "affiliatePartner": "",
+  "faithRequirement": "christian-light",
+  "statementOfFaith": "Statement of Religious and Ethical Beliefs based on Christian principles (1 John 4:21, Galatians 6:2): belief in the God of the Bible, duty to love and accept one another, obligation to live a healthy lifestyle, ethical responsibility to carry each other's burdens.",
+  "churchAttendanceRequired": false,
+  "plans": [
+    {
+      "name": "Advantage",
+      "monthlyRange": {
+        "individual": { "min": 144, "max": 195 },
+        "couple": { "min": 290, "max": 390 },
+        "family": { "min": 350, "max": 490 }
+      },
+      "coverageCap": "$250,000 annual / $500,000 lifetime",
+      "iua": [5000, 10000],
+      "coShare": "0% after MCP",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": false,
+        "mentalHealth": false,
+        "dental": false,
+        "vision": false,
+        "preventive": false,
+        "emergency": true,
+        "surgery": true
+      }
+    },
+    {
+      "name": "Elite+",
+      "monthlyRange": {
+        "individual": { "min": 195, "max": 269 },
+        "couple": { "min": 390, "max": 540 },
+        "family": { "min": 490, "max": 650 }
+      },
+      "coverageCap": "$1,000,000 annual / $2,000,000 lifetime",
+      "iua": [2500, 5000, 10000],
+      "coShare": "0% after MCP",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": true,
+        "mentalHealth": true,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    }
+  ],
+  "network": {
+    "type": "ppo",
+    "name": "First Health / PHCS (MultiPlan)",
+    "providerCount": "1,000,000+",
+    "canUseAnyDoctor": true
+  },
+  "preExisting": {
+    "accepted": true,
+    "waitingPeriod": "24 months",
+    "phasedSharing": false,
+    "sharingLimits": "Full exclusion during 24-month waiting period, then fully shareable. Cancer: 90-day waiting period."
+  },
+  "hsaCompatible": false,
+  "processingTime": "Claims must be filed within 90 days",
+  "rating": 2.8,
+  "bestFor": "Budget-conscious individuals seeking affordable health sharing without strict religious requirements",
+  "pros": [
+    "No strict faith requirement — most inclusive healthshare for non-religious or non-Christian members",
+    "Affordable catastrophic coverage starting at ~$144/month (Advantage plan)",
+    "Large First Health/PHCS/MultiPlan network with 1M+ providers",
+    "Generous netWellRx prescription discount program (600+ free generics for $19.95/month add-on)",
+    "Year-round open enrollment (no annual enrollment windows)"
+  ],
+  "cons": [
+    "Very poor member satisfaction (2.2/5 Trustpilot, 1.63/5 BBB reviews) with frequent claim complaints",
+    "24-month pre-existing condition waiting period — among the longest in the industry",
+    "Not available in 4 states (CA, MD, VT, WA)",
+    "Small organization (16 employees for 25,000+ members)"
+  ],
+  "aiSummary": "netWell HealthShare is a Christian-light health sharing ministry founded in 2020 in Austin, TX with approximately 25,000 members. It offers two plans: Advantage (catastrophic, starting at $144/mo, $250K annual cap) and Elite+ (comprehensive, starting at $269/mo, $1M annual cap). Uses First Health/PHCS/MultiPlan network with 1M+ providers. Requires agreement with Christian-based Statement of Beliefs but no specific denomination or church attendance required. BBB accredited with A rating since 2024, but poor member satisfaction scores. 24-month pre-existing condition waiting period. Not available in CA, MD, VT, WA.",
+  "aiKeyFacts": [
+    "Monthly cost: $144-$269 (individual), $350-$650 (family)",
+    "MCP (deductible): $2,500-$10,000",
+    "Annual cap: $250,000 (Advantage) or $1,000,000 (Elite+)",
+    "Lifetime cap: $500,000 (Advantage) or $2,000,000 (Elite+)",
+    "Christian-light faith requirement (no church attendance)",
+    "24-month pre-existing condition waiting period",
+    "First Health/PHCS/MultiPlan network (1,000,000+ providers)",
+    "BBB accredited (A rating) since September 2024",
+    "Not available in CA, MD, VT, WA"
+  ],
+  "lastUpdated": "2026-02-13",
+  "lastVerified": "2026-02-13"
+}

@@ -1,0 +1,148 @@
+{
+  "slug": "altrua-healthshare",
+  "name": "Altrua HealthShare",
+  "type": "healthshare",
+  "founded": 1996,
+  "headquarters": "Bee Cave, TX",
+  "memberCount": "~25,000",
+  "accredited": false,
+  "website": "https://altruahealthshare.org",
+  "affiliateLink": "https://altruahealthshare.org",
+  "affiliatePartner": "",
+  "faithRequirement": "christian-light",
+  "statementOfFaith": "Members agree to Statement of Standards: caring for one another, healthy lifestyle with proper nutrition, rejecting tobacco/illicit drugs/excessive alcohol, sexual relations only within marriage, all life is sacred gift from God, family care is essential.",
+  "churchAttendanceRequired": false,
+  "plans": [
+    {
+      "name": "Diamond",
+      "monthlyRange": {
+        "individual": { "min": 356, "max": 617 },
+        "couple": { "min": 400, "max": 700 },
+        "family": { "min": 550, "max": 900 }
+      },
+      "coverageCap": "Unlimited annual / $2,000,000 lifetime",
+      "iua": [500],
+      "coShare": "Secondary MRA: $2,500 (affiliated) or $5,000 (non-affiliated)",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": true,
+        "mentalHealth": true,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    },
+    {
+      "name": "Emerald",
+      "monthlyRange": {
+        "individual": { "min": 318, "max": 528 },
+        "couple": { "min": 350, "max": 600 },
+        "family": { "min": 475, "max": 780 }
+      },
+      "coverageCap": "Unlimited annual / $1,000,000 lifetime",
+      "iua": [1000],
+      "coShare": "Secondary MRA: $2,500 (affiliated) or $5,000 (non-affiliated)",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": true,
+        "mentalHealth": true,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    },
+    {
+      "name": "Sapphire",
+      "monthlyRange": {
+        "individual": { "min": 173, "max": 424 },
+        "couple": { "min": 250, "max": 475 },
+        "family": { "min": 350, "max": 625 }
+      },
+      "coverageCap": "$250,000 annual / $1,000,000 lifetime",
+      "iua": [1500],
+      "coShare": "Secondary MRA: $2,500 (affiliated) or $5,000 (non-affiliated)",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": false,
+        "mentalHealth": true,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    },
+    {
+      "name": "Ruby",
+      "monthlyRange": {
+        "individual": { "min": 113, "max": 297 },
+        "couple": { "min": 175, "max": 350 },
+        "family": { "min": 275, "max": 450 }
+      },
+      "coverageCap": "$150,000 annual / $1,000,000 lifetime",
+      "iua": [7500],
+      "coShare": "50% of next $10,000 (max $5,000 additional at non-affiliated)",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": false,
+        "mentalHealth": true,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    }
+  ],
+  "network": {
+    "type": "ppo",
+    "name": "First Health / PHCS",
+    "providerCount": "1,000,000+",
+    "canUseAnyDoctor": true
+  },
+  "preExisting": {
+    "accepted": true,
+    "waitingPeriod": "24-60 months",
+    "phasedSharing": true,
+    "sharingLimits": "10-year lookback period. 2-5 year waiting periods depending on condition. Some conditions (MS, type 1 diabetes) have lifetime exclusions."
+  },
+  "hsaCompatible": false,
+  "processingTime": "30-45 business days",
+  "rating": 2.8,
+  "bestFor": "Budget-conscious Christians wanting flexible plan tiers with pooled office visits and a 30-year track record",
+  "pros": [
+    "Nearly 30-year operational history (founded 1996) — one of the longest-running health sharing ministries",
+    "Four distinct plan tiers from budget Ruby to comprehensive Diamond",
+    "Pooled office visits (6 per member/year) shareable among household members",
+    "Light faith requirements — no church attendance verification",
+    "30-day free trial period with full refund option"
+  ],
+  "cons": [
+    "Strict pre-existing condition policy — 10-year lookback, 2-5 year waiting periods, some lifetime exclusions",
+    "Lifetime sharing caps on all plans ($1M-$2M) limit catastrophic protection",
+    "Maternity only on Diamond and Emerald plans with $5,000 additional MRA",
+    "Dependents only covered until age 23 (younger than ACA standard of 26)"
+  ],
+  "aiSummary": "Altrua HealthShare is a Christian health sharing ministry founded in 1996 in Bee Cave, TX with approximately 25,000 members. It offers four 'Gem' tier plans: Diamond ($356-$617/mo individual, $500 MRA), Emerald ($318-$528/mo, $1,000 MRA), Sapphire ($173-$424/mo, $1,500 MRA), and Ruby ($113-$297/mo, $7,500 MRA). Uses First Health/PHCS network with 1M+ providers. Light Christian faith requirement with no church attendance verification. Has one of the strictest pre-existing condition policies in the industry: 10-year lookback, 2-5 year waiting periods, and some lifetime exclusions. Offers unique features like pooled office visits and SmileShare dental add-on.",
+  "aiKeyFacts": [
+    "Monthly cost: $113-$617 (individual), $275-$900 (family)",
+    "MRA (deductible): $500-$7,500 depending on tier",
+    "Lifetime cap: $1M-$2M depending on plan",
+    "Christian faith requirement (light — no church attendance)",
+    "10-year pre-existing condition lookback with 2-5 year waits",
+    "First Health/PHCS network (1,000,000+ providers)",
+    "6 pooled office visits per member/year shared among household",
+    "30-day free trial period",
+    "SmileShare dental add-on available ($29-$58/month)"
+  ],
+  "lastUpdated": "2026-02-13",
+  "lastVerified": "2026-02-13"
+}

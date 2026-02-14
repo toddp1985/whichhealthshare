@@ -1,0 +1,126 @@
+{
+  "slug": "solidarity-healthshare",
+  "name": "Solidarity HealthShare",
+  "type": "healthshare",
+  "founded": 2016,
+  "headquarters": "Tempe, AZ",
+  "memberCount": "~50,000",
+  "accredited": false,
+  "website": "https://solidarityhealthshare.org",
+  "affiliateLink": "https://solidarityhealthshare.org",
+  "affiliatePartner": "",
+  "faithRequirement": "catholic",
+  "statementOfFaith": "Rooted in Sacred Scripture and Sacred Tradition of the Catholic Church. Members agree to live by biblical principles, practice solidarity, commit to the common good, and pursue a healthy lifestyle as the body is a 'temple of the Holy Spirit.'",
+  "churchAttendanceRequired": true,
+  "plans": [
+    {
+      "name": "Solidarity ONE",
+      "monthlyRange": {
+        "individual": { "min": 149, "max": 399 },
+        "couple": { "min": 299, "max": 499 },
+        "family": { "min": 399, "max": 599 }
+      },
+      "coverageCap": "$1,000,000 per incident per year",
+      "iua": [3000, 6000, 9000, 12000],
+      "coShare": "30% up to $125,000, then 0%",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": true,
+        "maternity": true,
+        "mentalHealth": true,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    },
+    {
+      "name": "Solidarity SAVVY",
+      "monthlyRange": {
+        "individual": { "min": 85, "max": 250 },
+        "couple": { "min": null, "max": null },
+        "family": { "min": null, "max": null }
+      },
+      "coverageCap": "$1,000,000 per incident per year",
+      "iua": [3000, 12000],
+      "coShare": "30% up to $125,000, then 0%",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": false,
+        "mentalHealth": false,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    },
+    {
+      "name": "Solidarity SHIELD",
+      "monthlyRange": {
+        "individual": { "min": 67, "max": 200 },
+        "couple": { "min": null, "max": null },
+        "family": { "min": null, "max": null }
+      },
+      "coverageCap": "$1,000,000 per incident per year",
+      "iua": [12000],
+      "coShare": "30% up to $125,000, then 0%",
+      "includes": {
+        "telehealth": false,
+        "prescriptions": false,
+        "maternity": false,
+        "mentalHealth": false,
+        "dental": false,
+        "vision": false,
+        "preventive": false,
+        "emergency": true,
+        "surgery": false
+      }
+    }
+  ],
+  "network": {
+    "type": "any-doctor",
+    "name": null,
+    "providerCount": null,
+    "canUseAnyDoctor": true
+  },
+  "preExisting": {
+    "accepted": true,
+    "waitingPeriod": "12 months",
+    "phasedSharing": true,
+    "sharingLimits": "Year 1: not shared. Year 2: up to $25,000. Year 3: additional $25,000. Year 4+: fully shareable."
+  },
+  "hsaCompatible": false,
+  "processingTime": "90-120 days (members report 6-24 months)",
+  "rating": 2.5,
+  "bestFor": "Catholic families seeking values-aligned ministry with strong mental health and maternity coverage",
+  "pros": [
+    "First health sharing ministry to fully share mental health treatment (unlimited counseling, medication, hospitalization)",
+    "Comprehensive maternity coverage including hospitals, midwives, and home births",
+    "Alternative/integrative care covered (naturopathic, chiropractic, regenerative medicine)",
+    "Reference-based pricing saves 60-70% off billed charges",
+    "No age cap for membership"
+  ],
+  "cons": [
+    "Extremely slow claim processing — members report 6-24 months despite stated 90-120 day timeline",
+    "Very poor member satisfaction (1.4-1.6/5 across review sites)",
+    "No traditional provider network — reference-based pricing can cause balance billing disputes",
+    "Strict faith requirements including church attendance verification"
+  ],
+  "aiSummary": "Solidarity HealthShare is a Catholic-centered health sharing ministry founded in 2016 in Tempe, AZ with approximately 50,000 members. It offers three plans: Solidarity ONE (comprehensive, $149-$599/mo), SAVVY (young adults 18-29, starting at $85/mo), and SHIELD (catastrophic, starting at $67/mo). Uses reference-based pricing with no provider network. The ONE plan provides best-in-class mental health coverage (unlimited counseling, medication, hospitalization) and maternity including midwives and home births. Requires Catholic or Christian faith with church attendance. Major concerns include extremely slow claims processing (6-24 months reported) and poor member satisfaction ratings.",
+  "aiKeyFacts": [
+    "Monthly cost: $67-$399 (individual), $399-$599 (family)",
+    "AUA (deductible): $3,000-$12,000",
+    "Per-incident cap: $1,000,000",
+    "Co-share: 30% up to $125,000, then 0% to $1M",
+    "Catholic faith requirement with church attendance",
+    "Best-in-class mental health coverage (unlimited on ONE plan)",
+    "Maternity includes hospitals, midwives, home births (ONE plan)",
+    "No provider network — reference-based pricing",
+    "Severe claim processing delays reported (6-24 months)"
+  ],
+  "lastUpdated": "2026-02-13",
+  "lastVerified": "2026-02-13"
+}

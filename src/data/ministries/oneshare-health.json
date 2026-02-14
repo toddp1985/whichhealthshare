@@ -1,0 +1,171 @@
+{
+  "slug": "oneshare-health",
+  "name": "OneShare Health",
+  "type": "healthshare",
+  "founded": 2016,
+  "headquarters": "Irving, TX",
+  "memberCount": "20,000+",
+  "accredited": false,
+  "website": "https://www.onesharehealth.com",
+  "affiliateLink": "https://www.onesharehealth.com",
+  "affiliatePartner": "",
+  "faithRequirement": "christian-light",
+  "statementOfFaith": "Must agree with non-denominational Statement of Beliefs including authority of Scripture, sanctity of human life, right to worship God freely, sharing with those in medical need, and healthy living",
+  "churchAttendanceRequired": false,
+  "plans": [
+    {
+      "name": "Classic Basic",
+      "monthlyRange": {
+        "individual": { "min": 144, "max": 299 },
+        "couple": { "min": 231, "max": 499 },
+        "family": { "min": 332, "max": 699 }
+      },
+      "coverageCap": "$150,000 per incident / $300,000 lifetime",
+      "iua": [5000, 7500, 10000],
+      "coShare": "0% after ISA",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": false,
+        "mentalHealth": false,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    },
+    {
+      "name": "Classic Enhanced",
+      "monthlyRange": {
+        "individual": { "min": 175, "max": 349 },
+        "couple": { "min": 280, "max": 589 },
+        "family": { "min": 399, "max": 799 }
+      },
+      "coverageCap": "$250,000 per incident / $500,000 lifetime",
+      "iua": [5000, 7500, 10000],
+      "coShare": "0% after ISA",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": false,
+        "mentalHealth": false,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    },
+    {
+      "name": "Classic Crown",
+      "monthlyRange": {
+        "individual": { "min": 199, "max": 415 },
+        "couple": { "min": 329, "max": 699 },
+        "family": { "min": 459, "max": 949 }
+      },
+      "coverageCap": "$500,000 per incident / $1,000,000 lifetime",
+      "iua": [5000, 7500, 10000],
+      "coShare": "0% after ISA",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": true,
+        "mentalHealth": false,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    },
+    {
+      "name": "Catastrophic",
+      "monthlyRange": {
+        "individual": { "min": 73, "max": 199 },
+        "couple": { "min": 139, "max": 349 },
+        "family": { "min": 199, "max": 499 }
+      },
+      "coverageCap": "$150,000-$500,000 per incident / $300,000-$1,000,000 lifetime",
+      "iua": [5000, 10000],
+      "coShare": "0% after ISA",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": false,
+        "mentalHealth": false,
+        "dental": false,
+        "vision": false,
+        "preventive": false,
+        "emergency": true,
+        "surgery": true
+      }
+    },
+    {
+      "name": "Catastrophic 365",
+      "monthlyRange": {
+        "individual": { "min": 46, "max": 159 },
+        "couple": { "min": 89, "max": 279 },
+        "family": { "min": 139, "max": 399 }
+      },
+      "coverageCap": "$150,000-$500,000 per incident / $300,000-$1,000,000 lifetime",
+      "iua": [5000, 10000],
+      "coShare": "0% after ISA",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": false,
+        "mentalHealth": false,
+        "dental": false,
+        "vision": false,
+        "preventive": false,
+        "emergency": true,
+        "surgery": true
+      }
+    }
+  ],
+  "network": {
+    "type": "ppo",
+    "name": "First Health Network",
+    "providerCount": "982,000+",
+    "canUseAnyDoctor": true
+  },
+  "preExisting": {
+    "accepted": true,
+    "waitingPeriod": "24 months",
+    "phasedSharing": false,
+    "sharingLimits": "Not shareable for 24 months, then fully shareable. Routine maintenance for diabetes, blood pressure, cholesterol, and thyroid available on Classic/Complete plans during waiting period."
+  },
+  "hsaCompatible": false,
+  "processingTime": "60-120 days",
+  "rating": 3.2,
+  "bestFor": "Budget-conscious Christians seeking flexible plan options with low monthly costs",
+  "pros": [
+    "Multiple plan tiers from catastrophic to comprehensive",
+    "Large First Health network with 982,000+ providers",
+    "Free virtual urgent care ($0 visit fee) on all plans",
+    "Low-cost Catastrophic 365 option starting at $46/month",
+    "No church attendance requirement despite Christian affiliation"
+  ],
+  "cons": [
+    "High ISA amounts ($5,000-$10,000) act as large deductibles",
+    "24-month pre-existing condition waiting period",
+    "Maternity only available on Classic Crown plan",
+    "No prescription drug sharing (discounts only via Rx Valet)",
+    "Mixed member reviews on claims processing times"
+  ],
+  "aiSummary": "OneShare Health is a Christian health sharing ministry founded in 2016, based in Irving, TX, with approximately 20,000 members. They offer five plan tiers: Classic Basic, Enhanced, and Crown plus Catastrophic and Catastrophic 365. Monthly contributions range from $46 (Catastrophic 365) to $949 (Classic Crown family). ISA options are $5,000-$10,000 with per-incident caps from $150,000 to $500,000. Uses the First Health Network (982,000+ providers). Requires agreement with Christian Statement of Beliefs but no church attendance. 24-month pre-existing condition waiting period. Free telehealth included on all plans.",
+  "aiKeyFacts": [
+    "Monthly cost: $46-$415 (individual), $139-$949 (family)",
+    "ISA (deductible): $5,000-$10,000",
+    "Per-incident cap: $150,000-$500,000 depending on plan",
+    "Lifetime cap: $300,000-$1,000,000 depending on plan",
+    "Christian faith requirement (light — no church attendance)",
+    "24-month pre-existing condition waiting period",
+    "First Health Network (982,000+ providers)",
+    "Free virtual urgent care on all plans",
+    "Maternity only on Classic Crown plan"
+  ],
+  "lastUpdated": "2026-02-13",
+  "lastVerified": "2026-02-13"
+}

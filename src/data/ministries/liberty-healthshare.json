@@ -1,0 +1,192 @@
+{
+  "slug": "liberty-healthshare",
+  "name": "Liberty HealthShare",
+  "type": "healthshare",
+  "founded": 1995,
+  "headquarters": "Canton, OH",
+  "memberCount": "100,000+",
+  "accredited": false,
+  "website": "https://www.libertyhealthshare.org",
+  "affiliateLink": "https://www.libertyhealthshare.org",
+  "affiliatePartner": "",
+  "faithRequirement": "christian-light",
+  "statementOfFaith": "Must affirm Christian principles: personal rights derive from God, biblical obligation to assist others, duty to maintain healthy lifestyle, right to direct own healthcare, Jesus Christ as sole path to salvation",
+  "churchAttendanceRequired": false,
+  "plans": [
+    {
+      "name": "Liberty Rise",
+      "monthlyRange": {
+        "individual": { "min": 99, "max": 99 },
+        "couple": { "min": null, "max": null },
+        "family": { "min": null, "max": null }
+      },
+      "coverageCap": "$50,000 per year",
+      "iua": [1000],
+      "coShare": "0%",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": false,
+        "mentalHealth": true,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    },
+    {
+      "name": "Liberty Freedom",
+      "monthlyRange": {
+        "individual": { "min": 89, "max": 163 },
+        "couple": { "min": 159, "max": 266 },
+        "family": { "min": null, "max": null }
+      },
+      "coverageCap": "$300,000 per incident",
+      "iua": [10000, 15000, 20000],
+      "coShare": "0%",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": true,
+        "mentalHealth": true,
+        "dental": false,
+        "vision": false,
+        "preventive": false,
+        "emergency": true,
+        "surgery": true
+      }
+    },
+    {
+      "name": "Liberty Essential",
+      "monthlyRange": {
+        "individual": { "min": 160, "max": 299 },
+        "couple": { "min": 266, "max": 489 },
+        "family": { "min": 513, "max": 735 }
+      },
+      "coverageCap": "$600,000 per incident",
+      "iua": [4000, 8000, 12000],
+      "coShare": "20%",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": true,
+        "mentalHealth": true,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    },
+    {
+      "name": "Liberty Connect",
+      "monthlyRange": {
+        "individual": { "min": 199, "max": 362 },
+        "couple": { "min": 339, "max": 599 },
+        "family": { "min": 599, "max": 949 }
+      },
+      "coverageCap": "$1,000,000 per incident",
+      "iua": [1000, 2000, 3000],
+      "coShare": "10%",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": true,
+        "mentalHealth": true,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    },
+    {
+      "name": "Liberty Unite",
+      "monthlyRange": {
+        "individual": { "min": 261, "max": 450 },
+        "couple": { "min": 449, "max": 750 },
+        "family": { "min": 599, "max": 1250 }
+      },
+      "coverageCap": "$1,000,000 per incident",
+      "iua": [1000, 1750, 2250],
+      "coShare": "0%",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": true,
+        "mentalHealth": true,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    },
+    {
+      "name": "Liberty Assist",
+      "monthlyRange": {
+        "individual": { "min": 87, "max": 149 },
+        "couple": { "min": 149, "max": 249 },
+        "family": { "min": null, "max": null }
+      },
+      "coverageCap": "$125,000 per incident",
+      "iua": [500],
+      "coShare": "20%",
+      "includes": {
+        "telehealth": true,
+        "prescriptions": false,
+        "maternity": false,
+        "mentalHealth": true,
+        "dental": false,
+        "vision": false,
+        "preventive": true,
+        "emergency": true,
+        "surgery": true
+      }
+    }
+  ],
+  "network": {
+    "type": "ppo",
+    "name": "PHCS Network",
+    "providerCount": "900,000+",
+    "canUseAnyDoctor": true
+  },
+  "preExisting": {
+    "accepted": true,
+    "waitingPeriod": "12 months",
+    "phasedSharing": true,
+    "sharingLimits": "Not shareable in year 1. Years 2-3: up to $50,000 total. Year 4+: no limits."
+  },
+  "hsaCompatible": false,
+  "processingTime": "120-180 days",
+  "rating": 3.0,
+  "bestFor": "Established ministry with many plan options, but research legal history before joining",
+  "pros": [
+    "Wide range of plan options for all ages (18-65+)",
+    "Large PHCS network with 900,000+ providers and no penalty for out-of-network",
+    "Free telehealth and mental health counseling via DialCare on Unite/Connect/Essential",
+    "Specialized programs for young adults (Rise) and seniors on Medicare (Assist)",
+    "Recent price reductions and improved benefits in 2025"
+  ],
+  "cons": [
+    "History of legal troubles, class action lawsuit, and Ohio AG settlement",
+    "Very slow claims processing (120-180 days reported by members)",
+    "No prescription drug sharing (discounts only via GetMoreRX)",
+    "Bills under $200 per visit not eligible for sharing and do not count toward AUA"
+  ],
+  "aiSummary": "Liberty HealthShare is a Christian health sharing ministry founded in 1995 (as Gospel Light Mennonite Church Medical Aid Plan), based in Canton, OH, with approximately 100,000 members. They offer six plan tiers from Liberty Rise ($99/month for ages 18-29) to Liberty Unite (up to $1,250/month for families). AUA ranges from $500 (Assist) to $20,000 (Freedom). Uses the PHCS network (900,000+ providers). Requires agreement with Christian principles but flexible on denomination. Has phased pre-existing condition sharing over 3 years. Note: Liberty had significant legal troubles including an Ohio AG settlement and class action lawsuit; leadership was restructured in 2021. Recent 2025 improvements include price cuts and enhanced benefits.",
+  "aiKeyFacts": [
+    "Monthly cost: $87-$450 (individual), $513-$1,250 (family)",
+    "AUA (deductible): $500-$20,000 depending on plan",
+    "Per-incident cap: $50,000-$1,000,000 depending on plan",
+    "Co-share: 0% (Unite/Freedom), 10% (Connect), 20% (Essential/Assist)",
+    "Christian faith requirement (light — flexible on denomination)",
+    "Pre-existing: 12-month wait, phased sharing years 2-3, full year 4+",
+    "PHCS Network (900,000+ providers), no out-of-network penalty",
+    "Free DialCare telehealth and therapy on premium plans",
+    "Legal history: Ohio AG settlement, class action, restructured 2021"
+  ],
+  "lastUpdated": "2026-02-13",
+  "lastVerified": "2026-02-13"
+}
