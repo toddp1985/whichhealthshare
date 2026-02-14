@@ -55,26 +55,26 @@ export default function AboutPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="font-serif font-bold text-2xl mb-4">How We Earn</h2>
+          <h2 className="font-serif font-bold text-2xl mb-4">Independence</h2>
           <p className="text-[var(--color-text-secondary)] mb-4">
-            WhichHealthShare earns affiliate commissions when you sign up for a health sharing ministry or insurance plan through our links. This means:
+            WhichHealthShare is currently an independent resource with no affiliate agreements or paid partnerships. This means:
           </p>
           <ul className="space-y-3">
             <li className="flex gap-3">
               <span className="text-[var(--color-success)]">✓</span>
-              <span>You pay the same price whether you sign up directly or through us</span>
+              <span>We receive no compensation from health sharing ministries</span>
             </li>
             <li className="flex gap-3">
               <span className="text-[var(--color-success)]">✓</span>
-              <span>Commission amounts do NOT affect our ratings or recommendations</span>
+              <span>Our ratings are based purely on research and data</span>
             </li>
             <li className="flex gap-3">
               <span className="text-[var(--color-success)]">✓</span>
-              <span>We recommend the plans that fit your situation, regardless of commission</span>
+              <span>We recommend plans based on fit for your situation, not commissions</span>
             </li>
             <li className="flex gap-3">
               <span className="text-[var(--color-success)]">✓</span>
-              <span>We're transparent about our affiliate relationships (see Disclosure page)</span>
+              <span>We're independent with no affiliate agreements (see Disclosure page)</span>
             </li>
           </ul>
         </section>
@@ -87,7 +87,7 @@ export default function AboutPage() {
             <li>✓ Member ratings from verified sources (Trustpilot, official reviews)</li>
             <li>✓ Every review includes honest pros AND cons</li>
             <li>✓ We update ratings and pricing quarterly</li>
-            <li>✓ We disclose all affiliate relationships</li>
+            <li>✓ We maintain editorial independence (no affiliate agreements)</li>
           </ul>
         </section>
 
