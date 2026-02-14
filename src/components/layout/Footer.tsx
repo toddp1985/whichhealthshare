@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-[var(--color-bg-warm)] border-t border-[var(--color-border)] mt-12">
       <div className="container mx-auto px-4 py-12 max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8 items-start">
           <div>
             <h3 className="font-serif font-bold text-lg mb-4">WhichHealthShare</h3>
             <p className="text-sm text-[var(--color-text-secondary)]">
@@ -28,6 +28,37 @@ export default function Footer() {
               <li>
                 <Link href="/reviews" className="text-[var(--color-primary)] hover:underline">
                   All Reviews
+                </Link>
+              </li>
+              <li>
+                <Link href="/calculator" className="text-[var(--color-primary)] hover:underline">
+                  Cost Calculator
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold mb-4">By State</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/states/texas" className="text-[var(--color-primary)] hover:underline">
+                  Texas
+                </Link>
+              </li>
+              <li>
+                <Link href="/states/florida" className="text-[var(--color-primary)] hover:underline">
+                  Florida
+                </Link>
+              </li>
+              <li>
+                <Link href="/states/california" className="text-[var(--color-primary)] hover:underline">
+                  California
+                </Link>
+              </li>
+              <li>
+                <Link href="/states" className="text-[var(--color-primary)] hover:underline">
+                  All States →
                 </Link>
               </li>
             </ul>
@@ -74,7 +105,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/disclosure" className="text-[var(--color-primary)] hover:underline">
-                  Affiliate Disclosure
+                  Disclosure
                 </Link>
               </li>
               <li>
