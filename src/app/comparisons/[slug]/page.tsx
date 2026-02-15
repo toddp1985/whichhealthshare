@@ -800,8 +800,8 @@ export default function ComparisonPage({ params }: { params: { slug: string } })
         <p className="text-lg text-[var(--color-text-secondary)] mb-8">
           The comparison you are looking for does not exist.
         </p>
-        <Link href="/comparisons" className="btn btn-primary">
-          Back to Comparisons
+        <Link href="/" className="btn btn-primary">
+          Back to Home
         </Link>
       </div>
     )
@@ -837,7 +837,7 @@ export default function ComparisonPage({ params }: { params: { slug: string } })
         <nav className="text-sm text-[var(--color-text-muted)] mb-6">
           <Link href="/" className="hover:underline">Home</Link>
           {' / '}
-          <Link href="/comparisons" className="hover:underline">Comparisons</Link>
+          <span>Comparisons</span>
           {' / '}
           <span className="text-[var(--color-text)]">{data.nameA} vs {data.nameB}</span>
         </nav>

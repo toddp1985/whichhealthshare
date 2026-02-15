@@ -32,7 +32,7 @@ const featuredPosts: BlogPost[] = [
     category: 'Options'
   },
   {
-    slug: 'health-sharing-for-freelancers',
+    slug: 'health-sharing-freelancers-self-employed-2026',
     title: 'Health Sharing for Freelancers & Self-Employed',
     excerpt: 'Plans that work with variable income, no employer requirements.',
     date: 'Feb 2026',
