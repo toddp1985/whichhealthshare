@@ -1,6 +1,7 @@
 import { loadAllMinistries } from '@/lib/data';
 import { generateBreadcrumb, generateFAQSchema, generateArticleSchema } from '@/lib/schema';
 import Link from 'next/link';
+import AnswerPageCTA from '@/components/AnswerPageCTA';
 
 export const metadata = {
   title: 'Best Health Sharing Plan for Families (2026) — WhichHealthShare',
@@ -287,6 +288,8 @@ export default function BestForFamiliesPage() {
             </details>
           ))}
         </div>
+
+        <AnswerPageCTA />
 
         {/* Related Links */}
         <div className="border-t border-[var(--color-border)] pt-6 mb-8">

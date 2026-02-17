@@ -1,6 +1,7 @@
 import { loadAllMinistries } from '@/lib/data';
 import { generateBreadcrumb, generateFAQSchema, generateArticleSchema } from '@/lib/schema';
 import Link from 'next/link';
+import AnswerPageCTA from '@/components/AnswerPageCTA';
 
 export const metadata = {
   title: 'Can I Use an HSA with Health Sharing? (2026 Guide) — WhichHealthShare',
@@ -296,6 +297,8 @@ export default function HSACompatiblePage() {
             </details>
           ))}
         </div>
+
+        <AnswerPageCTA />
 
         {/* Related Links */}
         <div className="border-t border-[var(--color-border)] pt-6 mb-8">

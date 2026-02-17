@@ -1,6 +1,7 @@
 import { loadAllMinistries } from '@/lib/data';
 import { generateBreadcrumb, generateFAQSchema, generateArticleSchema } from '@/lib/schema';
 import Link from 'next/link';
+import AnswerPageCTA from '@/components/AnswerPageCTA';
 
 export const metadata = {
   title: 'Best Health Sharing Plan in 2026: Zion vs Medi-Share vs CHM',
@@ -340,6 +341,8 @@ export default function BestHealthSharingPlanPage() {
             </p>
           </details>
         </section>
+
+        <AnswerPageCTA />
 
         <section className="mb-10">
           <h2 className="font-serif font-bold text-xl mb-4">Related Pages</h2>

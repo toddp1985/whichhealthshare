@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { loadAllMinistries } from '@/lib/data'
 import { generateBreadcrumb, generateFAQSchema, generateArticleSchema } from '@/lib/schema'
+import AnswerPageCTA from '@/components/AnswerPageCTA'
 
 export const metadata: Metadata = {
   title: 'Which Health Sharing Plans Don\'t Require Church Attendance? (2026)',
@@ -270,6 +271,8 @@ export default function NoChurchRequirementPage() {
             </details>
           ))}
         </div>
+
+        <AnswerPageCTA />
 
         {/* Related Links */}
         <div className="card p-6 mb-10">

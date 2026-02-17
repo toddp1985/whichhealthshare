@@ -1,6 +1,7 @@
 import { loadAllMinistries } from '@/lib/data';
 import { generateBreadcrumb, generateFAQSchema, generateArticleSchema } from '@/lib/schema';
 import Link from 'next/link';
+import AnswerPageCTA from '@/components/AnswerPageCTA';
 
 export const metadata = {
   title: 'What Is Health Sharing? Definition, Cost & How It Works (2026)',
@@ -328,6 +329,8 @@ export default function WhatIsHealthSharingPage() {
             </p>
           </details>
         </section>
+
+        <AnswerPageCTA />
 
         <section className="mb-10">
           <h2 className="font-serif font-bold text-xl mb-4">Related Pages</h2>

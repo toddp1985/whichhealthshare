@@ -1,6 +1,6 @@
 /**
  * Email Sequences for WhichHealthShare
- * Handles 3-email nurture sequence: Day 0, Day 3, Day 7
+ * Handles 7-email nurture sequence: Day 0, Day 3, Day 7, Day 10, Day 14, Day 17, Day 21
  */
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY
@@ -8,7 +8,7 @@ const SENDER_EMAIL = 'hello@whichhealthshare.com'
 
 interface EmailQueueItem {
   email: string
-  templateId: 'email1' | 'email2' | 'email3'
+  templateId: 'email1' | 'email2' | 'email3' | 'email4' | 'email5' | 'email6' | 'email7'
   sendTime: Date
   quizResult?: any
 }
@@ -344,6 +344,403 @@ const email3Template = (email: string) => ({
   `
 })
 
+// Email 4: Zion HealthShare Spotlight (Day 10)
+const email4Template = (email: string) => ({
+  subject: 'Why Zion HealthShare is our #1 pick for most people',
+  html: `
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background: #fff; color: #1a1a1a;">
+      <h1 style="font-size: 24px; margin-bottom: 16px;">Zion HealthShare: Our #1 Pick for Most People</h1>
+
+      <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
+        Hi,
+      </p>
+
+      <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
+        We review every health sharing plan on the market. After comparing costs, coverage, networks, and real member experiences, one plan consistently rises to the top for the majority of people: <strong>Zion HealthShare</strong>.
+      </p>
+
+      <p style="font-size: 16px; line-height: 1.6; margin-bottom: 24px;">
+        Here's why it stands out — and where it falls short.
+      </p>
+
+      <p style="font-size: 14px; font-weight: 600; margin-bottom: 16px;">WHAT MAKES ZION DIFFERENT</p>
+
+      <ul style="font-size: 14px; line-height: 1.8; margin-bottom: 24px; margin-left: 16px;">
+        <li><strong>No faith requirement.</strong> Unlike most health sharing ministries, Zion doesn't require a Christian statement of faith. Anyone can join.</li>
+        <li><strong>Pre-existing conditions covered from day one.</strong> Most plans have 1-3 year waiting periods. Zion covers pre-existing conditions immediately.</li>
+        <li><strong>Cigna PPO network.</strong> Access to 950,000+ providers nationwide. You're not limited to a small directory or forced to negotiate bills yourself.</li>
+        <li><strong>HSA-compatible.</strong> You can pair Zion with a Health Savings Account for tax-advantaged savings on medical expenses.</li>
+        <li><strong>Affordable.</strong> Individual plans range from $185-$268/month depending on your Initial Unshareable Amount (their version of a deductible).</li>
+      </ul>
+
+      <div style="background: #f0fdf4; border-left: 4px solid #16a34a; padding: 16px; margin-bottom: 24px;">
+        <p style="font-size: 14px; margin: 0; font-weight: 600;">PROS</p>
+        <ul style="font-size: 14px; line-height: 1.8; margin: 8px 0 0 16px;">
+          <li>No religious requirement to join</li>
+          <li>Pre-existing conditions covered immediately</li>
+          <li>Large Cigna PPO network (950,000+ providers)</li>
+          <li>HSA-compatible plans</li>
+          <li>Competitive pricing ($185-$268/mo individual)</li>
+          <li>Straightforward sharing process</li>
+        </ul>
+      </div>
+
+      <div style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 16px; margin-bottom: 24px;">
+        <p style="font-size: 14px; margin: 0; font-weight: 600;">CONS</p>
+        <ul style="font-size: 14px; line-height: 1.8; margin: 8px 0 0 16px;">
+          <li>Newer organization (founded 2019) — less track record than 30+ year ministries</li>
+          <li>Not available in all states</li>
+          <li>Annual sharing limits apply (check your plan tier)</li>
+          <li>Not insurance — sharing is voluntary (true of all health sharing plans)</li>
+        </ul>
+      </div>
+
+      <p style="font-size: 14px; font-weight: 600; margin-bottom: 16px;">WHO IS ZION BEST FOR?</p>
+
+      <ul style="font-size: 14px; line-height: 1.8; margin-bottom: 24px; margin-left: 16px;">
+        <li>People who want health sharing without a faith requirement</li>
+        <li>Anyone with pre-existing conditions who can't wait 1-3 years for coverage</li>
+        <li>People who want access to a large provider network (no surprise bills)</li>
+        <li>Self-employed individuals looking for affordable, flexible coverage</li>
+      </ul>
+
+      <div style="text-align: center; margin-bottom: 24px;">
+        <a href="https://whichhealthshare.com/reviews/zion-healthshare" style="display: inline-block; background: #0284c7; color: white; text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; font-weight: 500; padding: 14px 36px; border-radius: 4px;">
+          Read Our Full Zion Review
+        </a>
+      </div>
+
+      <p style="font-size: 14px; line-height: 1.6; margin-bottom: 24px;">
+        Not sure if Zion is right for you? <a href="https://whichhealthshare.com/quiz" style="color: #0284c7; text-decoration: none; font-weight: 600;">Take the quiz</a> and we'll match you to the best plan based on your specific situation.
+      </p>
+
+      <p style="font-size: 14px; color: #666; margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee;">
+        Questions about Zion? Reply to this email — we'll help you figure out if it's the right fit.
+      </p>
+
+      <p style="font-size: 14px; color: #666;">
+        — WhichHealthShare Team
+      </p>
+
+      <p style="font-size: 12px; color: #999; margin-top: 16px;">
+        P.S. Next email: We'll look at Medi-Share, the largest health sharing ministry with 500K+ members and a 30+ year track record.
+      </p>
+    </div>
+  `
+})
+
+// Email 5: Medi-Share Spotlight (Day 14)
+const email5Template = (email: string) => ({
+  subject: 'Medi-Share review: The largest health sharing ministry (500K+ members)',
+  html: `
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background: #fff; color: #1a1a1a;">
+      <h1 style="font-size: 24px; margin-bottom: 16px;">Medi-Share: The Largest Health Sharing Ministry</h1>
+
+      <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
+        Hi,
+      </p>
+
+      <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
+        Last email we covered Zion HealthShare. Today, let's look at the biggest name in health sharing: <strong>Medi-Share</strong>.
+      </p>
+
+      <p style="font-size: 16px; line-height: 1.6; margin-bottom: 24px;">
+        With over 500,000 members and 30+ years in operation, Medi-Share is the most established health sharing program in the country. That longevity matters — it means they've processed millions of medical bills and have a proven system.
+      </p>
+
+      <p style="font-size: 14px; font-weight: 600; margin-bottom: 16px;">MEDI-SHARE KEY STRENGTHS</p>
+
+      <ul style="font-size: 14px; line-height: 1.8; margin-bottom: 24px; margin-left: 16px;">
+        <li><strong>Largest membership base (500K+ members).</strong> More members means more sharing power and financial stability.</li>
+        <li><strong>30+ year track record.</strong> Founded in 1993. They've been through recessions, pandemics, and healthcare crises — and they're still here.</li>
+        <li><strong>Telehealth included.</strong> Free 24/7 telehealth visits with every membership. No copay, no extra charge.</li>
+        <li><strong>Maternity coverage.</strong> One of the better health sharing options for family planning. Maternity is shareable after membership waiting period.</li>
+        <li><strong>Transparent pricing.</strong> Choose your Annual Household Portion (AHP) — their version of a deductible — and your monthly share is set.</li>
+      </ul>
+
+      <div style="background: #f0fdf4; border-left: 4px solid #16a34a; padding: 16px; margin-bottom: 24px;">
+        <p style="font-size: 14px; margin: 0; font-weight: 600;">PROS</p>
+        <ul style="font-size: 14px; line-height: 1.8; margin: 8px 0 0 16px;">
+          <li>Largest and most established health sharing program</li>
+          <li>30+ years of proven operations</li>
+          <li>Free 24/7 telehealth included</li>
+          <li>Maternity coverage available</li>
+          <li>Strong member community and support</li>
+          <li>Nationwide provider access through PHCS network</li>
+        </ul>
+      </div>
+
+      <div style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 16px; margin-bottom: 24px;">
+        <p style="font-size: 14px; margin: 0; font-weight: 600;">CONS</p>
+        <ul style="font-size: 14px; line-height: 1.8; margin: 8px 0 0 16px;">
+          <li>Requires a Christian statement of faith to join</li>
+          <li>Pre-existing conditions have waiting periods (typically 1-3 years)</li>
+          <li>Lifestyle requirements (no tobacco, limited alcohol)</li>
+          <li>Monthly costs can be higher than some newer alternatives</li>
+        </ul>
+      </div>
+
+      <div style="background: #f3e8ff; border-left: 4px solid #a855f7; padding: 16px; margin-bottom: 24px;">
+        <p style="font-size: 14px; margin: 0; font-weight: 600;">IMPORTANT NOTE</p>
+        <p style="font-size: 14px; margin: 8px 0 0 0;">
+          Medi-Share requires members to sign a Christian statement of faith. If you're not comfortable with a faith-based requirement, Zion HealthShare (covered in our last email) or CrowdHealth (coming next) are better options.
+        </p>
+      </div>
+
+      <p style="font-size: 14px; font-weight: 600; margin-bottom: 16px;">WHO IS MEDI-SHARE BEST FOR?</p>
+
+      <ul style="font-size: 14px; line-height: 1.8; margin-bottom: 24px; margin-left: 16px;">
+        <li>Christian families who want to share medical costs within a faith community</li>
+        <li>People who value long track records and organizational stability</li>
+        <li>Families planning for maternity coverage</li>
+        <li>Anyone who wants built-in telehealth at no extra cost</li>
+      </ul>
+
+      <div style="text-align: center; margin-bottom: 24px;">
+        <a href="https://whichhealthshare.com/reviews/medi-share" style="display: inline-block; background: #0284c7; color: white; text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; font-weight: 500; padding: 14px 36px; border-radius: 4px;">
+          Read Our Full Medi-Share Review
+        </a>
+      </div>
+
+      <p style="font-size: 14px; line-height: 1.6; margin-bottom: 24px;">
+        Want to see how Medi-Share stacks up against Zion and other plans for your situation? <a href="https://whichhealthshare.com/quiz" style="color: #0284c7; text-decoration: none; font-weight: 600;">Take the quiz</a> for a personalized comparison.
+      </p>
+
+      <p style="font-size: 14px; color: #666; margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee;">
+        Reply with questions — we're happy to help you compare Medi-Share with other options.
+      </p>
+
+      <p style="font-size: 14px; color: #666;">
+        — WhichHealthShare Team
+      </p>
+
+      <p style="font-size: 12px; color: #999; margin-top: 16px;">
+        P.S. Next up: CrowdHealth — the cheapest option at $175/mo with a completely different model. We'll explain how it works and who it's actually good for.
+      </p>
+    </div>
+  `
+})
+
+// Email 6: CrowdHealth Spotlight (Day 17)
+const email6Template = (email: string) => ({
+  subject: 'CrowdHealth: The cheapest option at $175/mo (but read this first)',
+  html: `
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background: #fff; color: #1a1a1a;">
+      <h1 style="font-size: 24px; margin-bottom: 16px;">CrowdHealth: The Cheapest Option (With a Catch)</h1>
+
+      <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
+        Hi,
+      </p>
+
+      <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
+        We've covered Zion (our #1 overall pick) and Medi-Share (the largest ministry). Today, let's talk about the plan everyone asks about because of the price: <strong>CrowdHealth at $175/month</strong>.
+      </p>
+
+      <p style="font-size: 16px; line-height: 1.6; margin-bottom: 24px;">
+        It's the cheapest option on the market — but the model is fundamentally different from traditional health sharing. Before you sign up based on price alone, you need to understand how it actually works.
+      </p>
+
+      <p style="font-size: 14px; font-weight: 600; margin-bottom: 16px;">HOW CROWDHEALTH WORKS</p>
+
+      <p style="font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
+        CrowdHealth is <strong>not</strong> traditional health sharing. It's a crowdfunding model:
+      </p>
+
+      <ol style="font-size: 14px; line-height: 1.8; margin-bottom: 24px; margin-left: 16px;">
+        <li>You pay a flat $175/month (no Initial Unshareable Amount / deductible)</li>
+        <li>When you have a medical bill, you submit it as a "Health Event"</li>
+        <li>CrowdHealth's negotiation team works to reduce the bill</li>
+        <li>The community funds your bill (members voluntarily contribute)</li>
+        <li>CrowdHealth charges an advisory fee of 30-43% on the funded amount</li>
+      </ol>
+
+      <div style="background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px; margin-bottom: 24px;">
+        <p style="font-size: 14px; margin: 0; font-weight: 600;">KEY DIFFERENCE</p>
+        <p style="font-size: 14px; margin: 8px 0 0 0;">
+          Traditional health sharing has a set monthly cost and predictable out-of-pocket amounts. CrowdHealth has the lowest monthly cost, but your total cost depends on how much medical care you actually use — and the advisory fees can add up fast.
+        </p>
+      </div>
+
+      <div style="background: #f0fdf4; border-left: 4px solid #16a34a; padding: 16px; margin-bottom: 24px;">
+        <p style="font-size: 14px; margin: 0; font-weight: 600;">PROS</p>
+        <ul style="font-size: 14px; line-height: 1.8; margin: 8px 0 0 16px;">
+          <li>Lowest monthly cost on the market ($175/mo flat)</li>
+          <li>No Initial Unshareable Amount (no deductible equivalent)</li>
+          <li>No faith or lifestyle requirements</li>
+          <li>Bill negotiation service included</li>
+          <li>Simple, modern app-based experience</li>
+          <li>30-day cancellation — easy to try risk-free</li>
+        </ul>
+      </div>
+
+      <div style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 16px; margin-bottom: 24px;">
+        <p style="font-size: 14px; margin: 0; font-weight: 600;">CONS</p>
+        <ul style="font-size: 14px; line-height: 1.8; margin: 8px 0 0 16px;">
+          <li>Advisory fees of 30-43% on funded amounts (can be significant)</li>
+          <li>Community funding is voluntary — not guaranteed</li>
+          <li>No provider network (you negotiate or use CrowdHealth's team)</li>
+          <li>Newer company — less track record than established ministries</li>
+          <li>Recurring medical needs (prescriptions, specialists) get expensive fast</li>
+          <li>Pre-existing conditions may not be fully funded by the community</li>
+        </ul>
+      </div>
+
+      <p style="font-size: 14px; font-weight: 600; margin-bottom: 16px;">WHO IS CROWDHEALTH BEST FOR?</p>
+
+      <ul style="font-size: 14px; line-height: 1.8; margin-bottom: 24px; margin-left: 16px;">
+        <li><strong>Young, healthy people</strong> who rarely see a doctor</li>
+        <li><strong>Budget-conscious individuals</strong> who want the absolute lowest monthly payment</li>
+        <li><strong>People comfortable with uncertainty</strong> — your total cost depends on your health that year</li>
+        <li><strong>Anyone who wants to try health sharing</strong> without a big commitment (30-day cancel)</li>
+      </ul>
+
+      <p style="font-size: 14px; font-weight: 600; margin-bottom: 16px;">WHO SHOULD AVOID CROWDHEALTH?</p>
+
+      <ul style="font-size: 14px; line-height: 1.8; margin-bottom: 24px; margin-left: 16px;">
+        <li>People with ongoing prescriptions or chronic conditions</li>
+        <li>Anyone who wants predictable, fixed annual costs</li>
+        <li>Families (traditional health sharing is usually more cost-effective for families)</li>
+      </ul>
+
+      <div style="text-align: center; margin-bottom: 24px;">
+        <a href="https://whichhealthshare.com/reviews/crowdhealth" style="display: inline-block; background: #0284c7; color: white; text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; font-weight: 500; padding: 14px 36px; border-radius: 4px;">
+          Read Our Full CrowdHealth Review
+        </a>
+      </div>
+
+      <p style="font-size: 14px; line-height: 1.6; margin-bottom: 24px;">
+        Want to see how CrowdHealth compares to Zion and Medi-Share for your budget and health needs? <a href="https://whichhealthshare.com/quiz" style="color: #0284c7; text-decoration: none; font-weight: 600;">Take the quiz</a> — it only takes 2 minutes.
+      </p>
+
+      <p style="font-size: 14px; color: #666; margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee;">
+        Reply with questions — we'll help you figure out if CrowdHealth's model makes sense for your situation.
+      </p>
+
+      <p style="font-size: 14px; color: #666;">
+        — WhichHealthShare Team
+      </p>
+
+      <p style="font-size: 12px; color: #999; margin-top: 16px;">
+        P.S. Final email coming in a few days: A side-by-side comparison of all three plans with a shortcut to help you make your decision.
+      </p>
+    </div>
+  `
+})
+
+// Email 7: Final Decision Push (Day 21)
+const email7Template = (email: string) => ({
+  subject: 'Still comparing health sharing plans? Here\'s your shortcut',
+  html: `
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background: #fff; color: #1a1a1a;">
+      <h1 style="font-size: 24px; margin-bottom: 16px;">Your Health Sharing Decision, Simplified</h1>
+
+      <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
+        Hi,
+      </p>
+
+      <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
+        Over the past 3 weeks, we've walked you through real-world scenarios, decision frameworks, and deep dives on the top plans. Now let's make this simple.
+      </p>
+
+      <p style="font-size: 16px; line-height: 1.6; margin-bottom: 24px;">
+        Here are the top 3 plans side by side:
+      </p>
+
+      <!-- Comparison table -->
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 24px; font-size: 13px;">
+        <tr>
+          <td style="padding: 12px; background: #f8f8f8; font-weight: 600; border-bottom: 2px solid #e5e5e5;">&nbsp;</td>
+          <td style="padding: 12px; background: #f8f8f8; font-weight: 600; border-bottom: 2px solid #e5e5e5; text-align: center;">Zion</td>
+          <td style="padding: 12px; background: #f8f8f8; font-weight: 600; border-bottom: 2px solid #e5e5e5; text-align: center;">Medi-Share</td>
+          <td style="padding: 12px; background: #f8f8f8; font-weight: 600; border-bottom: 2px solid #e5e5e5; text-align: center;">CrowdHealth</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; font-weight: 600;">Monthly Cost</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; text-align: center;">$185-$268</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; text-align: center;">$220-$440</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; text-align: center;">$175 flat</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; font-weight: 600;">Faith Req.</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; text-align: center;">None</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; text-align: center;">Christian</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; text-align: center;">None</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; font-weight: 600;">Pre-Existing</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; text-align: center;">Day 1</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; text-align: center;">1-3 yr wait</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; text-align: center;">Variable</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; font-weight: 600;">Network</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; text-align: center;">Cigna PPO</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; text-align: center;">PHCS</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; text-align: center;">None</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; font-weight: 600;">Best For</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; text-align: center;">Most people</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; text-align: center;">Families</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #eee; text-align: center;">Young &amp; healthy</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 12px; font-weight: 600;">Track Record</td>
+          <td style="padding: 10px 12px; text-align: center;">Since 2019</td>
+          <td style="padding: 10px 12px; text-align: center;">Since 1993</td>
+          <td style="padding: 10px 12px; text-align: center;">Since 2021</td>
+        </tr>
+      </table>
+
+      <p style="font-size: 14px; line-height: 1.6; margin-bottom: 24px;">
+        Want the full breakdown with sharing limits, maternity coverage, prescription details, and more? <a href="https://whichhealthshare.com/compare" style="color: #0284c7; text-decoration: none; font-weight: 600;">See the complete comparison table.</a>
+      </p>
+
+      <p style="font-size: 14px; font-weight: 600; margin-bottom: 16px;">THE SHORTCUT</p>
+
+      <p style="font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
+        If you don't want to read any more reviews, here's the quick decision:
+      </p>
+
+      <ul style="font-size: 14px; line-height: 1.8; margin-bottom: 24px; margin-left: 16px;">
+        <li><strong>Choose Zion</strong> if you want the best overall coverage, no faith requirement, and pre-existing conditions covered from day one.</li>
+        <li><strong>Choose Medi-Share</strong> if you're a Christian family who values a 30-year track record and maternity coverage.</li>
+        <li><strong>Choose CrowdHealth</strong> if you're young, healthy, rarely use medical care, and want the absolute lowest monthly cost.</li>
+      </ul>
+
+      <div style="text-align: center; margin-bottom: 24px;">
+        <a href="https://whichhealthshare.com/quiz" style="display: inline-block; background: #0284c7; color: white; text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; font-weight: 500; padding: 14px 48px; border-radius: 4px;">
+          Take the 2-Minute Quiz
+        </a>
+        <p style="font-size: 13px; color: #666; margin: 8px 0 0 0;">Get a personalized recommendation based on your age, budget, and health needs</p>
+      </div>
+
+      <div style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 16px; margin-bottom: 24px;">
+        <p style="font-size: 14px; margin: 0; font-weight: 600;">DON'T WAIT TOO LONG</p>
+        <p style="font-size: 14px; margin: 8px 0 0 0;">
+          Every week without coverage is a week of risk. A single ER visit averages $2,200. All three plans above have 30-day cancellation periods — so you can try one risk-free and switch if it's not the right fit. There's no penalty for starting.
+        </p>
+      </div>
+
+      <p style="font-size: 14px; line-height: 1.6; margin-bottom: 24px;">
+        Still stuck between two options? Hit reply and tell us which two plans you're comparing. We'll give you a straight answer based on your situation — not based on which plan pays us more.
+      </p>
+
+      <p style="font-size: 14px; color: #666; margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee;">
+        This is the last email in our comparison series. Your quiz results are always available at <a href="https://whichhealthshare.com/quiz" style="color: #0284c7; text-decoration: none;">whichhealthshare.com/quiz</a> when you're ready.
+      </p>
+
+      <p style="font-size: 14px; color: #666;">
+        — WhichHealthShare Team
+      </p>
+
+      <p style="font-size: 12px; color: #999; margin-top: 16px;">
+        P.S. We'll still send occasional updates when plans change pricing or coverage. But we won't flood your inbox. If you ever want to unsubscribe, just reply and let us know.
+      </p>
+    </div>
+  `
+})
+
 /**
  * Send email immediately (Email 1)
  */
@@ -461,6 +858,166 @@ export async function sendDay7Email(email: string) {
     }
   } catch (error) {
     console.error('[Email 3] Error:', error)
+    return false
+  }
+}
+
+/**
+ * Send Email 4: Zion HealthShare Spotlight (Day 10)
+ */
+export async function sendDay10Email(email: string) {
+  if (!RESEND_API_KEY) {
+    console.warn('RESEND_API_KEY not configured')
+    return false
+  }
+
+  try {
+    const template = email4Template(email)
+
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: `WhichHealthShare <${SENDER_EMAIL}>`,
+        to: email,
+        subject: template.subject,
+        html: template.html,
+      }),
+    })
+
+    if (response.ok) {
+      console.log(`[Email 4] Day 10 email sent to ${email}`)
+      return true
+    } else {
+      const error = await response.text()
+      console.error(`[Email 4] Failed to send: ${error}`)
+      return false
+    }
+  } catch (error) {
+    console.error('[Email 4] Error:', error)
+    return false
+  }
+}
+
+/**
+ * Send Email 5: Medi-Share Spotlight (Day 14)
+ */
+export async function sendDay14Email(email: string) {
+  if (!RESEND_API_KEY) {
+    console.warn('RESEND_API_KEY not configured')
+    return false
+  }
+
+  try {
+    const template = email5Template(email)
+
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: `WhichHealthShare <${SENDER_EMAIL}>`,
+        to: email,
+        subject: template.subject,
+        html: template.html,
+      }),
+    })
+
+    if (response.ok) {
+      console.log(`[Email 5] Day 14 email sent to ${email}`)
+      return true
+    } else {
+      const error = await response.text()
+      console.error(`[Email 5] Failed to send: ${error}`)
+      return false
+    }
+  } catch (error) {
+    console.error('[Email 5] Error:', error)
+    return false
+  }
+}
+
+/**
+ * Send Email 6: CrowdHealth Spotlight (Day 17)
+ */
+export async function sendDay17Email(email: string) {
+  if (!RESEND_API_KEY) {
+    console.warn('RESEND_API_KEY not configured')
+    return false
+  }
+
+  try {
+    const template = email6Template(email)
+
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: `WhichHealthShare <${SENDER_EMAIL}>`,
+        to: email,
+        subject: template.subject,
+        html: template.html,
+      }),
+    })
+
+    if (response.ok) {
+      console.log(`[Email 6] Day 17 email sent to ${email}`)
+      return true
+    } else {
+      const error = await response.text()
+      console.error(`[Email 6] Failed to send: ${error}`)
+      return false
+    }
+  } catch (error) {
+    console.error('[Email 6] Error:', error)
+    return false
+  }
+}
+
+/**
+ * Send Email 7: Final Decision Push (Day 21)
+ */
+export async function sendDay21Email(email: string) {
+  if (!RESEND_API_KEY) {
+    console.warn('RESEND_API_KEY not configured')
+    return false
+  }
+
+  try {
+    const template = email7Template(email)
+
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: `WhichHealthShare <${SENDER_EMAIL}>`,
+        to: email,
+        subject: template.subject,
+        html: template.html,
+      }),
+    })
+
+    if (response.ok) {
+      console.log(`[Email 7] Day 21 email sent to ${email}`)
+      return true
+    } else {
+      const error = await response.text()
+      console.error(`[Email 7] Failed to send: ${error}`)
+      return false
+    }
+  } catch (error) {
+    console.error('[Email 7] Error:', error)
     return false
   }
 }

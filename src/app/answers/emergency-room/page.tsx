@@ -1,6 +1,7 @@
 import { loadAllMinistries } from '@/lib/data'
 import { generateBreadcrumb, generateFAQSchema, generateArticleSchema } from '@/lib/schema'
 import Link from 'next/link'
+import AnswerPageCTA from '@/components/AnswerPageCTA'
 
 export const metadata = {
   title: 'How Do Health Sharing Plans Handle ER Visits? (2026) — WhichHealthShare',
@@ -188,6 +189,8 @@ export default function EmergencyRoomPage() {
             </details>
           ))}
         </section>
+
+        <AnswerPageCTA />
 
         <section className="mb-8">
           <h2 className="font-serif font-bold text-2xl mb-4">Related Pages</h2>

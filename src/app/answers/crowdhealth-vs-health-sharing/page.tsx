@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { loadAllMinistries } from '@/lib/data'
 import { generateBreadcrumb, generateFAQSchema, generateArticleSchema } from '@/lib/schema'
+import AnswerPageCTA from '@/components/AnswerPageCTA'
 
 export const metadata: Metadata = {
   title: 'CrowdHealth vs Health Sharing — Which Is Better? (2026)',
@@ -312,6 +313,8 @@ export default function CrowdHealthVsHealthSharingPage() {
             </details>
           ))}
         </div>
+
+        <AnswerPageCTA />
 
         {/* Related Links */}
         <div className="card p-6 mb-10">

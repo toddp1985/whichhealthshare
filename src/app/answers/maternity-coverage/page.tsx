@@ -1,6 +1,7 @@
 import { loadAllMinistries } from '@/lib/data'
 import { generateBreadcrumb, generateFAQSchema, generateArticleSchema } from '@/lib/schema'
 import Link from 'next/link'
+import AnswerPageCTA from '@/components/AnswerPageCTA'
 
 export const metadata = {
   title: 'Which Health Sharing Plans Cover Maternity? (2026) — WhichHealthShare',
@@ -184,6 +185,8 @@ export default function MaternityPage() {
             </details>
           ))}
         </section>
+
+        <AnswerPageCTA />
 
         <section className="mb-8">
           <h2 className="font-serif font-bold text-2xl mb-4">Related Pages</h2>
